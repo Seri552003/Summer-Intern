@@ -1,0 +1,37 @@
+{
+  "geometry": {
+    "Hole":    101,
+    "Slot":    102,
+    "Pocket":  103,
+    "Boss":    104,
+    "Thread":  105,
+    "Chamfer": 106,
+    "Fillet":  107,
+    "Groove":  108,
+    "Step":    109,
+    "Face":    110
+  },
+  "material": {
+    "Aluminum":  201,
+    "Steel":     202,
+    "Brass":     203,
+    "Copper":    204,
+    "Titanium":  205,
+    "Plastic":   206,
+    "Cast Iron": 207
+  },
+  "tolerance": {
+    "0.005mm": 301,
+    "0.01mm":  302,
+    "0.02mm":  303,
+    "0.05mm":  304,
+    "0.1mm":   305,
+    "0.5mm":   306
+  },
+  "batch_size": {
+    "prototype":       401,
+    "small_batch":     402,
+    "medium_batch":    403,
+    "mass_production": 404
+  }
+}
