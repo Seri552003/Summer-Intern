@@ -1,0 +1,876 @@
+[
+  {
+    "part_id": "PART_001",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      101,
+      306,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 30.0,
+    "energy_kwh": 0.65,
+    "efficiency_score": 81.75
+  },
+  {
+    "part_id": "PART_002",
+    "success": true,
+    "material": "Steel",
+    "tokens": [
+      202,
+      103,
+      102,
+      306,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 35.0,
+    "cost_usd": 63.75,
+    "energy_kwh": 2.08,
+    "efficiency_score": 58.6
+  },
+  {
+    "part_id": "PART_003",
+    "success": true,
+    "material": "Aluminum",
+    "tokens": [
+      201,
+      101,
+      110,
+      102,
+      108,
+      302,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 25.0,
+    "cost_usd": 42.5,
+    "energy_kwh": 1.3,
+    "efficiency_score": 72.17
+  },
+  {
+    "part_id": "PART_004",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      109,
+      302,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 106.25,
+    "energy_kwh": 2.86,
+    "efficiency_score": 39.37
+  },
+  {
+    "part_id": "PART_005",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      104,
+      108,
+      105,
+      107,
+      301,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 30.0,
+    "energy_kwh": 0.65,
+    "efficiency_score": 81.75
+  },
+  {
+    "part_id": "PART_006",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      106,
+      105,
+      103,
+      102,
+      303,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 30.0,
+    "energy_kwh": 0.65,
+    "efficiency_score": 81.75
+  },
+  {
+    "part_id": "PART_007",
+    "success": true,
+    "material": "Aluminum",
+    "tokens": [
+      201,
+      102,
+      106,
+      109,
+      105,
+      303,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 25.0,
+    "cost_usd": 50.0,
+    "energy_kwh": 1.3,
+    "efficiency_score": 70.17
+  },
+  {
+    "part_id": "PART_008",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      109,
+      102,
+      107,
+      101,
+      305,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 30.0,
+    "energy_kwh": 0.65,
+    "efficiency_score": 81.75
+  },
+  {
+    "part_id": "PART_009",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      110,
+      104,
+      102,
+      301,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 59.5,
+    "energy_kwh": 1.95,
+    "efficiency_score": 61.38
+  },
+  {
+    "part_id": "PART_010",
+    "success": true,
+    "material": "Steel",
+    "tokens": [
+      202,
+      102,
+      104,
+      110,
+      304,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 35.0,
+    "cost_usd": 75.0,
+    "energy_kwh": 2.08,
+    "efficiency_score": 55.6
+  },
+  {
+    "part_id": "PART_011",
+    "success": true,
+    "material": "Copper",
+    "tokens": [
+      204,
+      103,
+      106,
+      109,
+      302,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 22.5,
+    "cost_usd": 55.25,
+    "energy_kwh": 1.23,
+    "efficiency_score": 70.12
+  },
+  {
+    "part_id": "PART_012",
+    "success": true,
+    "material": "Brass",
+    "tokens": [
+      203,
+      110,
+      306,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 27.5,
+    "cost_usd": 60.0,
+    "energy_kwh": 1.43,
+    "efficiency_score": 65.85
+  },
+  {
+    "part_id": "PART_013",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      103,
+      108,
+      304,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 125.0,
+    "energy_kwh": 2.86,
+    "efficiency_score": 34.37
+  },
+  {
+    "part_id": "PART_014",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      106,
+      101,
+      302,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 30.0,
+    "energy_kwh": 0.65,
+    "efficiency_score": 81.75
+  },
+  {
+    "part_id": "PART_015",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      107,
+      105,
+      102,
+      302,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 59.5,
+    "energy_kwh": 1.95,
+    "efficiency_score": 61.38
+  },
+  {
+    "part_id": "PART_016",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      104,
+      108,
+      107,
+      306,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 25.5,
+    "energy_kwh": 0.65,
+    "efficiency_score": 82.95
+  },
+  {
+    "part_id": "PART_017",
+    "success": true,
+    "material": "Steel",
+    "tokens": [
+      202,
+      103,
+      104,
+      105,
+      306,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 35.0,
+    "cost_usd": 63.75,
+    "energy_kwh": 2.08,
+    "efficiency_score": 58.6
+  },
+  {
+    "part_id": "PART_018",
+    "success": true,
+    "material": "Copper",
+    "tokens": [
+      204,
+      106,
+      104,
+      103,
+      105,
+      304,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 22.5,
+    "cost_usd": 65.0,
+    "energy_kwh": 1.23,
+    "efficiency_score": 67.52
+  },
+  {
+    "part_id": "PART_019",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      102,
+      302,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 59.5,
+    "energy_kwh": 1.95,
+    "efficiency_score": 61.38
+  },
+  {
+    "part_id": "PART_020",
+    "success": true,
+    "material": "Steel",
+    "tokens": [
+      202,
+      110,
+      102,
+      107,
+      104,
+      305,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 35.0,
+    "cost_usd": 63.75,
+    "energy_kwh": 2.08,
+    "efficiency_score": 58.6
+  },
+  {
+    "part_id": "PART_021",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      109,
+      101,
+      102,
+      306,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 106.25,
+    "energy_kwh": 2.86,
+    "efficiency_score": 39.37
+  },
+  {
+    "part_id": "PART_022",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      106,
+      102,
+      105,
+      304,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 70.0,
+    "energy_kwh": 1.95,
+    "efficiency_score": 58.58
+  },
+  {
+    "part_id": "PART_023",
+    "success": true,
+    "material": "Copper",
+    "tokens": [
+      204,
+      105,
+      305,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 22.5,
+    "cost_usd": 65.0,
+    "energy_kwh": 1.23,
+    "efficiency_score": 67.52
+  },
+  {
+    "part_id": "PART_024",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      105,
+      306,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 106.25,
+    "energy_kwh": 2.86,
+    "efficiency_score": 39.37
+  },
+  {
+    "part_id": "PART_025",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      103,
+      106,
+      302,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 106.25,
+    "energy_kwh": 2.86,
+    "efficiency_score": 39.37
+  },
+  {
+    "part_id": "PART_026",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      110,
+      303,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 59.5,
+    "energy_kwh": 1.95,
+    "efficiency_score": 61.38
+  },
+  {
+    "part_id": "PART_027",
+    "success": true,
+    "material": "Aluminum",
+    "tokens": [
+      201,
+      106,
+      303,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 25.0,
+    "cost_usd": 50.0,
+    "energy_kwh": 1.3,
+    "efficiency_score": 70.17
+  },
+  {
+    "part_id": "PART_028",
+    "success": true,
+    "material": "Aluminum",
+    "tokens": [
+      201,
+      110,
+      102,
+      301,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 25.0,
+    "cost_usd": 42.5,
+    "energy_kwh": 1.3,
+    "efficiency_score": 72.17
+  },
+  {
+    "part_id": "PART_029",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      109,
+      302,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 70.0,
+    "energy_kwh": 1.95,
+    "efficiency_score": 58.58
+  },
+  {
+    "part_id": "PART_030",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      109,
+      103,
+      105,
+      108,
+      305,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 27.6,
+    "energy_kwh": 0.65,
+    "efficiency_score": 82.39
+  },
+  {
+    "part_id": "PART_031",
+    "success": true,
+    "material": "Steel",
+    "tokens": [
+      202,
+      105,
+      107,
+      306,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 35.0,
+    "cost_usd": 63.75,
+    "energy_kwh": 2.08,
+    "efficiency_score": 58.6
+  },
+  {
+    "part_id": "PART_032",
+    "success": true,
+    "material": "Brass",
+    "tokens": [
+      203,
+      109,
+      108,
+      102,
+      110,
+      302,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 27.5,
+    "cost_usd": 60.0,
+    "energy_kwh": 1.43,
+    "efficiency_score": 65.85
+  },
+  {
+    "part_id": "PART_033",
+    "success": true,
+    "material": "Brass",
+    "tokens": [
+      203,
+      110,
+      305,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 27.5,
+    "cost_usd": 60.0,
+    "energy_kwh": 1.43,
+    "efficiency_score": 65.85
+  },
+  {
+    "part_id": "PART_034",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      101,
+      102,
+      306,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 106.25,
+    "energy_kwh": 2.86,
+    "efficiency_score": 39.37
+  },
+  {
+    "part_id": "PART_035",
+    "success": true,
+    "material": "Aluminum",
+    "tokens": [
+      201,
+      102,
+      101,
+      303,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 25.0,
+    "cost_usd": 50.0,
+    "energy_kwh": 1.3,
+    "efficiency_score": 70.17
+  },
+  {
+    "part_id": "PART_036",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      105,
+      108,
+      302,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 106.25,
+    "energy_kwh": 2.86,
+    "efficiency_score": 39.37
+  },
+  {
+    "part_id": "PART_037",
+    "success": true,
+    "material": "Steel",
+    "tokens": [
+      202,
+      104,
+      108,
+      107,
+      102,
+      301,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 35.0,
+    "cost_usd": 75.0,
+    "energy_kwh": 2.08,
+    "efficiency_score": 55.6
+  },
+  {
+    "part_id": "PART_038",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      106,
+      107,
+      109,
+      104,
+      306,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 30.0,
+    "energy_kwh": 0.65,
+    "efficiency_score": 81.75
+  },
+  {
+    "part_id": "PART_039",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      101,
+      304,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 27.6,
+    "energy_kwh": 0.65,
+    "efficiency_score": 82.39
+  },
+  {
+    "part_id": "PART_040",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      104,
+      302,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 70.0,
+    "energy_kwh": 1.95,
+    "efficiency_score": 58.58
+  },
+  {
+    "part_id": "PART_041",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      103,
+      107,
+      110,
+      108,
+      304,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 125.0,
+    "energy_kwh": 2.86,
+    "efficiency_score": 34.37
+  },
+  {
+    "part_id": "PART_042",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      108,
+      305,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 70.0,
+    "energy_kwh": 1.95,
+    "efficiency_score": 58.58
+  },
+  {
+    "part_id": "PART_043",
+    "success": true,
+    "material": "Aluminum",
+    "tokens": [
+      201,
+      102,
+      302,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 25.0,
+    "cost_usd": 50.0,
+    "energy_kwh": 1.3,
+    "efficiency_score": 70.17
+  },
+  {
+    "part_id": "PART_044",
+    "success": true,
+    "material": "Copper",
+    "tokens": [
+      204,
+      108,
+      104,
+      107,
+      101,
+      302,
+      403
+    ],
+    "best_route": "Route_A",
+    "time_min": 22.5,
+    "cost_usd": 59.8,
+    "energy_kwh": 1.23,
+    "efficiency_score": 68.9
+  },
+  {
+    "part_id": "PART_045",
+    "success": true,
+    "material": "Aluminum",
+    "tokens": [
+      201,
+      105,
+      108,
+      110,
+      104,
+      306,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 25.0,
+    "cost_usd": 42.5,
+    "energy_kwh": 1.3,
+    "efficiency_score": 72.17
+  },
+  {
+    "part_id": "PART_046",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      103,
+      104,
+      105,
+      102,
+      301,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 25.5,
+    "energy_kwh": 0.65,
+    "efficiency_score": 82.95
+  },
+  {
+    "part_id": "PART_047",
+    "success": true,
+    "material": "Plastic",
+    "tokens": [
+      206,
+      106,
+      301,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 17.5,
+    "cost_usd": 30.0,
+    "energy_kwh": 0.65,
+    "efficiency_score": 81.75
+  },
+  {
+    "part_id": "PART_048",
+    "success": true,
+    "material": "Titanium",
+    "tokens": [
+      205,
+      109,
+      110,
+      103,
+      101,
+      305,
+      401
+    ],
+    "best_route": "Route_A",
+    "time_min": 45.0,
+    "cost_usd": 125.0,
+    "energy_kwh": 2.86,
+    "efficiency_score": 34.37
+  },
+  {
+    "part_id": "PART_049",
+    "success": true,
+    "material": "Cast Iron",
+    "tokens": [
+      207,
+      102,
+      110,
+      306,
+      402
+    ],
+    "best_route": "Route_A",
+    "time_min": 32.5,
+    "cost_usd": 70.0,
+    "energy_kwh": 1.95,
+    "efficiency_score": 58.58
+  },
+  {
+    "part_id": "PART_050",
+    "success": true,
+    "material": "Copper",
+    "tokens": [
+      204,
+      110,
+      302,
+      404
+    ],
+    "best_route": "Route_A",
+    "time_min": 22.5,
+    "cost_usd": 55.25,
+    "energy_kwh": 1.23,
+    "efficiency_score": 70.12
+  }
+]

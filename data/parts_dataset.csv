@@ -1,0 +1,51 @@
+part_id,material,features,tolerance,batch_size
+PART_001,Plastic,Hole,0.5mm,100
+PART_002,Steel,Pocket;Slot,0.5mm,1000
+PART_003,Aluminum,Hole;Face;Slot;Groove,0.01mm,1000
+PART_004,Titanium,Step,0.01mm,5000
+PART_005,Plastic,Boss;Groove;Thread;Fillet,0.005mm,25
+PART_006,Plastic,Chamfer;Thread;Pocket;Slot,0.02mm,10
+PART_007,Aluminum,Slot;Chamfer;Step;Thread,0.02mm,5
+PART_008,Plastic,Step;Slot;Fillet;Hole,0.1mm,100
+PART_009,Cast Iron,Face;Boss;Slot,0.005mm,5000
+PART_010,Steel,Slot;Boss;Face,0.05mm,100
+PART_011,Copper,Pocket;Chamfer;Step,0.01mm,5000
+PART_012,Brass,Face,0.5mm,25
+PART_013,Titanium,Pocket;Groove,0.05mm,100
+PART_014,Plastic,Chamfer;Hole,0.01mm,5
+PART_015,Cast Iron,Fillet;Thread;Slot,0.01mm,2500
+PART_016,Plastic,Boss;Groove;Fillet,0.5mm,750
+PART_017,Steel,Pocket;Boss;Thread,0.5mm,2500
+PART_018,Copper,Chamfer;Boss;Pocket;Thread,0.05mm,10
+PART_019,Cast Iron,Slot,0.01mm,5000
+PART_020,Steel,Face;Slot;Fillet;Boss,0.1mm,750
+PART_021,Titanium,Step;Hole;Slot,0.5mm,1000
+PART_022,Cast Iron,Chamfer;Slot;Thread,0.05mm,25
+PART_023,Copper,Thread,0.1mm,25
+PART_024,Titanium,Thread,0.5mm,1000
+PART_025,Titanium,Pocket;Chamfer,0.01mm,1000
+PART_026,Cast Iron,Face,0.02mm,750
+PART_027,Aluminum,Chamfer,0.02mm,50
+PART_028,Aluminum,Face;Slot,0.005mm,750
+PART_029,Cast Iron,Step,0.01mm,25
+PART_030,Plastic,Step;Pocket;Thread;Groove,0.1mm,500
+PART_031,Steel,Thread;Fillet,0.5mm,5000
+PART_032,Brass,Step;Groove;Slot;Face,0.01mm,10
+PART_033,Brass,Face,0.1mm,50
+PART_034,Titanium,Hole;Slot,0.5mm,5000
+PART_035,Aluminum,Slot;Hole,0.02mm,10
+PART_036,Titanium,Thread;Groove,0.01mm,1000
+PART_037,Steel,Boss;Groove;Fillet;Slot,0.005mm,10
+PART_038,Plastic,Chamfer;Fillet;Step;Boss,0.5mm,5
+PART_039,Plastic,Hole,0.05mm,250
+PART_040,Cast Iron,Boss,0.01mm,50
+PART_041,Titanium,Pocket;Fillet;Face;Groove,0.05mm,50
+PART_042,Cast Iron,Groove,0.1mm,10
+PART_043,Aluminum,Slot,0.01mm,25
+PART_044,Copper,Groove;Boss;Fillet;Hole,0.01mm,500
+PART_045,Aluminum,Thread;Groove;Face;Boss,0.5mm,1000
+PART_046,Plastic,Pocket;Boss;Thread;Slot,0.005mm,2500
+PART_047,Plastic,Chamfer,0.005mm,5
+PART_048,Titanium,Step;Face;Pocket;Hole,0.1mm,10
+PART_049,Cast Iron,Slot;Face,0.5mm,50
+PART_050,Copper,Face,0.01mm,2500

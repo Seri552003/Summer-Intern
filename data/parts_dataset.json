@@ -1,0 +1,526 @@
+[
+  {
+    "part_id": "PART_001",
+    "material": "Plastic",
+    "features": [
+      "Hole"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_002",
+    "material": "Steel",
+    "features": [
+      "Pocket",
+      "Slot"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_003",
+    "material": "Aluminum",
+    "features": [
+      "Hole",
+      "Face",
+      "Slot",
+      "Groove"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_004",
+    "material": "Titanium",
+    "features": [
+      "Step"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_005",
+    "material": "Plastic",
+    "features": [
+      "Boss",
+      "Groove",
+      "Thread",
+      "Fillet"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 25
+  },
+  {
+    "part_id": "PART_006",
+    "material": "Plastic",
+    "features": [
+      "Chamfer",
+      "Thread",
+      "Pocket",
+      "Slot"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_007",
+    "material": "Aluminum",
+    "features": [
+      "Slot",
+      "Chamfer",
+      "Step",
+      "Thread"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 5
+  },
+  {
+    "part_id": "PART_008",
+    "material": "Plastic",
+    "features": [
+      "Step",
+      "Slot",
+      "Fillet",
+      "Hole"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_009",
+    "material": "Cast Iron",
+    "features": [
+      "Face",
+      "Boss",
+      "Slot"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_010",
+    "material": "Steel",
+    "features": [
+      "Slot",
+      "Boss",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_011",
+    "material": "Copper",
+    "features": [
+      "Pocket",
+      "Chamfer",
+      "Step"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_012",
+    "material": "Brass",
+    "features": [
+      "Face"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 25
+  },
+  {
+    "part_id": "PART_013",
+    "material": "Titanium",
+    "features": [
+      "Pocket",
+      "Groove"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_014",
+    "material": "Plastic",
+    "features": [
+      "Chamfer",
+      "Hole"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 5
+  },
+  {
+    "part_id": "PART_015",
+    "material": "Cast Iron",
+    "features": [
+      "Fillet",
+      "Thread",
+      "Slot"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 2500
+  },
+  {
+    "part_id": "PART_016",
+    "material": "Plastic",
+    "features": [
+      "Boss",
+      "Groove",
+      "Fillet"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 750
+  },
+  {
+    "part_id": "PART_017",
+    "material": "Steel",
+    "features": [
+      "Pocket",
+      "Boss",
+      "Thread"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 2500
+  },
+  {
+    "part_id": "PART_018",
+    "material": "Copper",
+    "features": [
+      "Chamfer",
+      "Boss",
+      "Pocket",
+      "Thread"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_019",
+    "material": "Cast Iron",
+    "features": [
+      "Slot"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_020",
+    "material": "Steel",
+    "features": [
+      "Face",
+      "Slot",
+      "Fillet",
+      "Boss"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 750
+  },
+  {
+    "part_id": "PART_021",
+    "material": "Titanium",
+    "features": [
+      "Step",
+      "Hole",
+      "Slot"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_022",
+    "material": "Cast Iron",
+    "features": [
+      "Chamfer",
+      "Slot",
+      "Thread"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 25
+  },
+  {
+    "part_id": "PART_023",
+    "material": "Copper",
+    "features": [
+      "Thread"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 25
+  },
+  {
+    "part_id": "PART_024",
+    "material": "Titanium",
+    "features": [
+      "Thread"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_025",
+    "material": "Titanium",
+    "features": [
+      "Pocket",
+      "Chamfer"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_026",
+    "material": "Cast Iron",
+    "features": [
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 750
+  },
+  {
+    "part_id": "PART_027",
+    "material": "Aluminum",
+    "features": [
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_028",
+    "material": "Aluminum",
+    "features": [
+      "Face",
+      "Slot"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 750
+  },
+  {
+    "part_id": "PART_029",
+    "material": "Cast Iron",
+    "features": [
+      "Step"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 25
+  },
+  {
+    "part_id": "PART_030",
+    "material": "Plastic",
+    "features": [
+      "Step",
+      "Pocket",
+      "Thread",
+      "Groove"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_031",
+    "material": "Steel",
+    "features": [
+      "Thread",
+      "Fillet"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_032",
+    "material": "Brass",
+    "features": [
+      "Step",
+      "Groove",
+      "Slot",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_033",
+    "material": "Brass",
+    "features": [
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_034",
+    "material": "Titanium",
+    "features": [
+      "Hole",
+      "Slot"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_035",
+    "material": "Aluminum",
+    "features": [
+      "Slot",
+      "Hole"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_036",
+    "material": "Titanium",
+    "features": [
+      "Thread",
+      "Groove"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_037",
+    "material": "Steel",
+    "features": [
+      "Boss",
+      "Groove",
+      "Fillet",
+      "Slot"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_038",
+    "material": "Plastic",
+    "features": [
+      "Chamfer",
+      "Fillet",
+      "Step",
+      "Boss"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 5
+  },
+  {
+    "part_id": "PART_039",
+    "material": "Plastic",
+    "features": [
+      "Hole"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_040",
+    "material": "Cast Iron",
+    "features": [
+      "Boss"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_041",
+    "material": "Titanium",
+    "features": [
+      "Pocket",
+      "Fillet",
+      "Face",
+      "Groove"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_042",
+    "material": "Cast Iron",
+    "features": [
+      "Groove"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_043",
+    "material": "Aluminum",
+    "features": [
+      "Slot"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 25
+  },
+  {
+    "part_id": "PART_044",
+    "material": "Copper",
+    "features": [
+      "Groove",
+      "Boss",
+      "Fillet",
+      "Hole"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_045",
+    "material": "Aluminum",
+    "features": [
+      "Thread",
+      "Groove",
+      "Face",
+      "Boss"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_046",
+    "material": "Plastic",
+    "features": [
+      "Pocket",
+      "Boss",
+      "Thread",
+      "Slot"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 2500
+  },
+  {
+    "part_id": "PART_047",
+    "material": "Plastic",
+    "features": [
+      "Chamfer"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 5
+  },
+  {
+    "part_id": "PART_048",
+    "material": "Titanium",
+    "features": [
+      "Step",
+      "Face",
+      "Pocket",
+      "Hole"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_049",
+    "material": "Cast Iron",
+    "features": [
+      "Slot",
+      "Face"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_050",
+    "material": "Copper",
+    "features": [
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 2500
+  }
+]
