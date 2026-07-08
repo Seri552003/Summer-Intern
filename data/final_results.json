@@ -1,0 +1,1416 @@
+{
+  "results": [
+    {
+      "success": true,
+      "part_id": "PART_001",
+      "material": "Plastic",
+      "features": [
+        "Hole"
+      ],
+      "tokens": [
+        206,
+        101,
+        306,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 18.0,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_002",
+      "material": "Steel",
+      "features": [
+        "Pocket",
+        "Slot"
+      ],
+      "tokens": [
+        202,
+        103,
+        102,
+        306,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 38.25,
+      "energy_kwh": 1.36,
+      "efficiency_score": 72.92,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_003",
+      "material": "Aluminum",
+      "features": [
+        "Hole",
+        "Face",
+        "Slot",
+        "Groove"
+      ],
+      "tokens": [
+        201,
+        101,
+        110,
+        102,
+        108,
+        302,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 18.0,
+      "cost_usd": 25.5,
+      "energy_kwh": 0.85,
+      "efficiency_score": 81.75,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_004",
+      "material": "Titanium",
+      "features": [
+        "Step"
+      ],
+      "tokens": [
+        205,
+        109,
+        302,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 63.75,
+      "energy_kwh": 1.87,
+      "efficiency_score": 60.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_005",
+      "material": "Plastic",
+      "features": [
+        "Boss",
+        "Groove",
+        "Thread",
+        "Fillet"
+      ],
+      "tokens": [
+        206,
+        104,
+        108,
+        105,
+        107,
+        301,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 18.0,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_006",
+      "material": "Plastic",
+      "features": [
+        "Chamfer",
+        "Thread",
+        "Pocket",
+        "Slot"
+      ],
+      "tokens": [
+        206,
+        106,
+        105,
+        103,
+        102,
+        303,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 18.0,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_007",
+      "material": "Aluminum",
+      "features": [
+        "Slot",
+        "Chamfer",
+        "Step",
+        "Thread"
+      ],
+      "tokens": [
+        201,
+        102,
+        106,
+        109,
+        105,
+        303,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 18.0,
+      "cost_usd": 30.0,
+      "energy_kwh": 0.85,
+      "efficiency_score": 80.55,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_008",
+      "material": "Plastic",
+      "features": [
+        "Step",
+        "Slot",
+        "Fillet",
+        "Hole"
+      ],
+      "tokens": [
+        206,
+        109,
+        102,
+        107,
+        101,
+        305,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 18.0,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_009",
+      "material": "Cast Iron",
+      "features": [
+        "Face",
+        "Boss",
+        "Slot"
+      ],
+      "tokens": [
+        207,
+        110,
+        104,
+        102,
+        301,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 35.7,
+      "energy_kwh": 1.27,
+      "efficiency_score": 74.77,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_010",
+      "material": "Steel",
+      "features": [
+        "Slot",
+        "Boss",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        102,
+        104,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 45.0,
+      "energy_kwh": 1.36,
+      "efficiency_score": 71.12,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_011",
+      "material": "Copper",
+      "features": [
+        "Pocket",
+        "Chamfer",
+        "Step"
+      ],
+      "tokens": [
+        204,
+        103,
+        106,
+        109,
+        302,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 16.2,
+      "cost_usd": 33.15,
+      "energy_kwh": 0.81,
+      "efficiency_score": 80.63,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_012",
+      "material": "Brass",
+      "features": [
+        "Face"
+      ],
+      "tokens": [
+        203,
+        110,
+        306,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 19.8,
+      "cost_usd": 36.0,
+      "energy_kwh": 0.94,
+      "efficiency_score": 77.78,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_013",
+      "material": "Titanium",
+      "features": [
+        "Pocket",
+        "Groove"
+      ],
+      "tokens": [
+        205,
+        103,
+        108,
+        304,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 75.0,
+      "energy_kwh": 1.87,
+      "efficiency_score": 57.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_014",
+      "material": "Plastic",
+      "features": [
+        "Chamfer",
+        "Hole"
+      ],
+      "tokens": [
+        206,
+        106,
+        101,
+        302,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 18.0,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_015",
+      "material": "Cast Iron",
+      "features": [
+        "Fillet",
+        "Thread",
+        "Slot"
+      ],
+      "tokens": [
+        207,
+        107,
+        105,
+        102,
+        302,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 35.7,
+      "energy_kwh": 1.27,
+      "efficiency_score": 74.77,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_016",
+      "material": "Plastic",
+      "features": [
+        "Boss",
+        "Groove",
+        "Fillet"
+      ],
+      "tokens": [
+        206,
+        104,
+        108,
+        107,
+        306,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 15.3,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.78,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_017",
+      "material": "Steel",
+      "features": [
+        "Pocket",
+        "Boss",
+        "Thread"
+      ],
+      "tokens": [
+        202,
+        103,
+        104,
+        105,
+        306,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 38.25,
+      "energy_kwh": 1.36,
+      "efficiency_score": 72.92,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_018",
+      "material": "Copper",
+      "features": [
+        "Chamfer",
+        "Boss",
+        "Pocket",
+        "Thread"
+      ],
+      "tokens": [
+        204,
+        106,
+        104,
+        103,
+        105,
+        304,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 16.2,
+      "cost_usd": 39.0,
+      "energy_kwh": 0.81,
+      "efficiency_score": 79.07,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_019",
+      "material": "Cast Iron",
+      "features": [
+        "Slot"
+      ],
+      "tokens": [
+        207,
+        102,
+        302,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 35.7,
+      "energy_kwh": 1.27,
+      "efficiency_score": 74.77,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_020",
+      "material": "Steel",
+      "features": [
+        "Face",
+        "Slot",
+        "Fillet",
+        "Boss"
+      ],
+      "tokens": [
+        202,
+        110,
+        102,
+        107,
+        104,
+        305,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 38.25,
+      "energy_kwh": 1.36,
+      "efficiency_score": 72.92,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_021",
+      "material": "Titanium",
+      "features": [
+        "Step",
+        "Hole",
+        "Slot"
+      ],
+      "tokens": [
+        205,
+        109,
+        101,
+        102,
+        306,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 63.75,
+      "energy_kwh": 1.87,
+      "efficiency_score": 60.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_022",
+      "material": "Cast Iron",
+      "features": [
+        "Chamfer",
+        "Slot",
+        "Thread"
+      ],
+      "tokens": [
+        207,
+        106,
+        102,
+        105,
+        304,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 42.0,
+      "energy_kwh": 1.27,
+      "efficiency_score": 73.09,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_023",
+      "material": "Copper",
+      "features": [
+        "Thread"
+      ],
+      "tokens": [
+        204,
+        105,
+        305,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 16.2,
+      "cost_usd": 39.0,
+      "energy_kwh": 0.81,
+      "efficiency_score": 79.07,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_024",
+      "material": "Titanium",
+      "features": [
+        "Thread"
+      ],
+      "tokens": [
+        205,
+        105,
+        306,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 63.75,
+      "energy_kwh": 1.87,
+      "efficiency_score": 60.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_025",
+      "material": "Titanium",
+      "features": [
+        "Pocket",
+        "Chamfer"
+      ],
+      "tokens": [
+        205,
+        103,
+        106,
+        302,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 63.75,
+      "energy_kwh": 1.87,
+      "efficiency_score": 60.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_026",
+      "material": "Cast Iron",
+      "features": [
+        "Face"
+      ],
+      "tokens": [
+        207,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 35.7,
+      "energy_kwh": 1.27,
+      "efficiency_score": 74.77,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_027",
+      "material": "Aluminum",
+      "features": [
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        106,
+        303,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 18.0,
+      "cost_usd": 30.0,
+      "energy_kwh": 0.85,
+      "efficiency_score": 80.55,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_028",
+      "material": "Aluminum",
+      "features": [
+        "Face",
+        "Slot"
+      ],
+      "tokens": [
+        201,
+        110,
+        102,
+        301,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 18.0,
+      "cost_usd": 25.5,
+      "energy_kwh": 0.85,
+      "efficiency_score": 81.75,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_029",
+      "material": "Cast Iron",
+      "features": [
+        "Step"
+      ],
+      "tokens": [
+        207,
+        109,
+        302,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 42.0,
+      "energy_kwh": 1.27,
+      "efficiency_score": 73.09,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_030",
+      "material": "Plastic",
+      "features": [
+        "Step",
+        "Pocket",
+        "Thread",
+        "Groove"
+      ],
+      "tokens": [
+        206,
+        109,
+        103,
+        105,
+        108,
+        305,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 16.56,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.44,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_031",
+      "material": "Steel",
+      "features": [
+        "Thread",
+        "Fillet"
+      ],
+      "tokens": [
+        202,
+        105,
+        107,
+        306,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 38.25,
+      "energy_kwh": 1.36,
+      "efficiency_score": 72.92,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_032",
+      "material": "Brass",
+      "features": [
+        "Step",
+        "Groove",
+        "Slot",
+        "Face"
+      ],
+      "tokens": [
+        203,
+        109,
+        108,
+        102,
+        110,
+        302,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 19.8,
+      "cost_usd": 36.0,
+      "energy_kwh": 0.94,
+      "efficiency_score": 77.78,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_033",
+      "material": "Brass",
+      "features": [
+        "Face"
+      ],
+      "tokens": [
+        203,
+        110,
+        305,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 19.8,
+      "cost_usd": 36.0,
+      "energy_kwh": 0.94,
+      "efficiency_score": 77.78,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_034",
+      "material": "Titanium",
+      "features": [
+        "Hole",
+        "Slot"
+      ],
+      "tokens": [
+        205,
+        101,
+        102,
+        306,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 63.75,
+      "energy_kwh": 1.87,
+      "efficiency_score": 60.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_035",
+      "material": "Aluminum",
+      "features": [
+        "Slot",
+        "Hole"
+      ],
+      "tokens": [
+        201,
+        102,
+        101,
+        303,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 18.0,
+      "cost_usd": 30.0,
+      "energy_kwh": 0.85,
+      "efficiency_score": 80.55,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_036",
+      "material": "Titanium",
+      "features": [
+        "Thread",
+        "Groove"
+      ],
+      "tokens": [
+        205,
+        105,
+        108,
+        302,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 63.75,
+      "energy_kwh": 1.87,
+      "efficiency_score": 60.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_037",
+      "material": "Steel",
+      "features": [
+        "Boss",
+        "Groove",
+        "Fillet",
+        "Slot"
+      ],
+      "tokens": [
+        202,
+        104,
+        108,
+        107,
+        102,
+        301,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 45.0,
+      "energy_kwh": 1.36,
+      "efficiency_score": 71.12,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_038",
+      "material": "Plastic",
+      "features": [
+        "Chamfer",
+        "Fillet",
+        "Step",
+        "Boss"
+      ],
+      "tokens": [
+        206,
+        106,
+        107,
+        109,
+        104,
+        306,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 18.0,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_039",
+      "material": "Plastic",
+      "features": [
+        "Hole"
+      ],
+      "tokens": [
+        206,
+        101,
+        304,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 16.56,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.44,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_040",
+      "material": "Cast Iron",
+      "features": [
+        "Boss"
+      ],
+      "tokens": [
+        207,
+        104,
+        302,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 42.0,
+      "energy_kwh": 1.27,
+      "efficiency_score": 73.09,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_041",
+      "material": "Titanium",
+      "features": [
+        "Pocket",
+        "Fillet",
+        "Face",
+        "Groove"
+      ],
+      "tokens": [
+        205,
+        103,
+        107,
+        110,
+        108,
+        304,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 75.0,
+      "energy_kwh": 1.87,
+      "efficiency_score": 57.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_042",
+      "material": "Cast Iron",
+      "features": [
+        "Groove"
+      ],
+      "tokens": [
+        207,
+        108,
+        305,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 42.0,
+      "energy_kwh": 1.27,
+      "efficiency_score": 73.09,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_043",
+      "material": "Aluminum",
+      "features": [
+        "Slot"
+      ],
+      "tokens": [
+        201,
+        102,
+        302,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 18.0,
+      "cost_usd": 30.0,
+      "energy_kwh": 0.85,
+      "efficiency_score": 80.55,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_044",
+      "material": "Copper",
+      "features": [
+        "Groove",
+        "Boss",
+        "Fillet",
+        "Hole"
+      ],
+      "tokens": [
+        204,
+        108,
+        104,
+        107,
+        101,
+        302,
+        403
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 16.2,
+      "cost_usd": 35.88,
+      "energy_kwh": 0.81,
+      "efficiency_score": 79.9,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_045",
+      "material": "Aluminum",
+      "features": [
+        "Thread",
+        "Groove",
+        "Face",
+        "Boss"
+      ],
+      "tokens": [
+        201,
+        105,
+        108,
+        110,
+        104,
+        306,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 18.0,
+      "cost_usd": 25.5,
+      "energy_kwh": 0.85,
+      "efficiency_score": 81.75,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_046",
+      "material": "Plastic",
+      "features": [
+        "Pocket",
+        "Boss",
+        "Thread",
+        "Slot"
+      ],
+      "tokens": [
+        206,
+        103,
+        104,
+        105,
+        102,
+        301,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 15.3,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.78,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_047",
+      "material": "Plastic",
+      "features": [
+        "Chamfer"
+      ],
+      "tokens": [
+        206,
+        106,
+        301,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 12.6,
+      "cost_usd": 18.0,
+      "energy_kwh": 0.42,
+      "efficiency_score": 88.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_048",
+      "material": "Titanium",
+      "features": [
+        "Step",
+        "Face",
+        "Pocket",
+        "Hole"
+      ],
+      "tokens": [
+        205,
+        109,
+        110,
+        103,
+        101,
+        305,
+        401
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.4,
+      "cost_usd": 75.0,
+      "energy_kwh": 1.87,
+      "efficiency_score": 57.69,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_049",
+      "material": "Cast Iron",
+      "features": [
+        "Slot",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        102,
+        110,
+        306,
+        402
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 42.0,
+      "energy_kwh": 1.27,
+      "efficiency_score": 73.09,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_050",
+      "material": "Copper",
+      "features": [
+        "Face"
+      ],
+      "tokens": [
+        204,
+        110,
+        302,
+        404
+      ],
+      "route": "Route_B2",
+      "steps": [
+        "Facing",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 16.2,
+      "cost_usd": 33.15,
+      "energy_kwh": 0.81,
+      "efficiency_score": 80.63,
+      "was_corrected": false
+    }
+  ],
+  "summary": {
+    "total": 50,
+    "success": 50,
+    "failed": 0,
+    "corrected": 0,
+    "avg_time": 21.17,
+    "avg_cost": 37.55,
+    "avg_energy": 1.08,
+    "avg_efficiency": 76.13,
+    "route_distribution": {
+      "Route_B2": 50
+    },
+    "pipeline_time_sec": 0.01
+  }
+}
