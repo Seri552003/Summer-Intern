@@ -1,6 +1,18 @@
 # full_pipeline.py
 # Complete End-to-End Pipeline — Week 1 through Week 5
 # Week 6 | LLM-CAPP Project
+# FIXED:
+#   1. run_nsga2() aur self_correct() dono ko part["features"] pass nahi ho
+#      rahe the — same class ka bug jo run_pipeline.py, week4_pipeline.py,
+#      week5_pipeline.py me mila tha (chautha instance).
+#   2. "was_corrected" ek GLOBAL counter (`corrections`) se decide ho raha
+#      tha, jo poore pareto-loop ke across accumulate hota tha — isliye agar
+#      pareto set me KOI BHI ek route correction maangta, final best_result
+#      bhi galti se "was_corrected: True" dikhata, chahe wo khud valid ho.
+#      Ab per-individual flag use hota hai.
+#   3. Route distribution "Route_1"/"Route_2" jaisे generic labels use karta
+#      tha jo part-to-part unique nahi hote (misleading summary) — ab actual
+#      operation-sequence se banta hai.
 
 import sys
 import os
@@ -23,31 +35,31 @@ from agents import time_agent, cost_agent, energy_agent, efficiency_agent
 
 def process_part_full(part: dict) -> dict:
     """
-    Complete pipeline — Week 1 → 2 → 3 → 4 → 5
+    Complete pipeline — Week 1 -> 2 -> 3 -> 4 -> 5
     """
     # Step 1: Tokenize (Week 1)
     token_result = tokenize(part)
     if not token_result["success"]:
         return {"success": False, "part_id": part.get("part_id"), "errors": token_result["errors"]}
 
-    # Step 2: NSGA-II (Week 4)
-    pareto = run_nsga2(part["material"], part["batch_size"])
+    # Step 2: NSGA-II (Week 4) — features ab explicitly pass ho rahe hain
+    pareto = run_nsga2(part["material"], part["batch_size"], features=part["features"])
 
     best_result = None
-    corrections = 0
 
     for ind in pareto:
         steps = ind.steps
+        individual_was_corrected = False  # PER-INDIVIDUAL flag, global counter nahi
 
         # Step 3: FSM Validate (Week 4)
         fsm = validate_sequence(steps)
 
         if not fsm["valid"]:
-            # Step 4: Error detect + Self-correct (Week 5)
-            correction = self_correct(steps, verbose=False)
+            # Step 4: Error detect + Self-correct (Week 5) — features pass karke
+            correction = self_correct(steps, features=part["features"], verbose=False)
             if correction["success"]:
                 steps = correction["corrected"]
-                corrections += 1
+                individual_was_corrected = True
             else:
                 continue
 
@@ -65,7 +77,7 @@ def process_part_full(part: dict) -> dict:
                 "cost_usd": c,
                 "energy_kwh": e,
                 "efficiency_score": eff,
-                "was_corrected": corrections > 0
+                "was_corrected": individual_was_corrected
             }
 
     if best_result:
@@ -99,7 +111,6 @@ def run_full_pipeline(dataset_path: str) -> dict:
 
     elapsed = time.time() - start
 
-    # Summary stats
     success = [r for r in results if r["success"]]
     failed  = [r for r in results if not r["success"]]
     corrected = [r for r in success if r.get("was_corrected")]
@@ -109,9 +120,12 @@ def run_full_pipeline(dataset_path: str) -> dict:
     avg_energy = sum(r["energy_kwh"] for r in success) / len(success) if success else 0
     avg_eff = sum(r["efficiency_score"] for r in success) / len(success) if success else 0
 
+    # Route distribution — route_name ("Route_1") part-to-part unique nahi hota,
+    # isliye ACTUAL operation-sequence se distribution banate hain
     route_dist = {}
     for r in success:
-        route_dist[r["route"]] = route_dist.get(r["route"], 0) + 1
+        route_key = " -> ".join(r["steps"])
+        route_dist[route_key] = route_dist.get(route_key, 0) + 1
 
     print(f"{'='*65}")
     print(f"  FULL PIPELINE SUMMARY — {len(dataset)} Parts")
@@ -123,10 +137,10 @@ def run_full_pipeline(dataset_path: str) -> dict:
     print(f"  Average Cost       : ${avg_cost:.2f}")
     print(f"  Average Energy     : {avg_energy:.2f} kWh")
     print(f"  Average Efficiency : {avg_eff:.2f}/100")
-    print(f"\n  Route Distribution :")
-    for route, count in sorted(route_dist.items()):
+    print(f"\n  Route Distribution (top 10 by actual operation-sequence):")
+    for route_key, count in sorted(route_dist.items(), key=lambda x: -x[1])[:10]:
         pct = count / len(success) * 100
-        print(f"    {route:<12} : {count:2} parts ({pct:.1f}%)")
+        print(f"    {pct:5.1f}% ({count:3} parts) : {route_key}")
     print(f"\n  ⏱ Total Time       : {elapsed:.2f} seconds")
     print(f"{'='*65}")
 
@@ -154,7 +168,6 @@ if __name__ == "__main__":
 
     output = run_full_pipeline(dataset_path)
 
-    # Results save karo
     out_path = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "../data/final_results.json")
     )

@@ -1,11 +1,29 @@
 # fsm_validator.py
 # Finite State Machine — Manufacturing Sequence Validator
 # Week 4 | LLM-CAPP Project
+# UPDATED: Core validation ab precedence_graph.py ke comprehensive rules
+# use karta hai (41 operations, 32 precedence edges) — purana rigid
+# 8-operation VALID_TRANSITIONS state-machine ab sirf LEGACY REFERENCE
+# ke roop me neeche rakha gaya hai, live validation me use nahi hota.
 
-# ── Valid Transitions ──────────────────────────────
-# Yeh rules define karte hain ki kaun sa operation
-# kis operation ke baad aa sakta hai
-VALID_TRANSITIONS = {
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week1")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week2")))
+
+import precedence_graph as pg
+from routes import ALL_OPERATIONS  # 41 canonical operations — single source of truth
+
+
+# ════════════════════════════════════════════════════
+# LEGACY REFERENCE — ab live validation me use nahi hota
+# ════════════════════════════════════════════════════
+# Ye purana 8-operation-only rigid state-machine tha. precedence_graph.py
+# isse zyada comprehensive hai (41 ops, non-adjacent pairs bhi check karta
+# hai), isliye validate_sequence() ab isse use nahi karta. Reference ke
+# liye rakha gaya hai.
+_LEGACY_VALID_TRANSITIONS = {
     "START":           ["Facing"],
     "Facing":          ["Center Drilling", "Drilling", "Boring", "Threading"],
     "Center Drilling": ["Drilling"],
@@ -17,12 +35,17 @@ VALID_TRANSITIONS = {
     "Inspection":      ["END"],
 }
 
-ALL_OPERATIONS = set(VALID_TRANSITIONS.keys()) - {"START"}
 
+# ════════════════════════════════════════════════════
+# LIVE VALIDATION — precedence_graph.py ke rules use karta hai
+# ════════════════════════════════════════════════════
 
 def validate_sequence(steps: list) -> dict:
     """
-    Operation sequence validate karo FSM rules ke against.
+    Operation sequence validate karo precedence_graph.py ke rules ke against.
+    Ye ek GENERIC checkpoint hai — route Route Builder se aaya ho ya LLM
+    Planner se, farak nahi padta, same rules lagte hain.
+
     Returns:
     {
       "valid": True/False,
@@ -30,61 +53,72 @@ def validate_sequence(steps: list) -> dict:
       "checked_transitions": [...]
     }
     """
-    errors = []
-    checked = []
-
     if not steps:
         return {"valid": False, "errors": ["Empty sequence!"], "checked_transitions": []}
 
-    # First step Facing se start hona chahiye
-    if steps[0] != "Facing":
-        errors.append(f"Sequence 'Facing' se start honi chahiye, '{steps[0]}' se nahi!")
+    valid, violations = pg.validate_order(steps)
 
-    # Har transition check karo
-    current = "START"
-    for step in steps:
-        allowed = VALID_TRANSITIONS.get(current, [])
-        transition = f"{current} → {step}"
-        if step in allowed:
-            checked.append(f"✅ {transition}")
-            current = step
-        else:
-            checked.append(f"❌ {transition} (INVALID)")
-            errors.append(f"Invalid: '{current}' ke baad '{step}' nahi aa sakta!")
-            current = step  # Continue checking rest
+    # Transparency log — har applicable rule ka pass/fail dikhate hain
+    checked = []
 
-    # Last step Inspection hona chahiye
-    if steps and steps[-1] != "Inspection":
-        errors.append(f"Sequence 'Inspection' pe khatam honi chahiye, '{steps[-1]}' pe nahi!")
+    first_ok = steps[0] == pg.ALWAYS_FIRST
+    first_line = f"First step = '{pg.ALWAYS_FIRST}'"
+    if not first_ok:
+        first_line += f" (mila: '{steps[0]}')"
+    checked.append(f"{'✅' if first_ok else '❌'} {first_line}")
+
+    last_ok = steps[-1] == pg.ALWAYS_LAST
+    last_line = f"Last step = '{pg.ALWAYS_LAST}'"
+    if not last_ok:
+        last_line += f" (mila: '{steps[-1]}')"
+    checked.append(f"{'✅' if last_ok else '❌'} {last_line}")
+
+    for a, b in pg.PRECEDENCE_EDGES:
+        if a in steps and b in steps:
+            ok = steps.index(a) < steps.index(b)
+            checked.append(f"{'✅' if ok else '❌'} {a} → {b}")
 
     return {
-        "valid": len(errors) == 0,
-        "errors": errors,
+        "valid": valid,
+        "errors": violations,
         "checked_transitions": checked
     }
 
 
+# ════════════════════════════════════════════════════
+# CORRECTION — 2 tarike
+# ════════════════════════════════════════════════════
+
 def fix_sequence(steps: list) -> list:
     """
-    Invalid sequence ko fix karo — basic corrections apply karo.
+    BASIC/FALLBACK correction — sirf structural cheezein (Facing/Inspection
+    missing) theek karta hai. Order-violations FIX NAHI karta (jaise 'Tapping
+    before Drilling') kyunki 32 rules ke against ad-hoc patching unreliable hai.
+
+    Agar original FEATURES pata hain, iski jagah fix_sequence_with_builder()
+    use karo — wo guaranteed complete+valid naya route degi.
     """
     fixed = list(steps)
 
-    # Facing nahi hai toh start mein add karo
-    if not fixed or fixed[0] != "Facing":
-        fixed.insert(0, "Facing")
+    if not fixed or fixed[0] != pg.ALWAYS_FIRST:
+        fixed.insert(0, pg.ALWAYS_FIRST)
 
-    # Inspection nahi hai toh end mein add karo
-    if fixed[-1] != "Inspection":
-        fixed.append("Inspection")
-
-    # Center Drilling ke baad Drilling hona chahiye
-    for i in range(len(fixed) - 1):
-        if fixed[i] == "Center Drilling" and fixed[i+1] != "Drilling":
-            fixed.insert(i+1, "Drilling")
-            break
+    if fixed[-1] != pg.ALWAYS_LAST:
+        fixed.append(pg.ALWAYS_LAST)
 
     return fixed
+
+
+def fix_sequence_with_builder(features: list, max_routes: int = 1) -> list:
+    """
+    RECOMMENDED correction — Self-Correction Loop ka primary mechanism.
+    Agar original features pata hain (jo aksar pata hote hain, kyunki
+    LLM Planner ko bhi wahi features diye gaye the), seedha Route Builder
+    se guaranteed-valid replacement route mangao — ad-hoc guessing nahi.
+    """
+    from route_builder import generate_valid_routes
+    routes = generate_valid_routes(features, max_routes=max_routes)
+    return routes[0] if routes else fix_sequence([])
 
 
 def print_validation(result: dict, title: str = ""):
@@ -95,7 +129,7 @@ def print_validation(result: dict, title: str = ""):
     print(f"{'─'*50}")
     status = "✅ VALID" if result["valid"] else "❌ INVALID"
     print(f"  Status: {status}")
-    print(f"\n  Transitions Checked:")
+    print(f"\n  Checks:")
     for t in result["checked_transitions"]:
         print(f"    {t}")
     if result["errors"]:
@@ -105,22 +139,33 @@ def print_validation(result: dict, title: str = ""):
 
 
 if __name__ == "__main__":
-    # Test 1: Valid sequence
+    # Test 1: Valid sequence (route_builder.py se aaya jaisa)
     seq1 = ["Facing", "Center Drilling", "Drilling", "Reaming", "Inspection"]
     print_validation(validate_sequence(seq1), "Valid Sequence Test")
 
-    # Test 2: Invalid sequence (Reaming before Drilling)
+    # Test 2: Invalid sequence (Reaming before Drilling — asli precedence violation)
     seq2 = ["Facing", "Reaming", "Drilling", "Inspection"]
-    result2 = validate_sequence(seq2)
-    print_validation(result2, "Invalid Sequence Test")
+    print_validation(validate_sequence(seq2), "Invalid Sequence Test")
 
-    # Test 3: Auto-fix karo
+    # Test 3: Naya operation jo purani FSM ke paas exist hi nahi karta tha
+    seq3 = ["Facing", "Center Drilling", "Drilling", "Tapping", "Inspection"]
+    print_validation(validate_sequence(seq3), "New Operation Test (Tapping)")
+
+    # Test 4: Basic fix_sequence() — sirf structural
     print(f"\n{'─'*50}")
-    print("  Auto-Fix Test")
+    print("  fix_sequence() Test (basic/fallback)")
     print(f"{'─'*50}")
-    bad_seq = ["Drilling", "Reaming"]  # Facing aur Inspection missing
+    bad_seq = ["Drilling", "Reaming"]
     fixed = fix_sequence(bad_seq)
     print(f"  Original : {bad_seq}")
     print(f"  Fixed    : {fixed}")
-    result3 = validate_sequence(fixed)
-    print(f"  Status   : {'✅ VALID' if result3['valid'] else '❌ STILL INVALID'}")
+
+    # Test 5: fix_sequence_with_builder() — recommended, features se
+    print(f"\n{'─'*50}")
+    print("  fix_sequence_with_builder() Test (recommended)")
+    print(f"{'─'*50}")
+    fixed2 = fix_sequence_with_builder(["Thread", "Fillet"])
+    print(f"  Features : ['Thread', 'Fillet']")
+    print(f"  Route    : {fixed2}")
+    result5 = validate_sequence(fixed2)
+    print(f"  Status   : {'✅ VALID' if result5['valid'] else '❌ INVALID'}")

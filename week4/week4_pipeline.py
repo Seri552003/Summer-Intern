@@ -1,22 +1,29 @@
 # week4_pipeline.py
 # Week 4 Main — NSGA-II + FSM Validation combined
 # Week 4 | LLM-CAPP Project
+# FIXED: run_nsga2() ko part["features"] pass nahi ho rahe the — matlab
+# har part, uske actual features se independent, sirf 1 trivial route
+# ("Facing -> Inspection", koi machining nahi) pata tha. Ab features
+# properly pass hote hain. Bonus: chunki features ab yahan available hain,
+# FSM correction bhi basic fix_sequence() ki jagah fix_sequence_with_builder()
+# use karta hai — zyada reliable (order-violations bhi fix kar sakta hai).
 
 import sys
 import os
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week1")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week2")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week3")))
 
 from tokenizer import tokenize
-from fsm_validator import validate_sequence, fix_sequence
+from fsm_validator import validate_sequence, fix_sequence_with_builder
 from nsga2 import run_nsga2, print_pareto
 
 
 def process_part_week4(part: dict) -> dict:
     """
     Part ko Week 4 pipeline se guzaro:
-    Tokenize → NSGA-II → FSM Validate → Fix if needed
+    Tokenize -> NSGA-II (feature-aware) -> FSM Validate -> Fix if needed
     """
     print(f"\n{'═'*60}")
     print(f"  Processing: {part.get('part_id', 'PART')} | {part['material']}")
@@ -28,10 +35,10 @@ def process_part_week4(part: dict) -> dict:
         return {"success": False, "errors": token_result["errors"]}
 
     print(f"  Tokens : {token_result['tokens']}")
-    print(f"  Labels : {token_result['token_labels']}")
+    print(f"  Labels : {token_result.get('token_labels', part['features'])}")
 
-    # Step 2: NSGA-II Optimization (Week 4)
-    pareto = run_nsga2(part["material"], part["batch_size"])
+    # Step 2: NSGA-II Optimization (Week 4) — features ab explicitly pass ho rahe hain
+    pareto = run_nsga2(part["material"], part["batch_size"], features=part["features"])
     print(f"\n  NSGA-II Pareto-optimal routes: {len(pareto)}")
 
     # Step 3: FSM Validate each Pareto route
@@ -45,8 +52,8 @@ def process_part_week4(part: dict) -> dict:
             print(f"  ✅ {ind.route_name} → FSM VALID")
         else:
             print(f"  ❌ {ind.route_name} → FSM INVALID")
-            # Auto-fix karo
-            fixed_steps = fix_sequence(ind.steps)
+            # Ab Route Builder-backed fix use karta hai (features available hain)
+            fixed_steps = fix_sequence_with_builder(part["features"])
             fixed_result = validate_sequence(fixed_steps)
             if fixed_result["valid"]:
                 ind.steps = fixed_steps
@@ -67,6 +74,7 @@ def process_part_week4(part: dict) -> dict:
             "success": True,
             "part_id": part.get("part_id", "PART"),
             "material": part["material"],
+            "features": part["features"],
             "tokens": token_result["tokens"],
             "best_route": best.route_name,
             "steps": best.steps,
@@ -83,7 +91,6 @@ def process_part_week4(part: dict) -> dict:
 if __name__ == "__main__":
     print("=== Week 4 Pipeline: NSGA-II + FSM Validation ===")
 
-    # Test Part 1
     part1 = {
         "part_id": "PART_001",
         "material": "Aluminum",
@@ -93,7 +100,6 @@ if __name__ == "__main__":
     }
     result1 = process_part_week4(part1)
 
-    # Test Part 2
     part2 = {
         "part_id": "PART_002",
         "material": "Steel",
@@ -103,7 +109,6 @@ if __name__ == "__main__":
     }
     result2 = process_part_week4(part2)
 
-    # Test Part 3
     part3 = {
         "part_id": "PART_003",
         "material": "Titanium",
@@ -118,7 +123,8 @@ if __name__ == "__main__":
     print(f"{'='*60}")
     for r in [result1, result2, result3]:
         if r["success"]:
-            print(f"  ✅ {r['part_id']} ({r['material']}) → {r['best_route']} | "
+            print(f"  ✅ {r['part_id']} ({r['material']}, {r['features']}) → "
                   f"Time:{r['time_min']}min Cost:${r['cost_usd']} Energy:{r['energy_kwh']}kWh")
+            print(f"     Steps: {' → '.join(r['steps'])}")
         else:
             print(f"  ❌ Failed: {r['errors']}")

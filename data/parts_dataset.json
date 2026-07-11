@@ -1,526 +1,2540 @@
 [
   {
     "part_id": "PART_001",
-    "material": "Plastic",
+    "archetype": "Precision Dowel Pin",
+    "material": "Titanium",
     "features": [
-      "Hole"
+      "Chamfer",
+      "Face"
     ],
-    "tolerance": "0.5mm",
-    "batch_size": 100
+    "tolerance": "0.01mm",
+    "batch_size": 2500
   },
   {
     "part_id": "PART_002",
+    "archetype": "Boss with Spotface",
     "material": "Steel",
     "features": [
-      "Pocket",
-      "Slot"
+      "Boss",
+      "Counterbore",
+      "Hole"
     ],
-    "tolerance": "0.5mm",
-    "batch_size": 1000
+    "tolerance": "0.02mm",
+    "batch_size": 250
   },
   {
     "part_id": "PART_003",
-    "material": "Aluminum",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Steel",
     "features": [
-      "Hole",
-      "Face",
-      "Slot",
-      "Groove"
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_004",
+    "archetype": "Splined Shaft",
+    "material": "Steel",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_005",
+    "archetype": "Precision Dowel Pin",
+    "material": "Steel",
+    "features": [
+      "Chamfer",
+      "Face"
     ],
     "tolerance": "0.01mm",
     "batch_size": 1000
   },
   {
-    "part_id": "PART_004",
-    "material": "Titanium",
-    "features": [
-      "Step"
-    ],
-    "tolerance": "0.01mm",
-    "batch_size": 5000
-  },
-  {
-    "part_id": "PART_005",
-    "material": "Plastic",
-    "features": [
-      "Boss",
-      "Groove",
-      "Thread",
-      "Fillet"
-    ],
-    "tolerance": "0.005mm",
-    "batch_size": 25
-  },
-  {
     "part_id": "PART_006",
-    "material": "Plastic",
+    "archetype": "Tapered Sleeve",
+    "material": "Steel",
     "features": [
-      "Chamfer",
-      "Thread",
-      "Pocket",
-      "Slot"
+      "Taper",
+      "Hole",
+      "Chamfer"
     ],
     "tolerance": "0.02mm",
-    "batch_size": 10
+    "batch_size": 50
   },
   {
     "part_id": "PART_007",
+    "archetype": "Keyed Shaft",
     "material": "Aluminum",
     "features": [
-      "Slot",
-      "Chamfer",
       "Step",
-      "Thread"
+      "Keyway",
+      "Chamfer",
+      "Face"
     ],
     "tolerance": "0.02mm",
-    "batch_size": 5
+    "batch_size": 50
   },
   {
     "part_id": "PART_008",
-    "material": "Plastic",
+    "archetype": "Tapered Sleeve",
+    "material": "Brass",
     "features": [
-      "Step",
-      "Slot",
-      "Fillet",
-      "Hole"
+      "Taper",
+      "Hole",
+      "Chamfer"
     ],
-    "tolerance": "0.1mm",
+    "tolerance": "0.02mm",
     "batch_size": 100
   },
   {
     "part_id": "PART_009",
-    "material": "Cast Iron",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Steel",
     "features": [
-      "Face",
-      "Boss",
-      "Slot"
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
     ],
-    "tolerance": "0.005mm",
-    "batch_size": 5000
+    "tolerance": "0.02mm",
+    "batch_size": 50
   },
   {
     "part_id": "PART_010",
-    "material": "Steel",
+    "archetype": "Flanged Bushing",
+    "material": "Aluminum",
     "features": [
-      "Slot",
-      "Boss",
-      "Face"
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
     ],
     "tolerance": "0.05mm",
     "batch_size": 100
   },
   {
     "part_id": "PART_011",
-    "material": "Copper",
-    "features": [
-      "Pocket",
-      "Chamfer",
-      "Step"
-    ],
-    "tolerance": "0.01mm",
-    "batch_size": 5000
-  },
-  {
-    "part_id": "PART_012",
-    "material": "Brass",
-    "features": [
-      "Face"
-    ],
-    "tolerance": "0.5mm",
-    "batch_size": 25
-  },
-  {
-    "part_id": "PART_013",
-    "material": "Titanium",
-    "features": [
-      "Pocket",
-      "Groove"
-    ],
-    "tolerance": "0.05mm",
-    "batch_size": 100
-  },
-  {
-    "part_id": "PART_014",
-    "material": "Plastic",
-    "features": [
-      "Chamfer",
-      "Hole"
-    ],
-    "tolerance": "0.01mm",
-    "batch_size": 5
-  },
-  {
-    "part_id": "PART_015",
-    "material": "Cast Iron",
-    "features": [
-      "Fillet",
-      "Thread",
-      "Slot"
-    ],
-    "tolerance": "0.01mm",
-    "batch_size": 2500
-  },
-  {
-    "part_id": "PART_016",
-    "material": "Plastic",
-    "features": [
-      "Boss",
-      "Groove",
-      "Fillet"
-    ],
-    "tolerance": "0.5mm",
-    "batch_size": 750
-  },
-  {
-    "part_id": "PART_017",
+    "archetype": "Gear Blank",
     "material": "Steel",
     "features": [
-      "Pocket",
-      "Boss",
-      "Thread"
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
     ],
-    "tolerance": "0.5mm",
-    "batch_size": 2500
-  },
-  {
-    "part_id": "PART_018",
-    "material": "Copper",
-    "features": [
-      "Chamfer",
-      "Boss",
-      "Pocket",
-      "Thread"
-    ],
-    "tolerance": "0.05mm",
+    "tolerance": "0.005mm",
     "batch_size": 10
   },
   {
-    "part_id": "PART_019",
-    "material": "Cast Iron",
-    "features": [
-      "Slot"
-    ],
-    "tolerance": "0.01mm",
-    "batch_size": 5000
-  },
-  {
-    "part_id": "PART_020",
+    "part_id": "PART_012",
+    "archetype": "Mounting Bracket",
     "material": "Steel",
     "features": [
-      "Face",
       "Slot",
-      "Fillet",
-      "Boss"
-    ],
-    "tolerance": "0.1mm",
-    "batch_size": 750
-  },
-  {
-    "part_id": "PART_021",
-    "material": "Titanium",
-    "features": [
-      "Step",
       "Hole",
-      "Slot"
-    ],
-    "tolerance": "0.5mm",
-    "batch_size": 1000
-  },
-  {
-    "part_id": "PART_022",
-    "material": "Cast Iron",
-    "features": [
       "Chamfer",
-      "Slot",
-      "Thread"
-    ],
-    "tolerance": "0.05mm",
-    "batch_size": 25
-  },
-  {
-    "part_id": "PART_023",
-    "material": "Copper",
-    "features": [
-      "Thread"
-    ],
-    "tolerance": "0.1mm",
-    "batch_size": 25
-  },
-  {
-    "part_id": "PART_024",
-    "material": "Titanium",
-    "features": [
-      "Thread"
-    ],
-    "tolerance": "0.5mm",
-    "batch_size": 1000
-  },
-  {
-    "part_id": "PART_025",
-    "material": "Titanium",
-    "features": [
-      "Pocket",
-      "Chamfer"
-    ],
-    "tolerance": "0.01mm",
-    "batch_size": 1000
-  },
-  {
-    "part_id": "PART_026",
-    "material": "Cast Iron",
-    "features": [
       "Face"
-    ],
-    "tolerance": "0.02mm",
-    "batch_size": 750
-  },
-  {
-    "part_id": "PART_027",
-    "material": "Aluminum",
-    "features": [
-      "Chamfer"
-    ],
-    "tolerance": "0.02mm",
-    "batch_size": 50
-  },
-  {
-    "part_id": "PART_028",
-    "material": "Aluminum",
-    "features": [
-      "Face",
-      "Slot"
-    ],
-    "tolerance": "0.005mm",
-    "batch_size": 750
-  },
-  {
-    "part_id": "PART_029",
-    "material": "Cast Iron",
-    "features": [
-      "Step"
-    ],
-    "tolerance": "0.01mm",
-    "batch_size": 25
-  },
-  {
-    "part_id": "PART_030",
-    "material": "Plastic",
-    "features": [
-      "Step",
-      "Pocket",
-      "Thread",
-      "Groove"
     ],
     "tolerance": "0.1mm",
     "batch_size": 500
   },
   {
-    "part_id": "PART_031",
+    "part_id": "PART_013",
+    "archetype": "Boss with Spotface",
     "material": "Steel",
     "features": [
-      "Thread",
-      "Fillet"
+      "Boss",
+      "Counterbore",
+      "Hole"
     ],
-    "tolerance": "0.5mm",
-    "batch_size": 5000
+    "tolerance": "0.02mm",
+    "batch_size": 250
   },
   {
-    "part_id": "PART_032",
-    "material": "Brass",
+    "part_id": "PART_014",
+    "archetype": "Gear Blank",
+    "material": "Steel",
     "features": [
-      "Step",
-      "Groove",
-      "Slot",
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
       "Face"
     ],
-    "tolerance": "0.01mm",
-    "batch_size": 10
-  },
-  {
-    "part_id": "PART_033",
-    "material": "Brass",
-    "features": [
-      "Face"
-    ],
-    "tolerance": "0.1mm",
+    "tolerance": "0.005mm",
     "batch_size": 50
   },
   {
-    "part_id": "PART_034",
-    "material": "Titanium",
-    "features": [
-      "Hole",
-      "Slot"
-    ],
-    "tolerance": "0.5mm",
-    "batch_size": 5000
-  },
-  {
-    "part_id": "PART_035",
+    "part_id": "PART_015",
+    "archetype": "Mounting Bracket",
     "material": "Aluminum",
     "features": [
       "Slot",
-      "Hole"
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_016",
+    "archetype": "Cam Profile Disc",
+    "material": "Steel",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_017",
+    "archetype": "Pocketed Housing",
+    "material": "Steel",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_018",
+    "archetype": "Knurled Grip Handle",
+    "material": "Aluminum",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_019",
+    "archetype": "Cam Profile Disc",
+    "material": "Steel",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
     ],
     "tolerance": "0.02mm",
     "batch_size": 10
   },
   {
-    "part_id": "PART_036",
-    "material": "Titanium",
+    "part_id": "PART_020",
+    "archetype": "Keyed Shaft",
+    "material": "Aluminum",
     "features": [
-      "Thread",
-      "Groove"
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
     ],
     "tolerance": "0.01mm",
-    "batch_size": 1000
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_021",
+    "archetype": "Tapered Sleeve",
+    "material": "Brass",
+    "features": [
+      "Taper",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_022",
+    "archetype": "Precision Dowel Pin",
+    "material": "Titanium",
+    "features": [
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 2500
+  },
+  {
+    "part_id": "PART_023",
+    "archetype": "Hex Bolt",
+    "material": "Steel",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_024",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Aluminum",
+    "features": [
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_025",
+    "archetype": "Flanged Bushing",
+    "material": "Copper",
+    "features": [
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_026",
+    "archetype": "Tapered Sleeve",
+    "material": "Aluminum",
+    "features": [
+      "Taper",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_027",
+    "archetype": "Hex Bolt",
+    "material": "Steel",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 2500
+  },
+  {
+    "part_id": "PART_028",
+    "archetype": "Boss with Spotface",
+    "material": "Cast Iron",
+    "features": [
+      "Boss",
+      "Counterbore",
+      "Hole"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_029",
+    "archetype": "Knurled Grip Handle",
+    "material": "Plastic",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_030",
+    "archetype": "Sealed Housing Cover",
+    "material": "Steel",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_031",
+    "archetype": "Hex Bolt",
+    "material": "Brass",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_032",
+    "archetype": "V-Belt Pulley",
+    "material": "Steel",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_033",
+    "archetype": "Flange Plate",
+    "material": "Aluminum",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_034",
+    "archetype": "Engraved ID Plate",
+    "material": "Aluminum",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_035",
+    "archetype": "V-Belt Pulley",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_036",
+    "archetype": "Cam Profile Disc",
+    "material": "Steel",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
   },
   {
     "part_id": "PART_037",
+    "archetype": "Cam Profile Disc",
     "material": "Steel",
     "features": [
-      "Boss",
-      "Groove",
-      "Fillet",
-      "Slot"
+      "Contour_3D",
+      "Hole",
+      "Keyway"
     ],
-    "tolerance": "0.005mm",
+    "tolerance": "0.02mm",
     "batch_size": 10
   },
   {
     "part_id": "PART_038",
-    "material": "Plastic",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Aluminum",
     "features": [
-      "Chamfer",
-      "Fillet",
       "Step",
-      "Boss"
+      "Groove",
+      "Fillet",
+      "Chamfer"
     ],
-    "tolerance": "0.5mm",
-    "batch_size": 5
+    "tolerance": "0.01mm",
+    "batch_size": 100
   },
   {
     "part_id": "PART_039",
-    "material": "Plastic",
+    "archetype": "Keyed Shaft",
+    "material": "Steel",
     "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_040",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Titanium",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_041",
+    "archetype": "Engraved ID Plate",
+    "material": "Aluminum",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_042",
+    "archetype": "Pocketed Housing",
+    "material": "Steel",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_043",
+    "archetype": "Splined Shaft",
+    "material": "Titanium",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_044",
+    "archetype": "Engraved ID Plate",
+    "material": "Brass",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_045",
+    "archetype": "Sealed Housing Cover",
+    "material": "Steel",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_046",
+    "archetype": "V-Belt Pulley",
+    "material": "Cast Iron",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_047",
+    "archetype": "Mounting Bracket",
+    "material": "Aluminum",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_048",
+    "archetype": "Boss with Spotface",
+    "material": "Cast Iron",
+    "features": [
+      "Boss",
+      "Counterbore",
       "Hole"
     ],
     "tolerance": "0.05mm",
     "batch_size": 250
   },
   {
-    "part_id": "PART_040",
-    "material": "Cast Iron",
+    "part_id": "PART_049",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Steel",
     "features": [
-      "Boss"
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_050",
+    "archetype": "Splined Shaft",
+    "material": "Titanium",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
     ],
     "tolerance": "0.01mm",
     "batch_size": 50
   },
   {
-    "part_id": "PART_041",
+    "part_id": "PART_051",
+    "archetype": "Flange Plate",
+    "material": "Steel",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_052",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Steel",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_053",
+    "archetype": "Hex Bolt",
     "material": "Titanium",
     "features": [
-      "Pocket",
-      "Fillet",
       "Face",
-      "Groove"
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_054",
+    "archetype": "Keyed Shaft",
+    "material": "Steel",
+    "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_055",
+    "archetype": "Gear Blank",
+    "material": "Cast Iron",
+    "features": [
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_056",
+    "archetype": "Sealed Housing Cover",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_057",
+    "archetype": "Keyed Shaft",
+    "material": "Aluminum",
+    "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_058",
+    "archetype": "Keyed Shaft",
+    "material": "Steel",
+    "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_059",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Aluminum",
+    "features": [
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_060",
+    "archetype": "Precision Dowel Pin",
+    "material": "Titanium",
+    "features": [
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_061",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Brass",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_062",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Copper",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_063",
+    "archetype": "Flanged Bushing",
+    "material": "Copper",
+    "features": [
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
     ],
     "tolerance": "0.05mm",
     "batch_size": 50
   },
   {
-    "part_id": "PART_042",
+    "part_id": "PART_064",
+    "archetype": "Sealed Housing Cover",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_065",
+    "archetype": "V-Belt Pulley",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_066",
+    "archetype": "Gear Blank",
     "material": "Cast Iron",
     "features": [
-      "Groove"
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
     ],
-    "tolerance": "0.1mm",
+    "tolerance": "0.01mm",
     "batch_size": 10
   },
   {
-    "part_id": "PART_043",
-    "material": "Aluminum",
+    "part_id": "PART_067",
+    "archetype": "Boss with Spotface",
+    "material": "Steel",
     "features": [
-      "Slot"
-    ],
-    "tolerance": "0.01mm",
-    "batch_size": 25
-  },
-  {
-    "part_id": "PART_044",
-    "material": "Copper",
-    "features": [
-      "Groove",
       "Boss",
-      "Fillet",
+      "Counterbore",
       "Hole"
     ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_068",
+    "archetype": "Gear Blank",
+    "material": "Steel",
+    "features": [
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_069",
+    "archetype": "Engraved ID Plate",
+    "material": "Aluminum",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_070",
+    "archetype": "Precision Dowel Pin",
+    "material": "Steel",
+    "features": [
+      "Chamfer",
+      "Face"
+    ],
     "tolerance": "0.01mm",
+    "batch_size": 2500
+  },
+  {
+    "part_id": "PART_071",
+    "archetype": "Sealed Housing Cover",
+    "material": "Steel",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_072",
+    "archetype": "Flanged Bushing",
+    "material": "Aluminum",
+    "features": [
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_073",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Titanium",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_074",
+    "archetype": "Engraved ID Plate",
+    "material": "Brass",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_075",
+    "archetype": "Hex Bolt",
+    "material": "Steel",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
     "batch_size": 500
   },
   {
-    "part_id": "PART_045",
-    "material": "Aluminum",
-    "features": [
-      "Thread",
-      "Groove",
-      "Face",
-      "Boss"
-    ],
-    "tolerance": "0.5mm",
-    "batch_size": 1000
-  },
-  {
-    "part_id": "PART_046",
-    "material": "Plastic",
+    "part_id": "PART_076",
+    "archetype": "Pocketed Housing",
+    "material": "Steel",
     "features": [
       "Pocket",
-      "Boss",
-      "Thread",
-      "Slot"
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_077",
+    "archetype": "Tapered Sleeve",
+    "material": "Brass",
+    "features": [
+      "Taper",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_078",
+    "archetype": "Flange Plate",
+    "material": "Cast Iron",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_079",
+    "archetype": "Tapered Sleeve",
+    "material": "Steel",
+    "features": [
+      "Taper",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_080",
+    "archetype": "Splined Shaft",
+    "material": "Titanium",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_081",
+    "archetype": "Knurled Grip Handle",
+    "material": "Plastic",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_082",
+    "archetype": "V-Belt Pulley",
+    "material": "Cast Iron",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_083",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Aluminum",
+    "features": [
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_084",
+    "archetype": "Precision Dowel Pin",
+    "material": "Titanium",
+    "features": [
+      "Chamfer",
+      "Face"
     ],
     "tolerance": "0.005mm",
     "batch_size": 2500
   },
   {
-    "part_id": "PART_047",
-    "material": "Plastic",
+    "part_id": "PART_085",
+    "archetype": "Flanged Bushing",
+    "material": "Copper",
     "features": [
-      "Chamfer"
-    ],
-    "tolerance": "0.005mm",
-    "batch_size": 5
-  },
-  {
-    "part_id": "PART_048",
-    "material": "Titanium",
-    "features": [
-      "Step",
+      "Hole",
       "Face",
-      "Pocket",
-      "Hole"
+      "Chamfer",
+      "Counterbore"
     ],
-    "tolerance": "0.1mm",
-    "batch_size": 10
+    "tolerance": "0.05mm",
+    "batch_size": 250
   },
   {
-    "part_id": "PART_049",
+    "part_id": "PART_086",
+    "archetype": "Flange Plate",
     "material": "Cast Iron",
     "features": [
-      "Slot",
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
       "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_087",
+    "archetype": "Hex Bolt",
+    "material": "Brass",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_088",
+    "archetype": "Engraved ID Plate",
+    "material": "Aluminum",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
     ],
     "tolerance": "0.5mm",
     "batch_size": 50
   },
   {
-    "part_id": "PART_050",
+    "part_id": "PART_089",
+    "archetype": "Knurled Grip Handle",
+    "material": "Aluminum",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_090",
+    "archetype": "Mounting Bracket",
+    "material": "Aluminum",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_091",
+    "archetype": "Splined Shaft",
+    "material": "Steel",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_092",
+    "archetype": "Pocketed Housing",
+    "material": "Aluminum",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_093",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Titanium",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_094",
+    "archetype": "Cam Profile Disc",
+    "material": "Steel",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_095",
+    "archetype": "Engraved ID Plate",
+    "material": "Aluminum",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_096",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Aluminum",
+    "features": [
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_097",
+    "archetype": "Flanged Bushing",
+    "material": "Aluminum",
+    "features": [
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_098",
+    "archetype": "Splined Shaft",
+    "material": "Steel",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_099",
+    "archetype": "Sealed Housing Cover",
+    "material": "Steel",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_100",
+    "archetype": "Engraved ID Plate",
+    "material": "Plastic",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_101",
+    "archetype": "Gear Blank",
+    "material": "Cast Iron",
+    "features": [
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_102",
+    "archetype": "Gear Blank",
+    "material": "Steel",
+    "features": [
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_103",
+    "archetype": "Tapered Sleeve",
+    "material": "Aluminum",
+    "features": [
+      "Taper",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_104",
+    "archetype": "Cam Profile Disc",
+    "material": "Cast Iron",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_105",
+    "archetype": "Mounting Bracket",
+    "material": "Steel",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_106",
+    "archetype": "Sealed Housing Cover",
+    "material": "Cast Iron",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_107",
+    "archetype": "Internally Threaded Bushing",
     "material": "Copper",
     "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_108",
+    "archetype": "Splined Shaft",
+    "material": "Titanium",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_109",
+    "archetype": "Sealed Housing Cover",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_110",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Titanium",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_111",
+    "archetype": "Keyed Shaft",
+    "material": "Steel",
+    "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_112",
+    "archetype": "Pocketed Housing",
+    "material": "Aluminum",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_113",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Steel",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_114",
+    "archetype": "Precision Dowel Pin",
+    "material": "Titanium",
+    "features": [
+      "Chamfer",
       "Face"
     ],
     "tolerance": "0.01mm",
     "batch_size": 2500
+  },
+  {
+    "part_id": "PART_115",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Brass",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_116",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Titanium",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_117",
+    "archetype": "Mounting Bracket",
+    "material": "Steel",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_118",
+    "archetype": "Knurled Grip Handle",
+    "material": "Plastic",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_119",
+    "archetype": "Pocketed Housing",
+    "material": "Aluminum",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_120",
+    "archetype": "Boss with Spotface",
+    "material": "Cast Iron",
+    "features": [
+      "Boss",
+      "Counterbore",
+      "Hole"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_121",
+    "archetype": "V-Belt Pulley",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_122",
+    "archetype": "Boss with Spotface",
+    "material": "Steel",
+    "features": [
+      "Boss",
+      "Counterbore",
+      "Hole"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_123",
+    "archetype": "Knurled Grip Handle",
+    "material": "Plastic",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_124",
+    "archetype": "Flange Plate",
+    "material": "Steel",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_125",
+    "archetype": "Engraved ID Plate",
+    "material": "Aluminum",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_126",
+    "archetype": "Pocketed Housing",
+    "material": "Steel",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_127",
+    "archetype": "Mounting Bracket",
+    "material": "Aluminum",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_128",
+    "archetype": "Flange Plate",
+    "material": "Cast Iron",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_129",
+    "archetype": "Gear Blank",
+    "material": "Cast Iron",
+    "features": [
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_130",
+    "archetype": "Splined Shaft",
+    "material": "Titanium",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_131",
+    "archetype": "Boss with Spotface",
+    "material": "Aluminum",
+    "features": [
+      "Boss",
+      "Counterbore",
+      "Hole"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_132",
+    "archetype": "Splined Shaft",
+    "material": "Titanium",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_133",
+    "archetype": "Knurled Grip Handle",
+    "material": "Steel",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_134",
+    "archetype": "Splined Shaft",
+    "material": "Titanium",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_135",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Copper",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_136",
+    "archetype": "Cam Profile Disc",
+    "material": "Steel",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_137",
+    "archetype": "Boss with Spotface",
+    "material": "Aluminum",
+    "features": [
+      "Boss",
+      "Counterbore",
+      "Hole"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_138",
+    "archetype": "Hex Bolt",
+    "material": "Brass",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_139",
+    "archetype": "Tapered Sleeve",
+    "material": "Aluminum",
+    "features": [
+      "Taper",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_140",
+    "archetype": "Cam Profile Disc",
+    "material": "Cast Iron",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_141",
+    "archetype": "Sealed Housing Cover",
+    "material": "Steel",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_142",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Steel",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_143",
+    "archetype": "Pocketed Housing",
+    "material": "Steel",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_144",
+    "archetype": "Engraved ID Plate",
+    "material": "Brass",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_145",
+    "archetype": "Tapered Sleeve",
+    "material": "Aluminum",
+    "features": [
+      "Taper",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_146",
+    "archetype": "Sealed Housing Cover",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_147",
+    "archetype": "Boss with Spotface",
+    "material": "Cast Iron",
+    "features": [
+      "Boss",
+      "Counterbore",
+      "Hole"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_148",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Titanium",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_149",
+    "archetype": "Mounting Bracket",
+    "material": "Steel",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_150",
+    "archetype": "Flanged Bushing",
+    "material": "Copper",
+    "features": [
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_151",
+    "archetype": "Flange Plate",
+    "material": "Steel",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_152",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Aluminum",
+    "features": [
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_153",
+    "archetype": "Keyed Shaft",
+    "material": "Cast Iron",
+    "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_154",
+    "archetype": "V-Belt Pulley",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_155",
+    "archetype": "Pocketed Housing",
+    "material": "Steel",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_156",
+    "archetype": "Knurled Grip Handle",
+    "material": "Aluminum",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_157",
+    "archetype": "Precision Dowel Pin",
+    "material": "Steel",
+    "features": [
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 2500
+  },
+  {
+    "part_id": "PART_158",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Brass",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_159",
+    "archetype": "Hex Bolt",
+    "material": "Steel",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_160",
+    "archetype": "Precision Dowel Pin",
+    "material": "Titanium",
+    "features": [
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.005mm",
+    "batch_size": 2500
+  },
+  {
+    "part_id": "PART_161",
+    "archetype": "Flanged Bushing",
+    "material": "Copper",
+    "features": [
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_162",
+    "archetype": "Mounting Bracket",
+    "material": "Steel",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_163",
+    "archetype": "Gear Blank",
+    "material": "Steel",
+    "features": [
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_164",
+    "archetype": "Boss with Spotface",
+    "material": "Steel",
+    "features": [
+      "Boss",
+      "Counterbore",
+      "Hole"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_165",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Steel",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_166",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Steel",
+    "features": [
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_167",
+    "archetype": "Gear Blank",
+    "material": "Cast Iron",
+    "features": [
+      "Gear_Teeth",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_168",
+    "archetype": "Knurled Grip Handle",
+    "material": "Plastic",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_169",
+    "archetype": "Flange Plate",
+    "material": "Steel",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_170",
+    "archetype": "Splined Shaft",
+    "material": "Steel",
+    "features": [
+      "Spline",
+      "Step",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_171",
+    "archetype": "V-Belt Pulley",
+    "material": "Cast Iron",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_172",
+    "archetype": "Precision Dowel Pin",
+    "material": "Steel",
+    "features": [
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_173",
+    "archetype": "Flanged Bushing",
+    "material": "Copper",
+    "features": [
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_174",
+    "archetype": "Boss with Spotface",
+    "material": "Cast Iron",
+    "features": [
+      "Boss",
+      "Counterbore",
+      "Hole"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_175",
+    "archetype": "Cam Profile Disc",
+    "material": "Steel",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_176",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Titanium",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_177",
+    "archetype": "Flange Plate",
+    "material": "Cast Iron",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_178",
+    "archetype": "Threaded Shaft with Relief Groove",
+    "material": "Steel",
+    "features": [
+      "Thread",
+      "Fillet",
+      "Step"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_179",
+    "archetype": "Stepped Shaft with Retaining Groove",
+    "material": "Steel",
+    "features": [
+      "Step",
+      "Groove",
+      "Fillet",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_180",
+    "archetype": "Hex Bolt",
+    "material": "Steel",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 1000
+  },
+  {
+    "part_id": "PART_181",
+    "archetype": "V-Belt Pulley",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_182",
+    "archetype": "Flange Plate",
+    "material": "Aluminum",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_183",
+    "archetype": "Hex Bolt",
+    "material": "Brass",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 5000
+  },
+  {
+    "part_id": "PART_184",
+    "archetype": "Keyed Shaft",
+    "material": "Aluminum",
+    "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_185",
+    "archetype": "Sealed Housing Cover",
+    "material": "Cast Iron",
+    "features": [
+      "Groove",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_186",
+    "archetype": "Keyed Shaft",
+    "material": "Cast Iron",
+    "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_187",
+    "archetype": "Internally Threaded Bushing",
+    "material": "Copper",
+    "features": [
+      "Thread",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 250
+  },
+  {
+    "part_id": "PART_188",
+    "archetype": "V-Belt Pulley",
+    "material": "Steel",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_189",
+    "archetype": "Tapered Sleeve",
+    "material": "Aluminum",
+    "features": [
+      "Taper",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_190",
+    "archetype": "Keyed Shaft",
+    "material": "Aluminum",
+    "features": [
+      "Step",
+      "Keyway",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_191",
+    "archetype": "Engraved ID Plate",
+    "material": "Plastic",
+    "features": [
+      "Engraved_Mark",
+      "Face",
+      "Hole",
+      "Chamfer"
+    ],
+    "tolerance": "0.5mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_192",
+    "archetype": "Hex Bolt",
+    "material": "Brass",
+    "features": [
+      "Face",
+      "Thread",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_193",
+    "archetype": "Cam Profile Disc",
+    "material": "Steel",
+    "features": [
+      "Contour_3D",
+      "Hole",
+      "Keyway"
+    ],
+    "tolerance": "0.01mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_194",
+    "archetype": "Flanged Bushing",
+    "material": "Brass",
+    "features": [
+      "Hole",
+      "Face",
+      "Chamfer",
+      "Counterbore"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 50
+  },
+  {
+    "part_id": "PART_195",
+    "archetype": "Flange Plate",
+    "material": "Cast Iron",
+    "features": [
+      "Hole",
+      "Counterbore",
+      "Countersink",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_196",
+    "archetype": "Pocketed Housing",
+    "material": "Aluminum",
+    "features": [
+      "Pocket",
+      "Hole",
+      "Counterbore",
+      "Chamfer"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 10
+  },
+  {
+    "part_id": "PART_197",
+    "archetype": "Mounting Bracket",
+    "material": "Steel",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_198",
+    "archetype": "Mounting Bracket",
+    "material": "Steel",
+    "features": [
+      "Slot",
+      "Hole",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.05mm",
+    "batch_size": 500
+  },
+  {
+    "part_id": "PART_199",
+    "archetype": "Knurled Grip Handle",
+    "material": "Aluminum",
+    "features": [
+      "Knurl",
+      "Step",
+      "Chamfer",
+      "Face"
+    ],
+    "tolerance": "0.1mm",
+    "batch_size": 100
+  },
+  {
+    "part_id": "PART_200",
+    "archetype": "V-Belt Pulley",
+    "material": "Aluminum",
+    "features": [
+      "Groove",
+      "Hole",
+      "Keyway",
+      "Face"
+    ],
+    "tolerance": "0.02mm",
+    "batch_size": 250
   }
 ]

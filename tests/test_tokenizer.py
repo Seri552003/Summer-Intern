@@ -86,3 +86,18 @@ def test_mass_production_batch():
     })
     assert result["success"] == True
     assert 404 in result["tokens"]  # mass_production
+
+# Test 7: Naya feature (vocab expansion ke baad) sahi tokenize ho raha hai
+def test_new_feature_taper():
+    result = tokenize({
+        "material":   "Titanium",
+        "features":   ["Taper", "Knurl"],
+        "tolerance":  "0.005mm",
+        "batch_size": 1
+    })
+    assert result["success"] == True
+    assert 205 in result["tokens"]  # Titanium
+    assert 111 in result["tokens"]  # Taper (naya)
+    assert 112 in result["tokens"]  # Knurl (naya)
+    assert 301 in result["tokens"]  # 0.005mm
+    assert 401 in result["tokens"]  # prototype (batch=1)

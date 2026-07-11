@@ -1,20 +1,23 @@
 # run_pipeline.py
-# End-to-End Pipeline: Week 1 (Tokenizer) → Week 2 (LLM Planner) → Week 3 (Multi-Agent Eval)
+# End-to-End Pipeline: Week 1 (Tokenizer) -> Week 2 (Route Builder) -> Week 3 (Multi-Agent Eval)
 # Dataset ke saare parts ko process karta hai
+# FIXED: process_part() features tokenize karne ke baad evaluate_all_routes() ko
+# PASS hi nahi karta tha — isliye har part, uske actual features se independent,
+# legacy (feature-blind, saare 77 routes) mode me evaluate ho raha tha. Yehi wo
+# root cause hai jiski wajah se pipeline ka route-distribution hamesha same
+# route pe converge karta tha ("100% Route_A" jaisa symptom).
 
 import sys
 import os
 import json
 import time
 
-# Week 1, 2, 3 ke modules import karo
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week1")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week2")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "")))
 
-from tokenizer import tokenize           # Week 1
-from routes import ALL_ROUTES            # Week 2
-from multi_agent_eval import evaluate_all_routes, find_best_route   # Week 3
+from tokenizer import tokenize                                      # Week 1
+from multi_agent_eval import evaluate_all_routes, find_best_route   # Week 3 (route_builder.py internally use karta hai)
 
 
 def load_dataset(path: str) -> list:
@@ -26,7 +29,7 @@ def load_dataset(path: str) -> list:
 def process_part(part: dict) -> dict:
     """
     Ek part ko pure pipeline se guzaro:
-    Tokenize → Routes Evaluate → Best Route Select
+    Tokenize -> Feature-aware Route Evaluation -> Best Route Select
     """
     # Step 1: Week 1 — Tokenize
     token_result = tokenize({
@@ -43,16 +46,29 @@ def process_part(part: dict) -> dict:
             "errors": token_result["errors"]
         }
 
-    # Step 2 & 3: Week 2 routes + Week 3 multi-agent evaluation
-    eval_results = evaluate_all_routes(part["material"], part["batch_size"])
+    # Step 2 & 3: features ab explicitly pass ho rahe hain -> route_builder.py
+    # sirf is part ke liye RELEVANT + COMPLETE routes evaluate karega
+    eval_results = evaluate_all_routes(
+        part["material"], part["batch_size"], features=part["features"]
+    )
+
+    if not eval_results:
+        return {
+            "part_id": part["part_id"],
+            "success": False,
+            "errors": [f"Koi valid route nahi ban paya features ke liye: {part['features']}"]
+        }
+
     best = find_best_route(eval_results, "efficiency")
 
     return {
         "part_id": part["part_id"],
         "success": True,
         "material": part["material"],
+        "features": part["features"],
         "tokens": token_result["tokens"],
         "best_route": best["route_name"],
+        "route_steps": best["steps"],
         "time_min": best["time_min"],
         "cost_usd": best["cost_usd"],
         "energy_kwh": best["energy_kwh"],
@@ -97,15 +113,20 @@ def print_summary(results: list):
         print(f"  Average Energy  : {avg_energy:.2f} kWh")
         print(f"  Average Efficiency : {avg_eff:.2f}/100")
 
-        # Route distribution
+        # Route distribution — route_name (jaise "Route_1") har part ke apne
+        # candidate-list me sirf ek POSITION hai, part-to-part unique identifier
+        # nahi. Isliye distribution ACTUAL route steps se banate hain, taaki
+        # genuinely pata chale kitne parts same/alag operation-sequence share
+        # kar rahe hain (naam ke label se confuse na ho).
         route_counts = {}
         for r in results:
             if r["success"]:
-                route_counts[r["best_route"]] = route_counts.get(r["best_route"], 0) + 1
+                route_key = " -> ".join(r["route_steps"])
+                route_counts[route_key] = route_counts.get(route_key, 0) + 1
 
-        print(f"\n  Best Route Distribution:")
-        for route, count in sorted(route_counts.items()):
-            print(f"    {route} : {count} parts ({count/success_count*100:.1f}%)")
+        print(f"\n  Best Route Distribution (by actual operation-sequence):")
+        for route_key, count in sorted(route_counts.items(), key=lambda x: -x[1]):
+            print(f"    {count/success_count*100:5.1f}% ({count} parts) : {route_key}")
 
     print(f"{'='*60}")
 
@@ -130,17 +151,15 @@ if __name__ == "__main__":
     elapsed = time.time() - start_time
     print(f"\n⏱ Total Pipeline Time: {elapsed:.2f} seconds")
 
-    # Save results
     output_path = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "../data/pipeline_results.json")
     )
     save_results(results, output_path)
 
-    # Show first 3 results as sample
     print(f"\n📋 Sample Results (first 3):")
     for r in results[:3]:
         if r["success"]:
-            print(f"  {r['part_id']} ({r['material']}) → {r['best_route']} | "
+            print(f"  {r['part_id']} ({r['material']}, {r['features']}) → {r['best_route']} | "
                   f"Time:{r['time_min']}min Cost:${r['cost_usd']} Eff:{r['efficiency_score']}")
         else:
             print(f"  {r['part_id']} → FAILED: {r['errors']}")

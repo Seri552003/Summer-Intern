@@ -1,10 +1,16 @@
 # week5_pipeline.py
 # Week 5 Main — Error Detection + Self-Correction Loop
 # Week 5 | LLM-CAPP Project
+# FIXED: (1) run_nsga2() ko part["features"] pass nahi ho rahe the — same
+# class ka bug jo run_pipeline.py aur week4_pipeline.py me mila tha. (2)
+# self_correct() ko bhi features pass nahi ho rahe the, isliye agar kabhi
+# correction trigger hota, weaker fallback method (order-violations fix
+# nahi kar sakta) use hota, jabki features yahan available hain.
 
 import sys
 import os
 import json
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week1")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week2")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week3")))
@@ -20,7 +26,7 @@ from self_corrector import self_correct
 def process_part_week5(part: dict) -> dict:
     """
     Complete Week 5 pipeline:
-    Tokenize → NSGA-II → FSM Check → Error Detect → Self-Correct
+    Tokenize -> NSGA-II (feature-aware) -> FSM Check -> Error Detect -> Self-Correct
     """
     print(f"\n{'═'*60}")
     print(f"  Part: {part.get('part_id','PART')} | {part['material']}")
@@ -31,8 +37,8 @@ def process_part_week5(part: dict) -> dict:
     if not token_result["success"]:
         return {"success": False, "errors": token_result["errors"]}
 
-    # Step 2: NSGA-II — best routes nikalo
-    pareto = run_nsga2(part["material"], part["batch_size"])
+    # Step 2: NSGA-II — features ab explicitly pass ho rahe hain
+    pareto = run_nsga2(part["material"], part["batch_size"], features=part["features"])
 
     final_results = []
 
@@ -55,11 +61,11 @@ def process_part_week5(part: dict) -> dict:
             error_report = detect_errors(steps)
             print(f"  ❌ {ind.route_name} → {len(error_report['errors'])} error(s) — attempting self-correction...")
 
-            # Step 5: Self-Correction
-            correction = self_correct(steps, verbose=False)
+            # Step 5: Self-Correction — features pass karke Route-Builder-backed fix use karta hai
+            correction = self_correct(steps, features=part["features"], verbose=False)
 
             if correction["success"]:
-                print(f"  🔧 {ind.route_name} → Corrected: {' → '.join(correction['corrected'])}")
+                print(f"  🔧 {ind.route_name} → Corrected ({correction['method']}): {' → '.join(correction['corrected'])}")
                 final_results.append({
                     "route": ind.route_name,
                     "steps": correction["corrected"],
@@ -83,6 +89,7 @@ def process_part_week5(part: dict) -> dict:
             "success": True,
             "part_id": part.get("part_id", "PART"),
             "material": part["material"],
+            "features": part["features"],
             "best_route": best["route"],
             "steps": best["steps"],
             "time_min": t,
@@ -104,7 +111,7 @@ def run_week5_on_dataset(dataset_path: str) -> list:
 
     print(f"\n🚀 Running Week 5 pipeline on {len(dataset)} parts...\n")
 
-    for part in dataset[:10]:  # Pehle 10 parts pe test karo
+    for part in dataset[:10]:
         result = process_part_week5(part)
         results.append(result)
         if result.get("was_corrected"):
@@ -124,7 +131,6 @@ def run_week5_on_dataset(dataset_path: str) -> list:
 if __name__ == "__main__":
     print("=== Week 5 Pipeline: Error Detection + Self-Correction ===")
 
-    # Single part test
     part1 = {
         "part_id": "PART_TEST",
         "material": "Aluminum",
@@ -134,7 +140,6 @@ if __name__ == "__main__":
     }
     result = process_part_week5(part1)
 
-    # Dataset pe chalao
     dataset_path = os.path.abspath(
         os.path.join(os.path.dirname(__file__), "../data/parts_dataset.json")
     )

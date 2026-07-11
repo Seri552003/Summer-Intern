@@ -3,26 +3,28 @@
     {
       "success": true,
       "part_id": "PART_001",
-      "material": "Plastic",
+      "material": "Titanium",
       "features": [
-        "Hole"
+        "Chamfer",
+        "Face"
       ],
       "tokens": [
-        206,
-        101,
-        306,
-        403
+        205,
+        106,
+        110,
+        302,
+        404
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 18.0,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.06,
+      "time_min": 23.4,
+      "cost_usd": 46.75,
+      "energy_kwh": 1.1,
+      "efficiency_score": 72.67,
       "was_corrected": false
     },
     {
@@ -30,144 +32,155 @@
       "part_id": "PART_002",
       "material": "Steel",
       "features": [
-        "Pocket",
-        "Slot"
+        "Boss",
+        "Counterbore",
+        "Hole"
       ],
       "tokens": [
         202,
-        103,
-        102,
-        306,
-        404
+        104,
+        113,
+        101,
+        303,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Profile Milling",
         "Drilling",
+        "Counterboring",
         "Inspection"
       ],
-      "time_min": 25.2,
-      "cost_usd": 38.25,
-      "energy_kwh": 1.36,
-      "efficiency_score": 72.92,
+      "time_min": 46.2,
+      "cost_usd": 86.94,
+      "energy_kwh": 2.64,
+      "efficiency_score": 45.14,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_003",
-      "material": "Aluminum",
+      "material": "Steel",
       "features": [
-        "Hole",
-        "Face",
-        "Slot",
-        "Groove"
+        "Thread",
+        "Fillet",
+        "Step"
       ],
       "tokens": [
-        201,
-        101,
-        110,
-        102,
-        108,
+        202,
+        105,
+        107,
+        109,
         302,
-        404
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Corner Rounding/Filleting",
+        "Step Turning",
+        "External Threading",
         "Inspection"
       ],
-      "time_min": 18.0,
-      "cost_usd": 25.5,
-      "energy_kwh": 0.85,
-      "efficiency_score": 81.75,
+      "time_min": 42.0,
+      "cost_usd": 87.0,
+      "energy_kwh": 2.21,
+      "efficiency_score": 48.95,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_004",
-      "material": "Titanium",
+      "material": "Steel",
       "features": [
-        "Step"
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
       ],
       "tokens": [
-        205,
+        202,
+        116,
         109,
-        302,
-        404
+        107,
+        106,
+        301,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Step Turning",
+        "Chamfering",
+        "Corner Rounding/Filleting",
+        "Gear/Spline Milling",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 63.75,
-      "energy_kwh": 1.87,
-      "efficiency_score": 60.69,
+      "time_min": 56.0,
+      "cost_usd": 109.5,
+      "energy_kwh": 2.85,
+      "efficiency_score": 34.15,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_005",
-      "material": "Plastic",
+      "material": "Steel",
       "features": [
-        "Boss",
-        "Groove",
-        "Thread",
-        "Fillet"
+        "Chamfer",
+        "Face"
       ],
       "tokens": [
-        206,
-        104,
-        108,
-        105,
-        107,
-        301,
-        402
+        202,
+        106,
+        110,
+        302,
+        404
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 18.0,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.06,
+      "time_min": 18.2,
+      "cost_usd": 28.05,
+      "energy_kwh": 0.8,
+      "efficiency_score": 81.24,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_006",
-      "material": "Plastic",
+      "material": "Steel",
       "features": [
-        "Chamfer",
-        "Thread",
-        "Pocket",
-        "Slot"
+        "Taper",
+        "Hole",
+        "Chamfer"
       ],
       "tokens": [
-        206,
+        202,
+        111,
+        101,
         106,
-        105,
-        103,
-        102,
         303,
-        401
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Taper Turning",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 18.0,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.06,
+      "time_min": 47.6,
+      "cost_usd": 93.0,
+      "energy_kwh": 2.69,
+      "efficiency_score": 42.71,
       "was_corrected": false
     },
     {
@@ -175,285 +188,332 @@
       "part_id": "PART_007",
       "material": "Aluminum",
       "features": [
-        "Slot",
-        "Chamfer",
         "Step",
-        "Thread"
+        "Keyway",
+        "Chamfer",
+        "Face"
       ],
       "tokens": [
         201,
-        102,
-        106,
         109,
-        105,
+        115,
+        106,
+        110,
         303,
-        401
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Woodruff Keyway Milling",
+        "Chamfering",
+        "Step Turning",
         "Inspection"
       ],
-      "time_min": 18.0,
-      "cost_usd": 30.0,
-      "energy_kwh": 0.85,
-      "efficiency_score": 80.55,
+      "time_min": 27.0,
+      "cost_usd": 49.0,
+      "energy_kwh": 1.2,
+      "efficiency_score": 70.13,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_008",
-      "material": "Plastic",
+      "material": "Brass",
       "features": [
-        "Step",
-        "Slot",
-        "Fillet",
-        "Hole"
+        "Taper",
+        "Hole",
+        "Chamfer"
       ],
       "tokens": [
-        206,
-        109,
-        102,
-        107,
+        203,
+        111,
         101,
-        305,
+        106,
+        303,
         403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Taper Turning",
+        "Center Drilling",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 18.0,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.06,
+      "time_min": 37.4,
+      "cost_usd": 74.4,
+      "energy_kwh": 1.85,
+      "efficiency_score": 55.95,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_009",
-      "material": "Cast Iron",
+      "material": "Steel",
       "features": [
-        "Face",
-        "Boss",
-        "Slot"
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
       ],
       "tokens": [
-        207,
-        110,
-        104,
-        102,
-        301,
-        404
+        202,
+        109,
+        108,
+        107,
+        106,
+        303,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Step Turning",
+        "Grooving/Necking",
+        "Corner Rounding/Filleting",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 23.4,
-      "cost_usd": 35.7,
-      "energy_kwh": 1.27,
-      "efficiency_score": 74.77,
+      "time_min": 44.8,
+      "cost_usd": 90.0,
+      "energy_kwh": 2.29,
+      "efficiency_score": 46.63,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_010",
-      "material": "Steel",
+      "material": "Aluminum",
       "features": [
-        "Slot",
-        "Boss",
-        "Face"
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
       ],
       "tokens": [
-        202,
-        102,
-        104,
+        201,
+        101,
         110,
+        106,
+        113,
         304,
         403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
         "Drilling",
+        "Counterboring",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 25.2,
-      "cost_usd": 45.0,
-      "energy_kwh": 1.36,
-      "efficiency_score": 71.12,
+      "time_min": 28.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.4,
+      "efficiency_score": 67.13,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_011",
-      "material": "Copper",
+      "material": "Steel",
       "features": [
-        "Pocket",
-        "Chamfer",
-        "Step"
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
       ],
       "tokens": [
-        204,
-        103,
-        106,
-        109,
-        302,
-        404
+        202,
+        117,
+        101,
+        115,
+        110,
+        301,
+        401
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Gear/Spline Milling",
+        "Woodruff Keyway Milling",
         "Drilling",
         "Inspection"
       ],
-      "time_min": 16.2,
-      "cost_usd": 33.15,
-      "energy_kwh": 0.81,
-      "efficiency_score": 80.63,
+      "time_min": 56.0,
+      "cost_usd": 112.5,
+      "energy_kwh": 3.12,
+      "efficiency_score": 32.0,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_012",
-      "material": "Brass",
+      "material": "Steel",
       "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
         "Face"
       ],
       "tokens": [
-        203,
+        202,
+        102,
+        101,
+        106,
         110,
-        306,
-        402
+        305,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Slot Milling",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 19.8,
-      "cost_usd": 36.0,
-      "energy_kwh": 0.94,
-      "efficiency_score": 77.78,
+      "time_min": 43.4,
+      "cost_usd": 81.42,
+      "energy_kwh": 2.48,
+      "efficiency_score": 48.53,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_013",
-      "material": "Titanium",
+      "material": "Steel",
       "features": [
-        "Pocket",
-        "Groove"
+        "Boss",
+        "Counterbore",
+        "Hole"
       ],
       "tokens": [
-        205,
-        103,
-        108,
-        304,
+        202,
+        104,
+        113,
+        101,
+        303,
         403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Profile Milling",
+        "Center Drilling",
         "Drilling",
+        "Counterboring",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 75.0,
-      "energy_kwh": 1.87,
-      "efficiency_score": 57.69,
+      "time_min": 46.2,
+      "cost_usd": 86.94,
+      "energy_kwh": 2.64,
+      "efficiency_score": 45.14,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_014",
-      "material": "Plastic",
+      "material": "Steel",
       "features": [
-        "Chamfer",
-        "Hole"
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
       ],
       "tokens": [
-        206,
-        106,
+        202,
+        117,
         101,
-        302,
-        401
+        115,
+        110,
+        301,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Gear/Spline Milling",
+        "Center Drilling",
+        "Woodruff Keyway Milling",
         "Drilling",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 18.0,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.06,
+      "time_min": 56.0,
+      "cost_usd": 112.5,
+      "energy_kwh": 3.12,
+      "efficiency_score": 32.0,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_015",
-      "material": "Cast Iron",
+      "material": "Aluminum",
       "features": [
-        "Fillet",
-        "Thread",
-        "Slot"
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
       ],
       "tokens": [
-        207,
-        107,
-        105,
+        201,
         102,
-        302,
+        101,
+        106,
+        110,
+        306,
         404
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Slot Milling",
+        "Center Drilling",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 23.4,
-      "cost_usd": 35.7,
-      "energy_kwh": 1.27,
-      "efficiency_score": 74.77,
+      "time_min": 31.0,
+      "cost_usd": 50.15,
+      "energy_kwh": 1.55,
+      "efficiency_score": 66.48,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_016",
-      "material": "Plastic",
+      "material": "Steel",
       "features": [
-        "Boss",
-        "Groove",
-        "Fillet"
+        "Contour_3D",
+        "Hole",
+        "Keyway"
       ],
       "tokens": [
-        206,
-        104,
-        108,
-        107,
-        306,
-        403
+        202,
+        118,
+        101,
+        115,
+        302,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_13",
       "steps": [
         "Facing",
+        "Profile Milling",
+        "Woodruff Keyway Milling",
+        "Center Drilling",
         "Drilling",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 15.3,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.78,
+      "time_min": 47.6,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.72,
+      "efficiency_score": 41.76,
       "was_corrected": false
     },
     {
@@ -462,492 +522,584 @@
       "material": "Steel",
       "features": [
         "Pocket",
-        "Boss",
-        "Thread"
+        "Hole",
+        "Counterbore",
+        "Chamfer"
       ],
       "tokens": [
         202,
         103,
-        104,
-        105,
-        306,
-        404
+        101,
+        113,
+        106,
+        303,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Pocket Milling",
+        "Center Drilling",
         "Drilling",
+        "Counterboring",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 25.2,
-      "cost_usd": 38.25,
-      "energy_kwh": 1.36,
-      "efficiency_score": 72.92,
+      "time_min": 51.8,
+      "cost_usd": 106.5,
+      "energy_kwh": 2.96,
+      "efficiency_score": 36.08,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_018",
-      "material": "Copper",
+      "material": "Aluminum",
       "features": [
+        "Knurl",
+        "Step",
         "Chamfer",
-        "Boss",
-        "Pocket",
-        "Thread"
+        "Face"
       ],
       "tokens": [
-        204,
+        201,
+        112,
+        109,
         106,
-        104,
-        103,
-        105,
+        110,
         304,
-        401
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Step Turning",
+        "Knurling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 16.2,
-      "cost_usd": 39.0,
-      "energy_kwh": 0.81,
-      "efficiency_score": 79.07,
+      "time_min": 25.0,
+      "cost_usd": 42.32,
+      "energy_kwh": 1.1,
+      "efficiency_score": 73.21,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_019",
-      "material": "Cast Iron",
+      "material": "Steel",
       "features": [
-        "Slot"
+        "Contour_3D",
+        "Hole",
+        "Keyway"
       ],
       "tokens": [
-        207,
-        102,
-        302,
-        404
+        202,
+        118,
+        101,
+        115,
+        303,
+        401
       ],
-      "route": "Route_B2",
+      "route": "Route_13",
       "steps": [
         "Facing",
+        "Woodruff Keyway Milling",
+        "Profile Milling",
+        "Center Drilling",
         "Drilling",
         "Inspection"
       ],
-      "time_min": 23.4,
-      "cost_usd": 35.7,
-      "energy_kwh": 1.27,
-      "efficiency_score": 74.77,
+      "time_min": 47.6,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.72,
+      "efficiency_score": 41.76,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_020",
-      "material": "Steel",
+      "material": "Aluminum",
       "features": [
-        "Face",
-        "Slot",
-        "Fillet",
-        "Boss"
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
       ],
       "tokens": [
-        202,
+        201,
+        109,
+        115,
+        106,
         110,
-        102,
-        107,
-        104,
-        305,
-        403
+        302,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Chamfering",
+        "Step Turning",
+        "Woodruff Keyway Milling",
         "Inspection"
       ],
-      "time_min": 25.2,
-      "cost_usd": 38.25,
-      "energy_kwh": 1.36,
-      "efficiency_score": 72.92,
+      "time_min": 27.0,
+      "cost_usd": 49.0,
+      "energy_kwh": 1.2,
+      "efficiency_score": 70.13,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_021",
-      "material": "Titanium",
+      "material": "Brass",
       "features": [
-        "Step",
+        "Taper",
         "Hole",
-        "Slot"
+        "Chamfer"
       ],
       "tokens": [
-        205,
-        109,
+        203,
+        111,
         101,
-        102,
-        306,
-        404
+        106,
+        303,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Taper Turning",
+        "Center Drilling",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 63.75,
-      "energy_kwh": 1.87,
-      "efficiency_score": 60.69,
+      "time_min": 37.4,
+      "cost_usd": 74.4,
+      "energy_kwh": 1.85,
+      "efficiency_score": 55.95,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_022",
-      "material": "Cast Iron",
+      "material": "Titanium",
       "features": [
         "Chamfer",
-        "Slot",
-        "Thread"
+        "Face"
       ],
       "tokens": [
-        207,
+        205,
         106,
-        102,
-        105,
-        304,
-        402
+        110,
+        302,
+        404
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Chamfering",
         "Inspection"
       ],
       "time_min": 23.4,
-      "cost_usd": 42.0,
-      "energy_kwh": 1.27,
-      "efficiency_score": 73.09,
+      "cost_usd": 46.75,
+      "energy_kwh": 1.1,
+      "efficiency_score": 72.67,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_023",
-      "material": "Copper",
+      "material": "Steel",
       "features": [
-        "Thread"
+        "Face",
+        "Thread",
+        "Chamfer"
       ],
       "tokens": [
-        204,
+        202,
+        110,
         105,
-        305,
-        402
+        106,
+        303,
+        404
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "External Threading",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 16.2,
-      "cost_usd": 39.0,
-      "energy_kwh": 0.81,
-      "efficiency_score": 79.07,
+      "time_min": 28.0,
+      "cost_usd": 51.0,
+      "energy_kwh": 1.44,
+      "efficiency_score": 68.0,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_024",
-      "material": "Titanium",
+      "material": "Aluminum",
       "features": [
-        "Thread"
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
       ],
       "tokens": [
-        205,
-        105,
-        306,
-        404
+        201,
+        109,
+        108,
+        107,
+        106,
+        302,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "Grooving/Necking",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 63.75,
-      "energy_kwh": 1.87,
-      "efficiency_score": 60.69,
+      "time_min": 32.0,
+      "cost_usd": 60.0,
+      "energy_kwh": 1.43,
+      "efficiency_score": 64.05,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_025",
-      "material": "Titanium",
+      "material": "Copper",
       "features": [
-        "Pocket",
-        "Chamfer"
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
       ],
       "tokens": [
-        205,
-        103,
+        204,
+        101,
+        110,
         106,
-        302,
-        404
+        113,
+        303,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
         "Drilling",
+        "Counterboring",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 63.75,
-      "energy_kwh": 1.87,
-      "efficiency_score": 60.69,
+      "time_min": 25.2,
+      "cost_usd": 65.78,
+      "energy_kwh": 1.33,
+      "efficiency_score": 65.73,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_026",
-      "material": "Cast Iron",
+      "material": "Aluminum",
       "features": [
-        "Face"
+        "Taper",
+        "Hole",
+        "Chamfer"
       ],
       "tokens": [
-        207,
-        110,
+        201,
+        111,
+        101,
+        106,
         303,
-        403
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Taper Turning",
+        "Center Drilling",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 23.4,
-      "cost_usd": 35.7,
-      "energy_kwh": 1.27,
-      "efficiency_score": 74.77,
+      "time_min": 34.0,
+      "cost_usd": 62.0,
+      "energy_kwh": 1.68,
+      "efficiency_score": 61.47,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_027",
-      "material": "Aluminum",
+      "material": "Steel",
       "features": [
+        "Face",
+        "Thread",
         "Chamfer"
       ],
       "tokens": [
-        201,
+        202,
+        110,
+        105,
         106,
-        303,
-        402
+        304,
+        404
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "External Threading",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 18.0,
-      "cost_usd": 30.0,
-      "energy_kwh": 0.85,
-      "efficiency_score": 80.55,
+      "time_min": 28.0,
+      "cost_usd": 51.0,
+      "energy_kwh": 1.44,
+      "efficiency_score": 68.0,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_028",
-      "material": "Aluminum",
+      "material": "Cast Iron",
       "features": [
-        "Face",
-        "Slot"
+        "Boss",
+        "Counterbore",
+        "Hole"
       ],
       "tokens": [
-        201,
-        110,
-        102,
-        301,
+        207,
+        104,
+        113,
+        101,
+        303,
         403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Profile Milling",
         "Drilling",
+        "Counterboring",
         "Inspection"
       ],
-      "time_min": 18.0,
-      "cost_usd": 25.5,
-      "energy_kwh": 0.85,
-      "efficiency_score": 81.75,
+      "time_min": 42.9,
+      "cost_usd": 88.2,
+      "energy_kwh": 2.48,
+      "efficiency_score": 46.92,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_029",
-      "material": "Cast Iron",
+      "material": "Plastic",
       "features": [
-        "Step"
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
       ],
       "tokens": [
-        207,
+        206,
+        112,
         109,
-        302,
-        402
+        106,
+        110,
+        304,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Step Turning",
+        "Knurling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 23.4,
-      "cost_usd": 42.0,
-      "energy_kwh": 1.27,
-      "efficiency_score": 73.09,
+      "time_min": 17.5,
+      "cost_usd": 25.39,
+      "energy_kwh": 0.55,
+      "efficiency_score": 83.48,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_030",
-      "material": "Plastic",
+      "material": "Steel",
       "features": [
-        "Step",
-        "Pocket",
-        "Thread",
-        "Groove"
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
       ],
       "tokens": [
-        206,
-        109,
-        103,
-        105,
+        202,
         108,
-        305,
+        110,
+        101,
+        106,
+        304,
         403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Grooving/Necking",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 16.56,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.44,
+      "time_min": 42.0,
+      "cost_usd": 80.04,
+      "energy_kwh": 2.4,
+      "efficiency_score": 49.86,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_031",
-      "material": "Steel",
+      "material": "Brass",
       "features": [
+        "Face",
         "Thread",
-        "Fillet"
+        "Chamfer"
       ],
       "tokens": [
-        202,
+        203,
+        110,
         105,
-        107,
-        306,
-        404
+        106,
+        303,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "External Threading",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 25.2,
-      "cost_usd": 38.25,
-      "energy_kwh": 1.36,
-      "efficiency_score": 72.92,
+      "time_min": 22.0,
+      "cost_usd": 44.16,
+      "energy_kwh": 0.99,
+      "efficiency_score": 74.47,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_032",
-      "material": "Brass",
+      "material": "Steel",
       "features": [
-        "Step",
         "Groove",
-        "Slot",
+        "Hole",
+        "Keyway",
         "Face"
       ],
       "tokens": [
-        203,
-        109,
+        202,
         108,
-        102,
+        101,
+        115,
         110,
-        302,
-        401
+        303,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Grooving/Necking",
+        "Center Drilling",
         "Drilling",
+        "Woodruff Keyway Milling",
         "Inspection"
       ],
-      "time_min": 19.8,
-      "cost_usd": 36.0,
-      "energy_kwh": 0.94,
-      "efficiency_score": 77.78,
+      "time_min": 44.8,
+      "cost_usd": 85.56,
+      "energy_kwh": 2.56,
+      "efficiency_score": 46.46,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_033",
-      "material": "Brass",
+      "material": "Aluminum",
       "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
         "Face"
       ],
       "tokens": [
-        203,
+        201,
+        101,
+        113,
+        114,
+        106,
         110,
         305,
-        402
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
         "Drilling",
+        "Countersinking",
+        "Chamfering",
+        "Counterboring",
         "Inspection"
       ],
-      "time_min": 19.8,
-      "cost_usd": 36.0,
-      "energy_kwh": 0.94,
-      "efficiency_score": 77.78,
+      "time_min": 31.0,
+      "cost_usd": 58.88,
+      "energy_kwh": 1.58,
+      "efficiency_score": 64.0,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_034",
-      "material": "Titanium",
+      "material": "Aluminum",
       "features": [
+        "Engraved_Mark",
+        "Face",
         "Hole",
-        "Slot"
+        "Chamfer"
       ],
       "tokens": [
-        205,
+        201,
+        119,
+        110,
         101,
-        102,
+        106,
         306,
-        404
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
         "Drilling",
+        "Chamfering",
+        "Engraving",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 63.75,
-      "energy_kwh": 1.87,
-      "efficiency_score": 60.69,
+      "time_min": 30.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.35,
+      "efficiency_score": 66.58,
       "was_corrected": false
     },
     {
@@ -955,53 +1107,65 @@
       "part_id": "PART_035",
       "material": "Aluminum",
       "features": [
-        "Slot",
-        "Hole"
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
       ],
       "tokens": [
         201,
-        102,
+        108,
         101,
+        115,
+        110,
         303,
-        401
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Woodruff Keyway Milling",
+        "Grooving/Necking",
+        "Center Drilling",
         "Drilling",
         "Inspection"
       ],
-      "time_min": 18.0,
-      "cost_usd": 30.0,
-      "energy_kwh": 0.85,
-      "efficiency_score": 80.55,
+      "time_min": 32.0,
+      "cost_usd": 62.0,
+      "energy_kwh": 1.6,
+      "efficiency_score": 62.67,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_036",
-      "material": "Titanium",
+      "material": "Steel",
       "features": [
-        "Thread",
-        "Groove"
+        "Contour_3D",
+        "Hole",
+        "Keyway"
       ],
       "tokens": [
-        205,
-        105,
-        108,
-        302,
-        404
+        202,
+        118,
+        101,
+        115,
+        303,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_13",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Woodruff Keyway Milling",
+        "Profile Milling",
         "Drilling",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 63.75,
-      "energy_kwh": 1.87,
-      "efficiency_score": 60.69,
+      "time_min": 47.6,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.72,
+      "efficiency_score": 41.76,
       "was_corrected": false
     },
     {
@@ -1009,408 +1173,5541 @@
       "part_id": "PART_037",
       "material": "Steel",
       "features": [
-        "Boss",
-        "Groove",
-        "Fillet",
-        "Slot"
+        "Contour_3D",
+        "Hole",
+        "Keyway"
       ],
       "tokens": [
         202,
-        104,
-        108,
-        107,
-        102,
-        301,
+        118,
+        101,
+        115,
+        303,
         401
       ],
-      "route": "Route_B2",
+      "route": "Route_13",
       "steps": [
         "Facing",
+        "Profile Milling",
+        "Woodruff Keyway Milling",
+        "Center Drilling",
         "Drilling",
         "Inspection"
       ],
-      "time_min": 25.2,
-      "cost_usd": 45.0,
-      "energy_kwh": 1.36,
-      "efficiency_score": 71.12,
+      "time_min": 47.6,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.72,
+      "efficiency_score": 41.76,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_038",
-      "material": "Plastic",
+      "material": "Aluminum",
       "features": [
-        "Chamfer",
-        "Fillet",
         "Step",
-        "Boss"
+        "Groove",
+        "Fillet",
+        "Chamfer"
       ],
       "tokens": [
-        206,
-        106,
-        107,
+        201,
         109,
-        104,
-        306,
-        401
+        108,
+        107,
+        106,
+        302,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Grooving/Necking",
+        "Chamfering",
+        "Corner Rounding/Filleting",
+        "Step Turning",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 18.0,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.06,
+      "time_min": 32.0,
+      "cost_usd": 60.0,
+      "energy_kwh": 1.43,
+      "efficiency_score": 64.05,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_039",
-      "material": "Plastic",
+      "material": "Steel",
       "features": [
-        "Hole"
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
       ],
       "tokens": [
-        206,
-        101,
-        304,
-        403
+        202,
+        109,
+        115,
+        106,
+        110,
+        302,
+        401
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Woodruff Keyway Milling",
+        "Step Turning",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 16.56,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.44,
+      "time_min": 37.8,
+      "cost_usd": 73.5,
+      "energy_kwh": 1.92,
+      "efficiency_score": 55.68,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_040",
-      "material": "Cast Iron",
+      "material": "Titanium",
       "features": [
-        "Boss"
+        "Thread",
+        "Fillet",
+        "Step"
       ],
       "tokens": [
-        207,
-        104,
-        302,
-        402
+        205,
+        105,
+        107,
+        109,
+        303,
+        401
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "External Threading",
         "Inspection"
       ],
-      "time_min": 23.4,
-      "cost_usd": 42.0,
-      "energy_kwh": 1.27,
-      "efficiency_score": 73.09,
+      "time_min": 54.0,
+      "cost_usd": 145.0,
+      "energy_kwh": 3.04,
+      "efficiency_score": 29.87,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_041",
-      "material": "Titanium",
+      "material": "Aluminum",
       "features": [
-        "Pocket",
-        "Fillet",
+        "Engraved_Mark",
         "Face",
-        "Groove"
+        "Hole",
+        "Chamfer"
       ],
       "tokens": [
-        205,
-        103,
-        107,
+        201,
+        119,
         110,
-        108,
-        304,
-        402
+        101,
+        106,
+        306,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Engraving",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 75.0,
-      "energy_kwh": 1.87,
-      "efficiency_score": 57.69,
+      "time_min": 30.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.35,
+      "efficiency_score": 66.58,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_042",
-      "material": "Cast Iron",
+      "material": "Steel",
       "features": [
-        "Groove"
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
       ],
       "tokens": [
-        207,
-        108,
-        305,
-        401
+        202,
+        103,
+        101,
+        113,
+        106,
+        304,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Pocket Milling",
         "Drilling",
+        "Counterboring",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 23.4,
-      "cost_usd": 42.0,
-      "energy_kwh": 1.27,
-      "efficiency_score": 73.09,
+      "time_min": 51.8,
+      "cost_usd": 106.5,
+      "energy_kwh": 2.96,
+      "efficiency_score": 36.08,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_043",
-      "material": "Aluminum",
+      "material": "Titanium",
       "features": [
-        "Slot"
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
       ],
       "tokens": [
-        201,
-        102,
-        302,
+        205,
+        116,
+        109,
+        107,
+        106,
+        301,
         402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Chamfering",
+        "Corner Rounding/Filleting",
+        "Gear/Spline Milling",
+        "Step Turning",
         "Inspection"
       ],
-      "time_min": 18.0,
-      "cost_usd": 30.0,
-      "energy_kwh": 0.85,
-      "efficiency_score": 80.55,
+      "time_min": 72.0,
+      "cost_usd": 182.5,
+      "energy_kwh": 3.92,
+      "efficiency_score": 18.27,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_044",
-      "material": "Copper",
+      "material": "Brass",
       "features": [
-        "Groove",
-        "Boss",
-        "Fillet",
-        "Hole"
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
       ],
       "tokens": [
-        204,
-        108,
-        104,
-        107,
+        203,
+        119,
+        110,
         101,
-        302,
-        403
+        106,
+        306,
+        402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
         "Drilling",
+        "Chamfering",
+        "Engraving",
         "Inspection"
       ],
-      "time_min": 16.2,
-      "cost_usd": 35.88,
-      "energy_kwh": 0.81,
-      "efficiency_score": 79.9,
+      "time_min": 33.0,
+      "cost_usd": 66.0,
+      "energy_kwh": 1.49,
+      "efficiency_score": 61.75,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_045",
-      "material": "Aluminum",
+      "material": "Steel",
       "features": [
-        "Thread",
         "Groove",
         "Face",
-        "Boss"
+        "Hole",
+        "Chamfer"
       ],
       "tokens": [
-        201,
-        105,
+        202,
         108,
         110,
-        104,
-        306,
-        404
+        101,
+        106,
+        305,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
+        "Grooving/Necking",
         "Drilling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 18.0,
-      "cost_usd": 25.5,
-      "energy_kwh": 0.85,
-      "efficiency_score": 81.75,
+      "time_min": 42.0,
+      "cost_usd": 87.0,
+      "energy_kwh": 2.4,
+      "efficiency_score": 48.0,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_046",
-      "material": "Plastic",
+      "material": "Cast Iron",
       "features": [
-        "Pocket",
-        "Boss",
-        "Thread",
-        "Slot"
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
       ],
       "tokens": [
-        206,
-        103,
-        104,
-        105,
-        102,
-        301,
-        404
+        207,
+        108,
+        101,
+        115,
+        110,
+        303,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Grooving/Necking",
+        "Center Drilling",
         "Drilling",
+        "Woodruff Keyway Milling",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 15.3,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.78,
+      "time_min": 41.6,
+      "cost_usd": 79.86,
+      "energy_kwh": 2.4,
+      "efficiency_score": 50.06,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_047",
-      "material": "Plastic",
+      "material": "Aluminum",
       "features": [
-        "Chamfer"
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
       ],
       "tokens": [
-        206,
+        201,
+        102,
+        101,
         106,
-        301,
-        401
+        110,
+        306,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Center Drilling",
         "Drilling",
+        "Slot Milling",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 12.6,
-      "cost_usd": 18.0,
-      "energy_kwh": 0.42,
-      "efficiency_score": 88.06,
+      "time_min": 31.0,
+      "cost_usd": 54.28,
+      "energy_kwh": 1.55,
+      "efficiency_score": 65.38,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_048",
-      "material": "Titanium",
+      "material": "Cast Iron",
       "features": [
-        "Step",
-        "Face",
-        "Pocket",
+        "Boss",
+        "Counterbore",
         "Hole"
       ],
       "tokens": [
-        205,
-        109,
-        110,
-        103,
+        207,
+        104,
+        113,
         101,
-        305,
-        401
+        304,
+        403
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Profile Milling",
+        "Center Drilling",
         "Drilling",
+        "Counterboring",
         "Inspection"
       ],
-      "time_min": 32.4,
-      "cost_usd": 75.0,
-      "energy_kwh": 1.87,
-      "efficiency_score": 57.69,
+      "time_min": 42.9,
+      "cost_usd": 81.14,
+      "energy_kwh": 2.48,
+      "efficiency_score": 48.8,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_049",
-      "material": "Cast Iron",
+      "material": "Steel",
       "features": [
-        "Slot",
-        "Face"
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
       ],
       "tokens": [
-        207,
-        102,
-        110,
-        306,
+        202,
+        109,
+        108,
+        107,
+        106,
+        303,
         402
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
-        "Drilling",
+        "Grooving/Necking",
+        "Corner Rounding/Filleting",
+        "Step Turning",
+        "Chamfering",
         "Inspection"
       ],
-      "time_min": 23.4,
-      "cost_usd": 42.0,
-      "energy_kwh": 1.27,
-      "efficiency_score": 73.09,
+      "time_min": 44.8,
+      "cost_usd": 90.0,
+      "energy_kwh": 2.29,
+      "efficiency_score": 46.63,
       "was_corrected": false
     },
     {
       "success": true,
       "part_id": "PART_050",
+      "material": "Titanium",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        205,
+        116,
+        109,
+        107,
+        106,
+        302,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "Gear/Spline Milling",
+        "Inspection"
+      ],
+      "time_min": 72.0,
+      "cost_usd": 182.5,
+      "energy_kwh": 3.92,
+      "efficiency_score": 18.27,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_051",
+      "material": "Steel",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        101,
+        113,
+        114,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Countersinking",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 88.32,
+      "energy_kwh": 2.53,
+      "efficiency_score": 46.44,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_052",
+      "material": "Steel",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        105,
+        101,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Tapping",
+        "Inspection"
+      ],
+      "time_min": 40.6,
+      "cost_usd": 85.5,
+      "energy_kwh": 2.32,
+      "efficiency_score": 49.36,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_053",
+      "material": "Titanium",
+      "features": [
+        "Face",
+        "Thread",
+        "Chamfer"
+      ],
+      "tokens": [
+        205,
+        110,
+        105,
+        106,
+        304,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 36.0,
+      "cost_usd": 85.0,
+      "energy_kwh": 1.98,
+      "efficiency_score": 53.03,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_054",
+      "material": "Steel",
+      "features": [
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        109,
+        115,
+        106,
+        110,
+        303,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Chamfering",
+        "Woodruff Keyway Milling",
+        "Inspection"
+      ],
+      "time_min": 37.8,
+      "cost_usd": 73.5,
+      "energy_kwh": 1.92,
+      "efficiency_score": 55.68,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_055",
+      "material": "Cast Iron",
+      "features": [
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        117,
+        101,
+        115,
+        110,
+        301,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Gear/Spline Milling",
+        "Center Drilling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 52.0,
+      "cost_usd": 105.0,
+      "energy_kwh": 2.92,
+      "efficiency_score": 36.6,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_056",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        108,
+        110,
+        101,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Grooving/Necking",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.0,
+      "cost_usd": 58.0,
+      "energy_kwh": 1.5,
+      "efficiency_score": 65.03,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_057",
+      "material": "Aluminum",
+      "features": [
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        109,
+        115,
+        106,
+        110,
+        302,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Step Turning",
+        "Woodruff Keyway Milling",
+        "Inspection"
+      ],
+      "time_min": 27.0,
+      "cost_usd": 49.0,
+      "energy_kwh": 1.2,
+      "efficiency_score": 70.13,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_058",
+      "material": "Steel",
+      "features": [
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        109,
+        115,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Chamfering",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 37.8,
+      "cost_usd": 73.5,
+      "energy_kwh": 1.92,
+      "efficiency_score": 55.68,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_059",
+      "material": "Aluminum",
+      "features": [
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        109,
+        108,
+        107,
+        106,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "Grooving/Necking",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 60.0,
+      "energy_kwh": 1.43,
+      "efficiency_score": 64.05,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_060",
+      "material": "Titanium",
+      "features": [
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        205,
+        106,
+        110,
+        301,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 50.6,
+      "energy_kwh": 1.1,
+      "efficiency_score": 71.65,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_061",
+      "material": "Brass",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        203,
+        105,
+        101,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Tapping",
+        "Inspection"
+      ],
+      "time_min": 31.9,
+      "cost_usd": 62.93,
+      "energy_kwh": 1.59,
+      "efficiency_score": 62.51,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_062",
       "material": "Copper",
       "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
         "Face"
       ],
       "tokens": [
         204,
+        105,
+        101,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Tapping",
+        "Inspection"
+      ],
+      "time_min": 26.1,
+      "cost_usd": 74.1,
+      "energy_kwh": 1.38,
+      "efficiency_score": 62.9,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_063",
+      "material": "Copper",
+      "features": [
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
+      ],
+      "tokens": [
+        204,
+        101,
+        110,
+        106,
+        113,
+        304,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 71.5,
+      "energy_kwh": 1.33,
+      "efficiency_score": 64.2,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_064",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        108,
+        110,
+        101,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Grooving/Necking",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.0,
+      "cost_usd": 58.0,
+      "energy_kwh": 1.5,
+      "efficiency_score": 65.03,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_065",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        108,
+        101,
+        115,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Grooving/Necking",
+        "Woodruff Keyway Milling",
+        "Center Drilling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 57.04,
+      "energy_kwh": 1.6,
+      "efficiency_score": 63.99,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_066",
+      "material": "Cast Iron",
+      "features": [
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        117,
+        101,
+        115,
+        110,
+        302,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Gear/Spline Milling",
+        "Drilling",
+        "Woodruff Keyway Milling",
+        "Inspection"
+      ],
+      "time_min": 52.0,
+      "cost_usd": 105.0,
+      "energy_kwh": 2.92,
+      "efficiency_score": 36.6,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_067",
+      "material": "Steel",
+      "features": [
+        "Boss",
+        "Counterbore",
+        "Hole"
+      ],
+      "tokens": [
+        202,
+        104,
+        113,
+        101,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Profile Milling",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 46.2,
+      "cost_usd": 94.5,
+      "energy_kwh": 2.64,
+      "efficiency_score": 43.12,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_068",
+      "material": "Steel",
+      "features": [
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        117,
+        101,
+        115,
+        110,
+        301,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Gear/Spline Milling",
+        "Drilling",
+        "Woodruff Keyway Milling",
+        "Inspection"
+      ],
+      "time_min": 56.0,
+      "cost_usd": 112.5,
+      "energy_kwh": 3.12,
+      "efficiency_score": 32.0,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_069",
+      "material": "Aluminum",
+      "features": [
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        119,
+        110,
+        101,
+        106,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Engraving",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.35,
+      "efficiency_score": 66.58,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_070",
+      "material": "Steel",
+      "features": [
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        106,
         110,
         302,
         404
       ],
-      "route": "Route_B2",
+      "route": "Route_1",
       "steps": [
         "Facing",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 18.2,
+      "cost_usd": 28.05,
+      "energy_kwh": 0.8,
+      "efficiency_score": 81.24,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_071",
+      "material": "Steel",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        108,
+        110,
+        101,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Grooving/Necking",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 42.0,
+      "cost_usd": 80.04,
+      "energy_kwh": 2.4,
+      "efficiency_score": 49.86,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_072",
+      "material": "Aluminum",
+      "features": [
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
+      ],
+      "tokens": [
+        201,
+        101,
+        110,
+        106,
+        113,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 28.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.4,
+      "efficiency_score": 67.13,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_073",
+      "material": "Titanium",
+      "features": [
+        "Thread",
+        "Fillet",
+        "Step"
+      ],
+      "tokens": [
+        205,
+        105,
+        107,
+        109,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Corner Rounding/Filleting",
+        "Step Turning",
+        "External Threading",
+        "Inspection"
+      ],
+      "time_min": 54.0,
+      "cost_usd": 145.0,
+      "energy_kwh": 3.04,
+      "efficiency_score": 29.87,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_074",
+      "material": "Brass",
+      "features": [
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        203,
+        119,
+        110,
+        101,
+        106,
+        305,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Engraving",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 33.0,
+      "cost_usd": 66.0,
+      "energy_kwh": 1.49,
+      "efficiency_score": 61.75,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_075",
+      "material": "Steel",
+      "features": [
+        "Face",
+        "Thread",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        110,
+        105,
+        106,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 28.0,
+      "cost_usd": 55.2,
+      "energy_kwh": 1.44,
+      "efficiency_score": 66.88,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_076",
+      "material": "Steel",
+      "features": [
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        103,
+        101,
+        113,
+        106,
+        303,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Pocket Milling",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 51.8,
+      "cost_usd": 106.5,
+      "energy_kwh": 2.96,
+      "efficiency_score": 36.08,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_077",
+      "material": "Brass",
+      "features": [
+        "Taper",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        203,
+        111,
+        101,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Taper Turning",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 37.4,
+      "cost_usd": 74.4,
+      "energy_kwh": 1.85,
+      "efficiency_score": 55.95,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_078",
+      "material": "Cast Iron",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        101,
+        113,
+        114,
+        106,
+        110,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Countersinking",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 40.3,
+      "cost_usd": 82.43,
+      "energy_kwh": 2.37,
+      "efficiency_score": 50.05,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_079",
+      "material": "Steel",
+      "features": [
+        "Taper",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        111,
+        101,
+        106,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Taper Turning",
+        "Inspection"
+      ],
+      "time_min": 47.6,
+      "cost_usd": 93.0,
+      "energy_kwh": 2.69,
+      "efficiency_score": 42.71,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_080",
+      "material": "Titanium",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        205,
+        116,
+        109,
+        107,
+        106,
+        302,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Step Turning",
+        "Gear/Spline Milling",
+        "Corner Rounding/Filleting",
+        "Inspection"
+      ],
+      "time_min": 72.0,
+      "cost_usd": 182.5,
+      "energy_kwh": 3.92,
+      "efficiency_score": 18.27,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_081",
+      "material": "Plastic",
+      "features": [
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        206,
+        112,
+        109,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Chamfering",
+        "Knurling",
+        "Inspection"
+      ],
+      "time_min": 17.5,
+      "cost_usd": 27.6,
+      "energy_kwh": 0.55,
+      "efficiency_score": 82.89,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_082",
+      "material": "Cast Iron",
+      "features": [
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        108,
+        101,
+        115,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Grooving/Necking",
+        "Center Drilling",
         "Drilling",
         "Inspection"
       ],
-      "time_min": 16.2,
-      "cost_usd": 33.15,
-      "energy_kwh": 0.81,
-      "efficiency_score": 80.63,
+      "time_min": 41.6,
+      "cost_usd": 79.86,
+      "energy_kwh": 2.4,
+      "efficiency_score": 50.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_083",
+      "material": "Aluminum",
+      "features": [
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        109,
+        108,
+        107,
+        106,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Corner Rounding/Filleting",
+        "Grooving/Necking",
+        "Step Turning",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 60.0,
+      "energy_kwh": 1.43,
+      "efficiency_score": 64.05,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_084",
+      "material": "Titanium",
+      "features": [
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        205,
+        106,
+        110,
+        301,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 46.75,
+      "energy_kwh": 1.1,
+      "efficiency_score": 72.67,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_085",
+      "material": "Copper",
+      "features": [
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
+      ],
+      "tokens": [
+        204,
+        101,
+        110,
+        106,
+        113,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 65.78,
+      "energy_kwh": 1.33,
+      "efficiency_score": 65.73,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_086",
+      "material": "Cast Iron",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        101,
+        113,
+        114,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Counterboring",
+        "Countersinking",
+        "Inspection"
+      ],
+      "time_min": 40.3,
+      "cost_usd": 89.6,
+      "energy_kwh": 2.37,
+      "efficiency_score": 48.14,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_087",
+      "material": "Brass",
+      "features": [
+        "Face",
+        "Thread",
+        "Chamfer"
+      ],
+      "tokens": [
+        203,
+        110,
+        105,
+        106,
+        304,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 22.0,
+      "cost_usd": 40.8,
+      "energy_kwh": 0.99,
+      "efficiency_score": 75.37,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_088",
+      "material": "Aluminum",
+      "features": [
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        119,
+        110,
+        101,
+        106,
+        306,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Engraving",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.35,
+      "efficiency_score": 66.58,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_089",
+      "material": "Aluminum",
+      "features": [
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        112,
+        109,
+        106,
+        110,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Step Turning",
+        "Knurling",
+        "Inspection"
+      ],
+      "time_min": 25.0,
+      "cost_usd": 46.0,
+      "energy_kwh": 1.1,
+      "efficiency_score": 72.23,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_090",
+      "material": "Aluminum",
+      "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        102,
+        101,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Slot Milling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 31.0,
+      "cost_usd": 54.28,
+      "energy_kwh": 1.55,
+      "efficiency_score": 65.38,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_091",
+      "material": "Steel",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        116,
+        109,
+        107,
+        106,
+        302,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Gear/Spline Milling",
+        "Corner Rounding/Filleting",
+        "Chamfering",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 56.0,
+      "cost_usd": 109.5,
+      "energy_kwh": 2.85,
+      "efficiency_score": 34.15,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_092",
+      "material": "Aluminum",
+      "features": [
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        103,
+        101,
+        113,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Pocket Milling",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 37.0,
+      "cost_usd": 71.0,
+      "energy_kwh": 1.85,
+      "efficiency_score": 57.02,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_093",
+      "material": "Titanium",
+      "features": [
+        "Thread",
+        "Fillet",
+        "Step"
+      ],
+      "tokens": [
+        205,
+        105,
+        107,
+        109,
+        302,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "External Threading",
+        "Corner Rounding/Filleting",
+        "Inspection"
+      ],
+      "time_min": 54.0,
+      "cost_usd": 145.0,
+      "energy_kwh": 3.04,
+      "efficiency_score": 29.87,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_094",
+      "material": "Steel",
+      "features": [
+        "Contour_3D",
+        "Hole",
+        "Keyway"
+      ],
+      "tokens": [
+        202,
+        118,
+        101,
+        115,
+        302,
+        402
+      ],
+      "route": "Route_13",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Center Drilling",
+        "Profile Milling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 47.6,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.72,
+      "efficiency_score": 41.76,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_095",
+      "material": "Aluminum",
+      "features": [
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        119,
+        110,
+        101,
+        106,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Engraving",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.35,
+      "efficiency_score": 66.58,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_096",
+      "material": "Aluminum",
+      "features": [
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        109,
+        108,
+        107,
+        106,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Grooving/Necking",
+        "Chamfering",
+        "Corner Rounding/Filleting",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 60.0,
+      "energy_kwh": 1.43,
+      "efficiency_score": 64.05,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_097",
+      "material": "Aluminum",
+      "features": [
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
+      ],
+      "tokens": [
+        201,
+        101,
+        110,
+        106,
+        113,
+        304,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 28.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.4,
+      "efficiency_score": 67.13,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_098",
+      "material": "Steel",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        116,
+        109,
+        107,
+        106,
+        302,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Corner Rounding/Filleting",
+        "Gear/Spline Milling",
+        "Step Turning",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 56.0,
+      "cost_usd": 109.5,
+      "energy_kwh": 2.85,
+      "efficiency_score": 34.15,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_099",
+      "material": "Steel",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        108,
+        110,
+        101,
+        106,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Grooving/Necking",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 42.0,
+      "cost_usd": 80.04,
+      "energy_kwh": 2.4,
+      "efficiency_score": 49.86,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_100",
+      "material": "Plastic",
+      "features": [
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        206,
+        119,
+        110,
+        101,
+        106,
+        306,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Engraving",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 21.0,
+      "cost_usd": 30.36,
+      "energy_kwh": 0.68,
+      "efficiency_score": 80.1,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_101",
+      "material": "Cast Iron",
+      "features": [
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        117,
+        101,
+        115,
+        110,
+        301,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Gear/Spline Milling",
+        "Center Drilling",
+        "Drilling",
+        "Woodruff Keyway Milling",
+        "Inspection"
+      ],
+      "time_min": 52.0,
+      "cost_usd": 105.0,
+      "energy_kwh": 2.92,
+      "efficiency_score": 36.6,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_102",
+      "material": "Steel",
+      "features": [
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        117,
+        101,
+        115,
+        110,
+        301,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Gear/Spline Milling",
+        "Drilling",
+        "Woodruff Keyway Milling",
+        "Inspection"
+      ],
+      "time_min": 56.0,
+      "cost_usd": 112.5,
+      "energy_kwh": 3.12,
+      "efficiency_score": 32.0,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_103",
+      "material": "Aluminum",
+      "features": [
+        "Taper",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        111,
+        101,
+        106,
+        304,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Taper Turning",
+        "Inspection"
+      ],
+      "time_min": 34.0,
+      "cost_usd": 62.0,
+      "energy_kwh": 1.68,
+      "efficiency_score": 61.47,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_104",
+      "material": "Cast Iron",
+      "features": [
+        "Contour_3D",
+        "Hole",
+        "Keyway"
+      ],
+      "tokens": [
+        207,
+        118,
+        101,
+        115,
+        302,
+        401
+      ],
+      "route": "Route_13",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Woodruff Keyway Milling",
+        "Profile Milling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 44.2,
+      "cost_usd": 89.6,
+      "energy_kwh": 2.55,
+      "efficiency_score": 45.68,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_105",
+      "material": "Steel",
+      "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        102,
+        101,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Slot Milling",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 81.42,
+      "energy_kwh": 2.48,
+      "efficiency_score": 48.53,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_106",
+      "material": "Cast Iron",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        207,
+        108,
+        110,
+        101,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Grooving/Necking",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 39.0,
+      "cost_usd": 81.2,
+      "energy_kwh": 2.25,
+      "efficiency_score": 51.5,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_107",
+      "material": "Copper",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        204,
+        105,
+        101,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Tapping",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 26.1,
+      "cost_usd": 68.17,
+      "energy_kwh": 1.38,
+      "efficiency_score": 64.48,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_108",
+      "material": "Titanium",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        205,
+        116,
+        109,
+        107,
+        106,
+        301,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Corner Rounding/Filleting",
+        "Gear/Spline Milling",
+        "Chamfering",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 72.0,
+      "cost_usd": 182.5,
+      "energy_kwh": 3.92,
+      "efficiency_score": 18.27,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_109",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        108,
+        110,
+        101,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Grooving/Necking",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.0,
+      "cost_usd": 53.36,
+      "energy_kwh": 1.5,
+      "efficiency_score": 66.27,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_110",
+      "material": "Titanium",
+      "features": [
+        "Thread",
+        "Fillet",
+        "Step"
+      ],
+      "tokens": [
+        205,
+        105,
+        107,
+        109,
+        302,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Corner Rounding/Filleting",
+        "Step Turning",
+        "External Threading",
+        "Inspection"
+      ],
+      "time_min": 54.0,
+      "cost_usd": 145.0,
+      "energy_kwh": 3.04,
+      "efficiency_score": 29.87,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_111",
+      "material": "Steel",
+      "features": [
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        109,
+        115,
+        106,
+        110,
+        303,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Woodruff Keyway Milling",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 37.8,
+      "cost_usd": 73.5,
+      "energy_kwh": 1.92,
+      "efficiency_score": 55.68,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_112",
+      "material": "Aluminum",
+      "features": [
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        103,
+        101,
+        113,
+        106,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Pocket Milling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 37.0,
+      "cost_usd": 71.0,
+      "energy_kwh": 1.85,
+      "efficiency_score": 57.02,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_113",
+      "material": "Steel",
+      "features": [
+        "Thread",
+        "Fillet",
+        "Step"
+      ],
+      "tokens": [
+        202,
+        105,
+        107,
+        109,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "External Threading",
+        "Corner Rounding/Filleting",
+        "Inspection"
+      ],
+      "time_min": 42.0,
+      "cost_usd": 87.0,
+      "energy_kwh": 2.21,
+      "efficiency_score": 48.95,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_114",
+      "material": "Titanium",
+      "features": [
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        205,
+        106,
+        110,
+        302,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 46.75,
+      "energy_kwh": 1.1,
+      "efficiency_score": 72.67,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_115",
+      "material": "Brass",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        203,
+        105,
+        101,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Tapping",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 31.9,
+      "cost_usd": 68.4,
+      "energy_kwh": 1.59,
+      "efficiency_score": 61.05,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_116",
+      "material": "Titanium",
+      "features": [
+        "Thread",
+        "Fillet",
+        "Step"
+      ],
+      "tokens": [
+        205,
+        105,
+        107,
+        109,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "Inspection"
+      ],
+      "time_min": 54.0,
+      "cost_usd": 145.0,
+      "energy_kwh": 3.04,
+      "efficiency_score": 29.87,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_117",
+      "material": "Steel",
+      "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        102,
+        101,
+        106,
+        110,
+        306,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Slot Milling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 81.42,
+      "energy_kwh": 2.48,
+      "efficiency_score": 48.53,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_118",
+      "material": "Plastic",
+      "features": [
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        206,
+        112,
+        109,
+        106,
+        110,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Step Turning",
+        "Knurling",
+        "Inspection"
+      ],
+      "time_min": 17.5,
+      "cost_usd": 25.39,
+      "energy_kwh": 0.55,
+      "efficiency_score": 83.48,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_119",
+      "material": "Aluminum",
+      "features": [
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        103,
+        101,
+        113,
+        106,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Pocket Milling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 37.0,
+      "cost_usd": 71.0,
+      "energy_kwh": 1.85,
+      "efficiency_score": 57.02,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_120",
+      "material": "Cast Iron",
+      "features": [
+        "Boss",
+        "Counterbore",
+        "Hole"
+      ],
+      "tokens": [
+        207,
+        104,
+        113,
+        101,
+        304,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Profile Milling",
+        "Drilling",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 42.9,
+      "cost_usd": 88.2,
+      "energy_kwh": 2.48,
+      "efficiency_score": 46.92,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_121",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        108,
+        101,
+        115,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Grooving/Necking",
+        "Woodruff Keyway Milling",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 57.04,
+      "energy_kwh": 1.6,
+      "efficiency_score": 63.99,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_122",
+      "material": "Steel",
+      "features": [
+        "Boss",
+        "Counterbore",
+        "Hole"
+      ],
+      "tokens": [
+        202,
+        104,
+        113,
+        101,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Profile Milling",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 46.2,
+      "cost_usd": 94.5,
+      "energy_kwh": 2.64,
+      "efficiency_score": 43.12,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_123",
+      "material": "Plastic",
+      "features": [
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        206,
+        112,
+        109,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Knurling",
+        "Chamfering",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 17.5,
+      "cost_usd": 25.39,
+      "energy_kwh": 0.55,
+      "efficiency_score": 83.48,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_124",
+      "material": "Steel",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        101,
+        113,
+        114,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Countersinking",
+        "Chamfering",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 88.32,
+      "energy_kwh": 2.53,
+      "efficiency_score": 46.44,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_125",
+      "material": "Aluminum",
+      "features": [
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        119,
+        110,
+        101,
+        106,
+        306,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Engraving",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.0,
+      "cost_usd": 55.0,
+      "energy_kwh": 1.35,
+      "efficiency_score": 66.58,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_126",
+      "material": "Steel",
+      "features": [
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        103,
+        101,
+        113,
+        106,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Pocket Milling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 51.8,
+      "cost_usd": 106.5,
+      "energy_kwh": 2.96,
+      "efficiency_score": 36.08,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_127",
+      "material": "Aluminum",
+      "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        102,
+        101,
+        106,
+        110,
+        304,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Slot Milling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 31.0,
+      "cost_usd": 50.15,
+      "energy_kwh": 1.55,
+      "efficiency_score": 66.48,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_128",
+      "material": "Cast Iron",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        101,
+        113,
+        114,
+        106,
+        110,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Countersinking",
+        "Inspection"
+      ],
+      "time_min": 40.3,
+      "cost_usd": 89.6,
+      "energy_kwh": 2.37,
+      "efficiency_score": 48.14,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_129",
+      "material": "Cast Iron",
+      "features": [
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        117,
+        101,
+        115,
+        110,
+        302,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Center Drilling",
+        "Drilling",
+        "Gear/Spline Milling",
+        "Inspection"
+      ],
+      "time_min": 52.0,
+      "cost_usd": 105.0,
+      "energy_kwh": 2.92,
+      "efficiency_score": 36.6,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_130",
+      "material": "Titanium",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        205,
+        116,
+        109,
+        107,
+        106,
+        301,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Gear/Spline Milling",
+        "Corner Rounding/Filleting",
+        "Chamfering",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 72.0,
+      "cost_usd": 182.5,
+      "energy_kwh": 3.92,
+      "efficiency_score": 18.27,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_131",
+      "material": "Aluminum",
+      "features": [
+        "Boss",
+        "Counterbore",
+        "Hole"
+      ],
+      "tokens": [
+        201,
+        104,
+        113,
+        101,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Profile Milling",
+        "Inspection"
+      ],
+      "time_min": 33.0,
+      "cost_usd": 57.96,
+      "energy_kwh": 1.65,
+      "efficiency_score": 63.09,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_132",
+      "material": "Titanium",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        205,
+        116,
+        109,
+        107,
+        106,
+        301,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Gear/Spline Milling",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 72.0,
+      "cost_usd": 182.5,
+      "energy_kwh": 3.92,
+      "efficiency_score": 18.27,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_133",
+      "material": "Steel",
+      "features": [
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        112,
+        109,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Chamfering",
+        "Knurling",
+        "Inspection"
+      ],
+      "time_min": 35.0,
+      "cost_usd": 69.0,
+      "energy_kwh": 1.76,
+      "efficiency_score": 58.8,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_134",
+      "material": "Titanium",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        205,
+        116,
+        109,
+        107,
+        106,
+        302,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Gear/Spline Milling",
+        "Corner Rounding/Filleting",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 72.0,
+      "cost_usd": 182.5,
+      "energy_kwh": 3.92,
+      "efficiency_score": 18.27,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_135",
+      "material": "Copper",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        204,
+        105,
+        101,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Tapping",
+        "Inspection"
+      ],
+      "time_min": 26.1,
+      "cost_usd": 74.1,
+      "energy_kwh": 1.38,
+      "efficiency_score": 62.9,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_136",
+      "material": "Steel",
+      "features": [
+        "Contour_3D",
+        "Hole",
+        "Keyway"
+      ],
+      "tokens": [
+        202,
+        118,
+        101,
+        115,
+        302,
+        402
+      ],
+      "route": "Route_13",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Profile Milling",
+        "Woodruff Keyway Milling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 47.6,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.72,
+      "efficiency_score": 41.76,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_137",
+      "material": "Aluminum",
+      "features": [
+        "Boss",
+        "Counterbore",
+        "Hole"
+      ],
+      "tokens": [
+        201,
+        104,
+        113,
+        101,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Profile Milling",
+        "Inspection"
+      ],
+      "time_min": 33.0,
+      "cost_usd": 57.96,
+      "energy_kwh": 1.65,
+      "efficiency_score": 63.09,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_138",
+      "material": "Brass",
+      "features": [
+        "Face",
+        "Thread",
+        "Chamfer"
+      ],
+      "tokens": [
+        203,
+        110,
+        105,
+        106,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 22.0,
+      "cost_usd": 44.16,
+      "energy_kwh": 0.99,
+      "efficiency_score": 74.47,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_139",
+      "material": "Aluminum",
+      "features": [
+        "Taper",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        111,
+        101,
+        106,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Taper Turning",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 34.0,
+      "cost_usd": 62.0,
+      "energy_kwh": 1.68,
+      "efficiency_score": 61.47,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_140",
+      "material": "Cast Iron",
+      "features": [
+        "Contour_3D",
+        "Hole",
+        "Keyway"
+      ],
+      "tokens": [
+        207,
+        118,
+        101,
+        115,
+        302,
+        402
+      ],
+      "route": "Route_13",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Profile Milling",
+        "Drilling",
+        "Woodruff Keyway Milling",
+        "Inspection"
+      ],
+      "time_min": 44.2,
+      "cost_usd": 89.6,
+      "energy_kwh": 2.55,
+      "efficiency_score": 45.68,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_141",
+      "material": "Steel",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        108,
+        110,
+        101,
+        106,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Grooving/Necking",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 42.0,
+      "cost_usd": 80.04,
+      "energy_kwh": 2.4,
+      "efficiency_score": 49.86,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_142",
+      "material": "Steel",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        105,
+        101,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Tapping",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 40.6,
+      "cost_usd": 85.5,
+      "energy_kwh": 2.32,
+      "efficiency_score": 49.36,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_143",
+      "material": "Steel",
+      "features": [
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        103,
+        101,
+        113,
+        106,
+        304,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Pocket Milling",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 51.8,
+      "cost_usd": 106.5,
+      "energy_kwh": 2.96,
+      "efficiency_score": 36.08,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_144",
+      "material": "Brass",
+      "features": [
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        203,
+        119,
+        110,
+        101,
+        106,
+        306,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Engraving",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 33.0,
+      "cost_usd": 60.72,
+      "energy_kwh": 1.49,
+      "efficiency_score": 63.16,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_145",
+      "material": "Aluminum",
+      "features": [
+        "Taper",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        111,
+        101,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Taper Turning",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 34.0,
+      "cost_usd": 62.0,
+      "energy_kwh": 1.68,
+      "efficiency_score": 61.47,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_146",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        108,
+        110,
+        101,
+        106,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Grooving/Necking",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.0,
+      "cost_usd": 53.36,
+      "energy_kwh": 1.5,
+      "efficiency_score": 66.27,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_147",
+      "material": "Cast Iron",
+      "features": [
+        "Boss",
+        "Counterbore",
+        "Hole"
+      ],
+      "tokens": [
+        207,
+        104,
+        113,
+        101,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Profile Milling",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 42.9,
+      "cost_usd": 88.2,
+      "energy_kwh": 2.48,
+      "efficiency_score": 46.92,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_148",
+      "material": "Titanium",
+      "features": [
+        "Thread",
+        "Fillet",
+        "Step"
+      ],
+      "tokens": [
+        205,
+        105,
+        107,
+        109,
+        302,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "External Threading",
+        "Corner Rounding/Filleting",
+        "Inspection"
+      ],
+      "time_min": 54.0,
+      "cost_usd": 145.0,
+      "energy_kwh": 3.04,
+      "efficiency_score": 29.87,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_149",
+      "material": "Steel",
+      "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        102,
+        101,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Slot Milling",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 81.42,
+      "energy_kwh": 2.48,
+      "efficiency_score": 48.53,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_150",
+      "material": "Copper",
+      "features": [
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
+      ],
+      "tokens": [
+        204,
+        101,
+        110,
+        106,
+        113,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 65.78,
+      "energy_kwh": 1.33,
+      "efficiency_score": 65.73,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_151",
+      "material": "Steel",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        101,
+        113,
+        114,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Countersinking",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.53,
+      "efficiency_score": 44.39,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_152",
+      "material": "Aluminum",
+      "features": [
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        109,
+        108,
+        107,
+        106,
+        302,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "Grooving/Necking",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 60.0,
+      "energy_kwh": 1.43,
+      "efficiency_score": 64.05,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_153",
+      "material": "Cast Iron",
+      "features": [
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        109,
+        115,
+        106,
+        110,
+        302,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Chamfering",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 35.1,
+      "cost_usd": 68.6,
+      "energy_kwh": 1.8,
+      "efficiency_score": 58.67,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_154",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        108,
+        101,
+        115,
+        110,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Grooving/Necking",
+        "Center Drilling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 62.0,
+      "energy_kwh": 1.6,
+      "efficiency_score": 62.67,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_155",
+      "material": "Steel",
+      "features": [
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        103,
+        101,
+        113,
+        106,
+        304,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Pocket Milling",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 51.8,
+      "cost_usd": 106.5,
+      "energy_kwh": 2.96,
+      "efficiency_score": 36.08,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_156",
+      "material": "Aluminum",
+      "features": [
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        112,
+        109,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Knurling",
+        "Chamfering",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 25.0,
+      "cost_usd": 42.32,
+      "energy_kwh": 1.1,
+      "efficiency_score": 73.21,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_157",
+      "material": "Steel",
+      "features": [
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        106,
+        110,
+        302,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 18.2,
+      "cost_usd": 28.05,
+      "energy_kwh": 0.8,
+      "efficiency_score": 81.24,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_158",
+      "material": "Brass",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        203,
+        105,
+        101,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Tapping",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 31.9,
+      "cost_usd": 68.4,
+      "energy_kwh": 1.59,
+      "efficiency_score": 61.05,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_159",
+      "material": "Steel",
+      "features": [
+        "Face",
+        "Thread",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        110,
+        105,
+        106,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 28.0,
+      "cost_usd": 55.2,
+      "energy_kwh": 1.44,
+      "efficiency_score": 66.88,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_160",
+      "material": "Titanium",
+      "features": [
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        205,
+        106,
+        110,
+        301,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 23.4,
+      "cost_usd": 46.75,
+      "energy_kwh": 1.1,
+      "efficiency_score": 72.67,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_161",
+      "material": "Copper",
+      "features": [
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
+      ],
+      "tokens": [
+        204,
+        101,
+        110,
+        106,
+        113,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 71.5,
+      "energy_kwh": 1.33,
+      "efficiency_score": 64.2,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_162",
+      "material": "Steel",
+      "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        102,
+        101,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Slot Milling",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 81.42,
+      "energy_kwh": 2.48,
+      "efficiency_score": 48.53,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_163",
+      "material": "Steel",
+      "features": [
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        117,
+        101,
+        115,
+        110,
+        302,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Woodruff Keyway Milling",
+        "Gear/Spline Milling",
+        "Inspection"
+      ],
+      "time_min": 56.0,
+      "cost_usd": 112.5,
+      "energy_kwh": 3.12,
+      "efficiency_score": 32.0,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_164",
+      "material": "Steel",
+      "features": [
+        "Boss",
+        "Counterbore",
+        "Hole"
+      ],
+      "tokens": [
+        202,
+        104,
+        113,
+        101,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Profile Milling",
+        "Drilling",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 46.2,
+      "cost_usd": 94.5,
+      "energy_kwh": 2.64,
+      "efficiency_score": 43.12,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_165",
+      "material": "Steel",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        105,
+        101,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Tapping",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 40.6,
+      "cost_usd": 78.66,
+      "energy_kwh": 2.32,
+      "efficiency_score": 51.18,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_166",
+      "material": "Steel",
+      "features": [
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        109,
+        108,
+        107,
+        106,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Corner Rounding/Filleting",
+        "Step Turning",
+        "Grooving/Necking",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 44.8,
+      "cost_usd": 90.0,
+      "energy_kwh": 2.29,
+      "efficiency_score": 46.63,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_167",
+      "material": "Cast Iron",
+      "features": [
+        "Gear_Teeth",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        117,
+        101,
+        115,
+        110,
+        302,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Gear/Spline Milling",
+        "Center Drilling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 52.0,
+      "cost_usd": 105.0,
+      "energy_kwh": 2.92,
+      "efficiency_score": 36.6,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_168",
+      "material": "Plastic",
+      "features": [
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        206,
+        112,
+        109,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Knurling",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 17.5,
+      "cost_usd": 27.6,
+      "energy_kwh": 0.55,
+      "efficiency_score": 82.89,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_169",
+      "material": "Steel",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        101,
+        113,
+        114,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Countersinking",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.53,
+      "efficiency_score": 44.39,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_170",
+      "material": "Steel",
+      "features": [
+        "Spline",
+        "Step",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        116,
+        109,
+        107,
+        106,
+        302,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "Chamfering",
+        "Gear/Spline Milling",
+        "Inspection"
+      ],
+      "time_min": 56.0,
+      "cost_usd": 109.5,
+      "energy_kwh": 2.85,
+      "efficiency_score": 34.15,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_171",
+      "material": "Cast Iron",
+      "features": [
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        108,
+        101,
+        115,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Grooving/Necking",
+        "Center Drilling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 41.6,
+      "cost_usd": 79.86,
+      "energy_kwh": 2.4,
+      "efficiency_score": 50.06,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_172",
+      "material": "Steel",
+      "features": [
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        106,
+        110,
+        302,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 18.2,
+      "cost_usd": 30.36,
+      "energy_kwh": 0.8,
+      "efficiency_score": 80.62,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_173",
+      "material": "Copper",
+      "features": [
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
+      ],
+      "tokens": [
+        204,
+        101,
+        110,
+        106,
+        113,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 25.2,
+      "cost_usd": 65.78,
+      "energy_kwh": 1.33,
+      "efficiency_score": 65.73,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_174",
+      "material": "Cast Iron",
+      "features": [
+        "Boss",
+        "Counterbore",
+        "Hole"
+      ],
+      "tokens": [
+        207,
+        104,
+        113,
+        101,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Profile Milling",
+        "Drilling",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 42.9,
+      "cost_usd": 88.2,
+      "energy_kwh": 2.48,
+      "efficiency_score": 46.92,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_175",
+      "material": "Steel",
+      "features": [
+        "Contour_3D",
+        "Hole",
+        "Keyway"
+      ],
+      "tokens": [
+        202,
+        118,
+        101,
+        115,
+        302,
+        402
+      ],
+      "route": "Route_13",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Woodruff Keyway Milling",
+        "Profile Milling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 47.6,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.72,
+      "efficiency_score": 41.76,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_176",
+      "material": "Titanium",
+      "features": [
+        "Thread",
+        "Fillet",
+        "Step"
+      ],
+      "tokens": [
+        205,
+        105,
+        107,
+        109,
+        302,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "Inspection"
+      ],
+      "time_min": 54.0,
+      "cost_usd": 145.0,
+      "energy_kwh": 3.04,
+      "efficiency_score": 29.87,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_177",
+      "material": "Cast Iron",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        101,
+        113,
+        114,
+        106,
+        110,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Countersinking",
+        "Counterboring",
+        "Inspection"
+      ],
+      "time_min": 40.3,
+      "cost_usd": 89.6,
+      "energy_kwh": 2.37,
+      "efficiency_score": 48.14,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_178",
+      "material": "Steel",
+      "features": [
+        "Thread",
+        "Fillet",
+        "Step"
+      ],
+      "tokens": [
+        202,
+        105,
+        107,
+        109,
+        303,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Corner Rounding/Filleting",
+        "External Threading",
+        "Inspection"
+      ],
+      "time_min": 42.0,
+      "cost_usd": 87.0,
+      "energy_kwh": 2.21,
+      "efficiency_score": 48.95,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_179",
+      "material": "Steel",
+      "features": [
+        "Step",
+        "Groove",
+        "Fillet",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        109,
+        108,
+        107,
+        106,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Grooving/Necking",
+        "Corner Rounding/Filleting",
+        "Step Turning",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 44.8,
+      "cost_usd": 90.0,
+      "energy_kwh": 2.29,
+      "efficiency_score": 46.63,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_180",
+      "material": "Steel",
+      "features": [
+        "Face",
+        "Thread",
+        "Chamfer"
+      ],
+      "tokens": [
+        202,
+        110,
+        105,
+        106,
+        303,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 28.0,
+      "cost_usd": 51.0,
+      "energy_kwh": 1.44,
+      "efficiency_score": 68.0,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_181",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        108,
+        101,
+        115,
+        110,
+        304,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Grooving/Necking",
+        "Center Drilling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 62.0,
+      "energy_kwh": 1.6,
+      "efficiency_score": 62.67,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_182",
+      "material": "Aluminum",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        101,
+        113,
+        114,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Countersinking",
+        "Inspection"
+      ],
+      "time_min": 31.0,
+      "cost_usd": 58.88,
+      "energy_kwh": 1.58,
+      "efficiency_score": 64.0,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_183",
+      "material": "Brass",
+      "features": [
+        "Face",
+        "Thread",
+        "Chamfer"
+      ],
+      "tokens": [
+        203,
+        110,
+        105,
+        106,
+        303,
+        404
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 22.0,
+      "cost_usd": 40.8,
+      "energy_kwh": 0.99,
+      "efficiency_score": 75.37,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_184",
+      "material": "Aluminum",
+      "features": [
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        109,
+        115,
+        106,
+        110,
+        303,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Chamfering",
+        "Woodruff Keyway Milling",
+        "Step Turning",
+        "Inspection"
+      ],
+      "time_min": 27.0,
+      "cost_usd": 49.0,
+      "energy_kwh": 1.2,
+      "efficiency_score": 70.13,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_185",
+      "material": "Cast Iron",
+      "features": [
+        "Groove",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        207,
+        108,
+        110,
+        101,
+        106,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Grooving/Necking",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 39.0,
+      "cost_usd": 74.7,
+      "energy_kwh": 2.25,
+      "efficiency_score": 53.23,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_186",
+      "material": "Cast Iron",
+      "features": [
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        109,
+        115,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Step Turning",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 35.1,
+      "cost_usd": 68.6,
+      "energy_kwh": 1.8,
+      "efficiency_score": 58.67,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_187",
+      "material": "Copper",
+      "features": [
+        "Thread",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        204,
+        105,
+        101,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_12",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Tapping",
+        "Inspection"
+      ],
+      "time_min": 26.1,
+      "cost_usd": 68.17,
+      "energy_kwh": 1.38,
+      "efficiency_score": 64.48,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_188",
+      "material": "Steel",
+      "features": [
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        108,
+        101,
+        115,
+        110,
+        304,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Grooving/Necking",
+        "Center Drilling",
+        "Woodruff Keyway Milling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 44.8,
+      "cost_usd": 93.0,
+      "energy_kwh": 2.56,
+      "efficiency_score": 44.48,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_189",
+      "material": "Aluminum",
+      "features": [
+        "Taper",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        111,
+        101,
+        106,
+        304,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Taper Turning",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 34.0,
+      "cost_usd": 62.0,
+      "energy_kwh": 1.68,
+      "efficiency_score": 61.47,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_190",
+      "material": "Aluminum",
+      "features": [
+        "Step",
+        "Keyway",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        109,
+        115,
+        106,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Woodruff Keyway Milling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 27.0,
+      "cost_usd": 49.0,
+      "energy_kwh": 1.2,
+      "efficiency_score": 70.13,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_191",
+      "material": "Plastic",
+      "features": [
+        "Engraved_Mark",
+        "Face",
+        "Hole",
+        "Chamfer"
+      ],
+      "tokens": [
+        206,
+        119,
+        110,
+        101,
+        106,
+        306,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Engraving",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 21.0,
+      "cost_usd": 33.0,
+      "energy_kwh": 0.68,
+      "efficiency_score": 79.4,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_192",
+      "material": "Brass",
+      "features": [
+        "Face",
+        "Thread",
+        "Chamfer"
+      ],
+      "tokens": [
+        203,
+        110,
+        105,
+        106,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "External Threading",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 22.0,
+      "cost_usd": 44.16,
+      "energy_kwh": 0.99,
+      "efficiency_score": 74.47,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_193",
+      "material": "Steel",
+      "features": [
+        "Contour_3D",
+        "Hole",
+        "Keyway"
+      ],
+      "tokens": [
+        202,
+        118,
+        101,
+        115,
+        302,
+        401
+      ],
+      "route": "Route_13",
+      "steps": [
+        "Facing",
+        "Woodruff Keyway Milling",
+        "Profile Milling",
+        "Center Drilling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 47.6,
+      "cost_usd": 96.0,
+      "energy_kwh": 2.72,
+      "efficiency_score": 41.76,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_194",
+      "material": "Brass",
+      "features": [
+        "Hole",
+        "Face",
+        "Chamfer",
+        "Counterbore"
+      ],
+      "tokens": [
+        203,
+        101,
+        110,
+        106,
+        113,
+        303,
+        402
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 30.8,
+      "cost_usd": 66.0,
+      "energy_kwh": 1.54,
+      "efficiency_score": 62.38,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_195",
+      "material": "Cast Iron",
+      "features": [
+        "Hole",
+        "Counterbore",
+        "Countersink",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        207,
+        101,
+        113,
+        114,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Countersinking",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 40.3,
+      "cost_usd": 82.43,
+      "energy_kwh": 2.37,
+      "efficiency_score": 50.05,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_196",
+      "material": "Aluminum",
+      "features": [
+        "Pocket",
+        "Hole",
+        "Counterbore",
+        "Chamfer"
+      ],
+      "tokens": [
+        201,
+        103,
+        101,
+        113,
+        106,
+        304,
+        401
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Pocket Milling",
+        "Center Drilling",
+        "Drilling",
+        "Counterboring",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 37.0,
+      "cost_usd": 71.0,
+      "energy_kwh": 1.85,
+      "efficiency_score": 57.02,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_197",
+      "material": "Steel",
+      "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        102,
+        101,
+        106,
+        110,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Slot Milling",
+        "Center Drilling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 81.42,
+      "energy_kwh": 2.48,
+      "efficiency_score": 48.53,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_198",
+      "material": "Steel",
+      "features": [
+        "Slot",
+        "Hole",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        202,
+        102,
+        101,
+        106,
+        110,
+        304,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Slot Milling",
+        "Drilling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 43.4,
+      "cost_usd": 81.42,
+      "energy_kwh": 2.48,
+      "efficiency_score": 48.53,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_199",
+      "material": "Aluminum",
+      "features": [
+        "Knurl",
+        "Step",
+        "Chamfer",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        112,
+        109,
+        106,
+        110,
+        305,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Step Turning",
+        "Knurling",
+        "Chamfering",
+        "Inspection"
+      ],
+      "time_min": 25.0,
+      "cost_usd": 46.0,
+      "energy_kwh": 1.1,
+      "efficiency_score": 72.23,
+      "was_corrected": false
+    },
+    {
+      "success": true,
+      "part_id": "PART_200",
+      "material": "Aluminum",
+      "features": [
+        "Groove",
+        "Hole",
+        "Keyway",
+        "Face"
+      ],
+      "tokens": [
+        201,
+        108,
+        101,
+        115,
+        110,
+        303,
+        403
+      ],
+      "route": "Route_1",
+      "steps": [
+        "Facing",
+        "Center Drilling",
+        "Grooving/Necking",
+        "Woodruff Keyway Milling",
+        "Drilling",
+        "Inspection"
+      ],
+      "time_min": 32.0,
+      "cost_usd": 57.04,
+      "energy_kwh": 1.6,
+      "efficiency_score": 63.99,
       "was_corrected": false
     }
   ],
   "summary": {
-    "total": 50,
-    "success": 50,
+    "total": 200,
+    "success": 200,
     "failed": 0,
     "corrected": 0,
-    "avg_time": 21.17,
-    "avg_cost": 37.55,
-    "avg_energy": 1.08,
-    "avg_efficiency": 76.13,
+    "avg_time": 38.13,
+    "avg_cost": 78.14,
+    "avg_energy": 2.02,
+    "avg_efficiency": 54.56,
     "route_distribution": {
-      "Route_B2": 50
+      "Facing -> Chamfering -> Inspection": 10,
+      "Facing -> Center Drilling -> Profile Milling -> Drilling -> Counterboring -> Inspection": 5,
+      "Facing -> Corner Rounding/Filleting -> Step Turning -> External Threading -> Inspection": 3,
+      "Facing -> Step Turning -> Chamfering -> Corner Rounding/Filleting -> Gear/Spline Milling -> Inspection": 1,
+      "Facing -> Center Drilling -> Taper Turning -> Drilling -> Chamfering -> Inspection": 1,
+      "Facing -> Woodruff Keyway Milling -> Chamfering -> Step Turning -> Inspection": 3,
+      "Facing -> Taper Turning -> Center Drilling -> Drilling -> Chamfering -> Inspection": 7,
+      "Facing -> Step Turning -> Grooving/Necking -> Corner Rounding/Filleting -> Chamfering -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Counterboring -> Chamfering -> Inspection": 4,
+      "Facing -> Center Drilling -> Gear/Spline Milling -> Woodruff Keyway Milling -> Drilling -> Inspection": 1,
+      "Facing -> Center Drilling -> Slot Milling -> Drilling -> Chamfering -> Inspection": 2,
+      "Facing -> Profile Milling -> Center Drilling -> Drilling -> Counterboring -> Inspection": 5,
+      "Facing -> Gear/Spline Milling -> Center Drilling -> Woodruff Keyway Milling -> Drilling -> Inspection": 1,
+      "Facing -> Slot Milling -> Center Drilling -> Drilling -> Chamfering -> Inspection": 5,
+      "Facing -> Profile Milling -> Woodruff Keyway Milling -> Center Drilling -> Drilling -> Inspection": 2,
+      "Facing -> Pocket Milling -> Center Drilling -> Drilling -> Counterboring -> Chamfering -> Inspection": 5,
+      "Facing -> Step Turning -> Knurling -> Chamfering -> Inspection": 3,
+      "Facing -> Woodruff Keyway Milling -> Profile Milling -> Center Drilling -> Drilling -> Inspection": 2,
+      "Facing -> Chamfering -> Step Turning -> Woodruff Keyway Milling -> Inspection": 2,
+      "Facing -> External Threading -> Chamfering -> Inspection": 11,
+      "Facing -> Step Turning -> Corner Rounding/Filleting -> Grooving/Necking -> Chamfering -> Inspection": 3,
+      "Facing -> Center Drilling -> Grooving/Necking -> Drilling -> Chamfering -> Inspection": 6,
+      "Facing -> Grooving/Necking -> Center Drilling -> Drilling -> Woodruff Keyway Milling -> Inspection": 2,
+      "Facing -> Center Drilling -> Drilling -> Countersinking -> Chamfering -> Counterboring -> Inspection": 2,
+      "Facing -> Center Drilling -> Drilling -> Chamfering -> Engraving -> Inspection": 2,
+      "Facing -> Woodruff Keyway Milling -> Grooving/Necking -> Center Drilling -> Drilling -> Inspection": 5,
+      "Facing -> Center Drilling -> Woodruff Keyway Milling -> Profile Milling -> Drilling -> Inspection": 3,
+      "Facing -> Grooving/Necking -> Chamfering -> Corner Rounding/Filleting -> Step Turning -> Inspection": 1,
+      "Facing -> Woodruff Keyway Milling -> Step Turning -> Chamfering -> Inspection": 2,
+      "Facing -> Step Turning -> Corner Rounding/Filleting -> External Threading -> Inspection": 2,
+      "Facing -> Center Drilling -> Engraving -> Drilling -> Chamfering -> Inspection": 2,
+      "Facing -> Center Drilling -> Pocket Milling -> Drilling -> Counterboring -> Chamfering -> Inspection": 2,
+      "Facing -> Chamfering -> Corner Rounding/Filleting -> Gear/Spline Milling -> Step Turning -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Slot Milling -> Chamfering -> Inspection": 4,
+      "Facing -> Grooving/Necking -> Corner Rounding/Filleting -> Step Turning -> Chamfering -> Inspection": 2,
+      "Facing -> Chamfering -> Step Turning -> Corner Rounding/Filleting -> Gear/Spline Milling -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Counterboring -> Countersinking -> Chamfering -> Inspection": 3,
+      "Facing -> Center Drilling -> Drilling -> Chamfering -> Tapping -> Inspection": 5,
+      "Facing -> Step Turning -> Chamfering -> Woodruff Keyway Milling -> Inspection": 1,
+      "Facing -> Woodruff Keyway Milling -> Gear/Spline Milling -> Center Drilling -> Drilling -> Inspection": 2,
+      "Facing -> Grooving/Necking -> Center Drilling -> Drilling -> Chamfering -> Inspection": 3,
+      "Facing -> Center Drilling -> Drilling -> Chamfering -> Counterboring -> Inspection": 6,
+      "Facing -> Grooving/Necking -> Woodruff Keyway Milling -> Center Drilling -> Drilling -> Inspection": 1,
+      "Facing -> Center Drilling -> Gear/Spline Milling -> Drilling -> Woodruff Keyway Milling -> Inspection": 3,
+      "Facing -> Engraving -> Center Drilling -> Drilling -> Chamfering -> Inspection": 7,
+      "Facing -> Center Drilling -> Drilling -> Chamfering -> Countersinking -> Counterboring -> Inspection": 2,
+      "Facing -> Center Drilling -> Drilling -> Chamfering -> Taper Turning -> Inspection": 2,
+      "Facing -> Chamfering -> Step Turning -> Gear/Spline Milling -> Corner Rounding/Filleting -> Inspection": 1,
+      "Facing -> Step Turning -> Chamfering -> Knurling -> Inspection": 2,
+      "Facing -> Corner Rounding/Filleting -> Grooving/Necking -> Step Turning -> Chamfering -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Chamfering -> Counterboring -> Countersinking -> Inspection": 1,
+      "Facing -> Chamfering -> Step Turning -> Knurling -> Inspection": 2,
+      "Facing -> Gear/Spline Milling -> Corner Rounding/Filleting -> Chamfering -> Step Turning -> Inspection": 2,
+      "Facing -> Pocket Milling -> Center Drilling -> Drilling -> Chamfering -> Counterboring -> Inspection": 1,
+      "Facing -> Step Turning -> External Threading -> Corner Rounding/Filleting -> Inspection": 3,
+      "Facing -> Woodruff Keyway Milling -> Center Drilling -> Profile Milling -> Drilling -> Inspection": 1,
+      "Facing -> Step Turning -> Grooving/Necking -> Chamfering -> Corner Rounding/Filleting -> Inspection": 1,
+      "Facing -> Corner Rounding/Filleting -> Gear/Spline Milling -> Step Turning -> Chamfering -> Inspection": 1,
+      "Facing -> Gear/Spline Milling -> Center Drilling -> Drilling -> Woodruff Keyway Milling -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Tapping -> Chamfering -> Inspection": 5,
+      "Facing -> Corner Rounding/Filleting -> Gear/Spline Milling -> Chamfering -> Step Turning -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Grooving/Necking -> Chamfering -> Inspection": 2,
+      "Facing -> Chamfering -> Woodruff Keyway Milling -> Step Turning -> Inspection": 2,
+      "Facing -> Center Drilling -> Drilling -> Pocket Milling -> Counterboring -> Chamfering -> Inspection": 2,
+      "Facing -> External Threading -> Step Turning -> Corner Rounding/Filleting -> Inspection": 2,
+      "Facing -> Center Drilling -> Drilling -> Grooving/Necking -> Woodruff Keyway Milling -> Inspection": 1,
+      "Facing -> Knurling -> Chamfering -> Step Turning -> Inspection": 2,
+      "Facing -> Center Drilling -> Drilling -> Counterboring -> Chamfering -> Countersinking -> Inspection": 2,
+      "Facing -> Woodruff Keyway Milling -> Center Drilling -> Drilling -> Gear/Spline Milling -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Counterboring -> Profile Milling -> Inspection": 2,
+      "Facing -> Gear/Spline Milling -> Step Turning -> Corner Rounding/Filleting -> Chamfering -> Inspection": 1,
+      "Facing -> Chamfering -> Gear/Spline Milling -> Corner Rounding/Filleting -> Step Turning -> Inspection": 1,
+      "Facing -> Center Drilling -> Profile Milling -> Woodruff Keyway Milling -> Drilling -> Inspection": 1,
+      "Facing -> Center Drilling -> Profile Milling -> Drilling -> Woodruff Keyway Milling -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Countersinking -> Counterboring -> Chamfering -> Inspection": 1,
+      "Facing -> Center Drilling -> Drilling -> Woodruff Keyway Milling -> Gear/Spline Milling -> Inspection": 1,
+      "Facing -> Corner Rounding/Filleting -> Step Turning -> Grooving/Necking -> Chamfering -> Inspection": 1,
+      "Facing -> Chamfering -> Knurling -> Step Turning -> Inspection": 1,
+      "Facing -> Step Turning -> Corner Rounding/Filleting -> Chamfering -> Gear/Spline Milling -> Inspection": 1,
+      "Facing -> Grooving/Necking -> Center Drilling -> Woodruff Keyway Milling -> Drilling -> Inspection": 1,
+      "Facing -> Step Turning -> Woodruff Keyway Milling -> Chamfering -> Inspection": 1,
+      "Facing -> Center Drilling -> Grooving/Necking -> Woodruff Keyway Milling -> Drilling -> Inspection": 1
     },
-    "pipeline_time_sec": 0.01
+    "pipeline_time_sec": 0.1
   }
 }

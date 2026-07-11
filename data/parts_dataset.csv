@@ -1,51 +1,201 @@
-part_id,material,features,tolerance,batch_size
-PART_001,Plastic,Hole,0.5mm,100
-PART_002,Steel,Pocket;Slot,0.5mm,1000
-PART_003,Aluminum,Hole;Face;Slot;Groove,0.01mm,1000
-PART_004,Titanium,Step,0.01mm,5000
-PART_005,Plastic,Boss;Groove;Thread;Fillet,0.005mm,25
-PART_006,Plastic,Chamfer;Thread;Pocket;Slot,0.02mm,10
-PART_007,Aluminum,Slot;Chamfer;Step;Thread,0.02mm,5
-PART_008,Plastic,Step;Slot;Fillet;Hole,0.1mm,100
-PART_009,Cast Iron,Face;Boss;Slot,0.005mm,5000
-PART_010,Steel,Slot;Boss;Face,0.05mm,100
-PART_011,Copper,Pocket;Chamfer;Step,0.01mm,5000
-PART_012,Brass,Face,0.5mm,25
-PART_013,Titanium,Pocket;Groove,0.05mm,100
-PART_014,Plastic,Chamfer;Hole,0.01mm,5
-PART_015,Cast Iron,Fillet;Thread;Slot,0.01mm,2500
-PART_016,Plastic,Boss;Groove;Fillet,0.5mm,750
-PART_017,Steel,Pocket;Boss;Thread,0.5mm,2500
-PART_018,Copper,Chamfer;Boss;Pocket;Thread,0.05mm,10
-PART_019,Cast Iron,Slot,0.01mm,5000
-PART_020,Steel,Face;Slot;Fillet;Boss,0.1mm,750
-PART_021,Titanium,Step;Hole;Slot,0.5mm,1000
-PART_022,Cast Iron,Chamfer;Slot;Thread,0.05mm,25
-PART_023,Copper,Thread,0.1mm,25
-PART_024,Titanium,Thread,0.5mm,1000
-PART_025,Titanium,Pocket;Chamfer,0.01mm,1000
-PART_026,Cast Iron,Face,0.02mm,750
-PART_027,Aluminum,Chamfer,0.02mm,50
-PART_028,Aluminum,Face;Slot,0.005mm,750
-PART_029,Cast Iron,Step,0.01mm,25
-PART_030,Plastic,Step;Pocket;Thread;Groove,0.1mm,500
-PART_031,Steel,Thread;Fillet,0.5mm,5000
-PART_032,Brass,Step;Groove;Slot;Face,0.01mm,10
-PART_033,Brass,Face,0.1mm,50
-PART_034,Titanium,Hole;Slot,0.5mm,5000
-PART_035,Aluminum,Slot;Hole,0.02mm,10
-PART_036,Titanium,Thread;Groove,0.01mm,1000
-PART_037,Steel,Boss;Groove;Fillet;Slot,0.005mm,10
-PART_038,Plastic,Chamfer;Fillet;Step;Boss,0.5mm,5
-PART_039,Plastic,Hole,0.05mm,250
-PART_040,Cast Iron,Boss,0.01mm,50
-PART_041,Titanium,Pocket;Fillet;Face;Groove,0.05mm,50
-PART_042,Cast Iron,Groove,0.1mm,10
-PART_043,Aluminum,Slot,0.01mm,25
-PART_044,Copper,Groove;Boss;Fillet;Hole,0.01mm,500
-PART_045,Aluminum,Thread;Groove;Face;Boss,0.5mm,1000
-PART_046,Plastic,Pocket;Boss;Thread;Slot,0.005mm,2500
-PART_047,Plastic,Chamfer,0.005mm,5
-PART_048,Titanium,Step;Face;Pocket;Hole,0.1mm,10
-PART_049,Cast Iron,Slot;Face,0.5mm,50
-PART_050,Copper,Face,0.01mm,2500
+part_id,archetype,material,features,tolerance,batch_size
+PART_001,Precision Dowel Pin,Titanium,Chamfer;Face,0.01mm,2500
+PART_002,Boss with Spotface,Steel,Boss;Counterbore;Hole,0.02mm,250
+PART_003,Threaded Shaft with Relief Groove,Steel,Thread;Fillet;Step,0.01mm,100
+PART_004,Splined Shaft,Steel,Spline;Step;Fillet;Chamfer,0.005mm,50
+PART_005,Precision Dowel Pin,Steel,Chamfer;Face,0.01mm,1000
+PART_006,Tapered Sleeve,Steel,Taper;Hole;Chamfer,0.02mm,50
+PART_007,Keyed Shaft,Aluminum,Step;Keyway;Chamfer;Face,0.02mm,50
+PART_008,Tapered Sleeve,Brass,Taper;Hole;Chamfer,0.02mm,100
+PART_009,Stepped Shaft with Retaining Groove,Steel,Step;Groove;Fillet;Chamfer,0.02mm,50
+PART_010,Flanged Bushing,Aluminum,Hole;Face;Chamfer;Counterbore,0.05mm,100
+PART_011,Gear Blank,Steel,Gear_Teeth;Hole;Keyway;Face,0.005mm,10
+PART_012,Mounting Bracket,Steel,Slot;Hole;Chamfer;Face,0.1mm,500
+PART_013,Boss with Spotface,Steel,Boss;Counterbore;Hole,0.02mm,250
+PART_014,Gear Blank,Steel,Gear_Teeth;Hole;Keyway;Face,0.005mm,50
+PART_015,Mounting Bracket,Aluminum,Slot;Hole;Chamfer;Face,0.5mm,1000
+PART_016,Cam Profile Disc,Steel,Contour_3D;Hole;Keyway,0.01mm,50
+PART_017,Pocketed Housing,Steel,Pocket;Hole;Counterbore;Chamfer,0.02mm,50
+PART_018,Knurled Grip Handle,Aluminum,Knurl;Step;Chamfer;Face,0.05mm,500
+PART_019,Cam Profile Disc,Steel,Contour_3D;Hole;Keyway,0.02mm,10
+PART_020,Keyed Shaft,Aluminum,Step;Keyway;Chamfer;Face,0.01mm,50
+PART_021,Tapered Sleeve,Brass,Taper;Hole;Chamfer,0.02mm,100
+PART_022,Precision Dowel Pin,Titanium,Chamfer;Face,0.01mm,2500
+PART_023,Hex Bolt,Steel,Face;Thread;Chamfer,0.02mm,5000
+PART_024,Stepped Shaft with Retaining Groove,Aluminum,Step;Groove;Fillet;Chamfer,0.01mm,100
+PART_025,Flanged Bushing,Copper,Hole;Face;Chamfer;Counterbore,0.02mm,250
+PART_026,Tapered Sleeve,Aluminum,Taper;Hole;Chamfer,0.02mm,50
+PART_027,Hex Bolt,Steel,Face;Thread;Chamfer,0.05mm,2500
+PART_028,Boss with Spotface,Cast Iron,Boss;Counterbore;Hole,0.02mm,100
+PART_029,Knurled Grip Handle,Plastic,Knurl;Step;Chamfer;Face,0.05mm,500
+PART_030,Sealed Housing Cover,Steel,Groove;Face;Hole;Chamfer,0.05mm,500
+PART_031,Hex Bolt,Brass,Face;Thread;Chamfer,0.02mm,500
+PART_032,V-Belt Pulley,Steel,Groove;Hole;Keyway;Face,0.02mm,250
+PART_033,Flange Plate,Aluminum,Hole;Counterbore;Countersink;Chamfer;Face,0.1mm,250
+PART_034,Engraved ID Plate,Aluminum,Engraved_Mark;Face;Hole;Chamfer,0.5mm,50
+PART_035,V-Belt Pulley,Aluminum,Groove;Hole;Keyway;Face,0.02mm,100
+PART_036,Cam Profile Disc,Steel,Contour_3D;Hole;Keyway,0.02mm,50
+PART_037,Cam Profile Disc,Steel,Contour_3D;Hole;Keyway,0.02mm,10
+PART_038,Stepped Shaft with Retaining Groove,Aluminum,Step;Groove;Fillet;Chamfer,0.01mm,100
+PART_039,Keyed Shaft,Steel,Step;Keyway;Chamfer;Face,0.01mm,10
+PART_040,Threaded Shaft with Relief Groove,Titanium,Thread;Fillet;Step,0.02mm,10
+PART_041,Engraved ID Plate,Aluminum,Engraved_Mark;Face;Hole;Chamfer,0.5mm,100
+PART_042,Pocketed Housing,Steel,Pocket;Hole;Counterbore;Chamfer,0.05mm,50
+PART_043,Splined Shaft,Titanium,Spline;Step;Fillet;Chamfer,0.005mm,50
+PART_044,Engraved ID Plate,Brass,Engraved_Mark;Face;Hole;Chamfer,0.5mm,50
+PART_045,Sealed Housing Cover,Steel,Groove;Face;Hole;Chamfer,0.1mm,100
+PART_046,V-Belt Pulley,Cast Iron,Groove;Hole;Keyway;Face,0.02mm,250
+PART_047,Mounting Bracket,Aluminum,Slot;Hole;Chamfer;Face,0.5mm,500
+PART_048,Boss with Spotface,Cast Iron,Boss;Counterbore;Hole,0.05mm,250
+PART_049,Stepped Shaft with Retaining Groove,Steel,Step;Groove;Fillet;Chamfer,0.02mm,50
+PART_050,Splined Shaft,Titanium,Spline;Step;Fillet;Chamfer,0.01mm,50
+PART_051,Flange Plate,Steel,Hole;Counterbore;Countersink;Chamfer;Face,0.05mm,250
+PART_052,Internally Threaded Bushing,Steel,Thread;Hole;Chamfer;Face,0.02mm,100
+PART_053,Hex Bolt,Titanium,Face;Thread;Chamfer,0.05mm,5000
+PART_054,Keyed Shaft,Steel,Step;Keyway;Chamfer;Face,0.02mm,10
+PART_055,Gear Blank,Cast Iron,Gear_Teeth;Hole;Keyway;Face,0.005mm,50
+PART_056,Sealed Housing Cover,Aluminum,Groove;Face;Hole;Chamfer,0.05mm,100
+PART_057,Keyed Shaft,Aluminum,Step;Keyway;Chamfer;Face,0.01mm,100
+PART_058,Keyed Shaft,Steel,Step;Keyway;Chamfer;Face,0.02mm,100
+PART_059,Stepped Shaft with Retaining Groove,Aluminum,Step;Groove;Fillet;Chamfer,0.02mm,100
+PART_060,Precision Dowel Pin,Titanium,Chamfer;Face,0.005mm,500
+PART_061,Internally Threaded Bushing,Brass,Thread;Hole;Chamfer;Face,0.02mm,250
+PART_062,Internally Threaded Bushing,Copper,Thread;Hole;Chamfer;Face,0.02mm,100
+PART_063,Flanged Bushing,Copper,Hole;Face;Chamfer;Counterbore,0.05mm,50
+PART_064,Sealed Housing Cover,Aluminum,Groove;Face;Hole;Chamfer,0.05mm,100
+PART_065,V-Belt Pulley,Aluminum,Groove;Hole;Keyway;Face,0.02mm,250
+PART_066,Gear Blank,Cast Iron,Gear_Teeth;Hole;Keyway;Face,0.01mm,10
+PART_067,Boss with Spotface,Steel,Boss;Counterbore;Hole,0.02mm,100
+PART_068,Gear Blank,Steel,Gear_Teeth;Hole;Keyway;Face,0.005mm,50
+PART_069,Engraved ID Plate,Aluminum,Engraved_Mark;Face;Hole;Chamfer,0.1mm,100
+PART_070,Precision Dowel Pin,Steel,Chamfer;Face,0.01mm,2500
+PART_071,Sealed Housing Cover,Steel,Groove;Face;Hole;Chamfer,0.05mm,250
+PART_072,Flanged Bushing,Aluminum,Hole;Face;Chamfer;Counterbore,0.05mm,100
+PART_073,Threaded Shaft with Relief Groove,Titanium,Thread;Fillet;Step,0.02mm,100
+PART_074,Engraved ID Plate,Brass,Engraved_Mark;Face;Hole;Chamfer,0.1mm,50
+PART_075,Hex Bolt,Steel,Face;Thread;Chamfer,0.02mm,500
+PART_076,Pocketed Housing,Steel,Pocket;Hole;Counterbore;Chamfer,0.02mm,10
+PART_077,Tapered Sleeve,Brass,Taper;Hole;Chamfer,0.05mm,100
+PART_078,Flange Plate,Cast Iron,Hole;Counterbore;Countersink;Chamfer;Face,0.1mm,250
+PART_079,Tapered Sleeve,Steel,Taper;Hole;Chamfer,0.02mm,50
+PART_080,Splined Shaft,Titanium,Spline;Step;Fillet;Chamfer,0.01mm,50
+PART_081,Knurled Grip Handle,Plastic,Knurl;Step;Chamfer;Face,0.05mm,100
+PART_082,V-Belt Pulley,Cast Iron,Groove;Hole;Keyway;Face,0.02mm,250
+PART_083,Stepped Shaft with Retaining Groove,Aluminum,Step;Groove;Fillet;Chamfer,0.02mm,50
+PART_084,Precision Dowel Pin,Titanium,Chamfer;Face,0.005mm,2500
+PART_085,Flanged Bushing,Copper,Hole;Face;Chamfer;Counterbore,0.05mm,250
+PART_086,Flange Plate,Cast Iron,Hole;Counterbore;Countersink;Chamfer;Face,0.05mm,100
+PART_087,Hex Bolt,Brass,Face;Thread;Chamfer,0.05mm,1000
+PART_088,Engraved ID Plate,Aluminum,Engraved_Mark;Face;Hole;Chamfer,0.5mm,50
+PART_089,Knurled Grip Handle,Aluminum,Knurl;Step;Chamfer;Face,0.1mm,100
+PART_090,Mounting Bracket,Aluminum,Slot;Hole;Chamfer;Face,0.05mm,500
+PART_091,Splined Shaft,Steel,Spline;Step;Fillet;Chamfer,0.01mm,50
+PART_092,Pocketed Housing,Aluminum,Pocket;Hole;Counterbore;Chamfer,0.05mm,100
+PART_093,Threaded Shaft with Relief Groove,Titanium,Thread;Fillet;Step,0.01mm,100
+PART_094,Cam Profile Disc,Steel,Contour_3D;Hole;Keyway,0.01mm,50
+PART_095,Engraved ID Plate,Aluminum,Engraved_Mark;Face;Hole;Chamfer,0.1mm,100
+PART_096,Stepped Shaft with Retaining Groove,Aluminum,Step;Groove;Fillet;Chamfer,0.02mm,50
+PART_097,Flanged Bushing,Aluminum,Hole;Face;Chamfer;Counterbore,0.05mm,50
+PART_098,Splined Shaft,Steel,Spline;Step;Fillet;Chamfer,0.01mm,10
+PART_099,Sealed Housing Cover,Steel,Groove;Face;Hole;Chamfer,0.1mm,500
+PART_100,Engraved ID Plate,Plastic,Engraved_Mark;Face;Hole;Chamfer,0.5mm,250
+PART_101,Gear Blank,Cast Iron,Gear_Teeth;Hole;Keyway;Face,0.005mm,10
+PART_102,Gear Blank,Steel,Gear_Teeth;Hole;Keyway;Face,0.005mm,50
+PART_103,Tapered Sleeve,Aluminum,Taper;Hole;Chamfer,0.05mm,50
+PART_104,Cam Profile Disc,Cast Iron,Contour_3D;Hole;Keyway,0.01mm,10
+PART_105,Mounting Bracket,Steel,Slot;Hole;Chamfer;Face,0.05mm,250
+PART_106,Sealed Housing Cover,Cast Iron,Groove;Face;Hole;Chamfer,0.05mm,100
+PART_107,Internally Threaded Bushing,Copper,Thread;Hole;Chamfer;Face,0.02mm,250
+PART_108,Splined Shaft,Titanium,Spline;Step;Fillet;Chamfer,0.005mm,10
+PART_109,Sealed Housing Cover,Aluminum,Groove;Face;Hole;Chamfer,0.05mm,250
+PART_110,Threaded Shaft with Relief Groove,Titanium,Thread;Fillet;Step,0.01mm,50
+PART_111,Keyed Shaft,Steel,Step;Keyway;Chamfer;Face,0.02mm,10
+PART_112,Pocketed Housing,Aluminum,Pocket;Hole;Counterbore;Chamfer,0.02mm,100
+PART_113,Threaded Shaft with Relief Groove,Steel,Thread;Fillet;Step,0.02mm,50
+PART_114,Precision Dowel Pin,Titanium,Chamfer;Face,0.01mm,2500
+PART_115,Internally Threaded Bushing,Brass,Thread;Hole;Chamfer;Face,0.02mm,100
+PART_116,Threaded Shaft with Relief Groove,Titanium,Thread;Fillet;Step,0.02mm,100
+PART_117,Mounting Bracket,Steel,Slot;Hole;Chamfer;Face,0.5mm,250
+PART_118,Knurled Grip Handle,Plastic,Knurl;Step;Chamfer;Face,0.1mm,500
+PART_119,Pocketed Housing,Aluminum,Pocket;Hole;Counterbore;Chamfer,0.02mm,50
+PART_120,Boss with Spotface,Cast Iron,Boss;Counterbore;Hole,0.05mm,50
+PART_121,V-Belt Pulley,Aluminum,Groove;Hole;Keyway;Face,0.05mm,250
+PART_122,Boss with Spotface,Steel,Boss;Counterbore;Hole,0.05mm,100
+PART_123,Knurled Grip Handle,Plastic,Knurl;Step;Chamfer;Face,0.05mm,500
+PART_124,Flange Plate,Steel,Hole;Counterbore;Countersink;Chamfer;Face,0.05mm,250
+PART_125,Engraved ID Plate,Aluminum,Engraved_Mark;Face;Hole;Chamfer,0.5mm,50
+PART_126,Pocketed Housing,Steel,Pocket;Hole;Counterbore;Chamfer,0.02mm,100
+PART_127,Mounting Bracket,Aluminum,Slot;Hole;Chamfer;Face,0.05mm,1000
+PART_128,Flange Plate,Cast Iron,Hole;Counterbore;Countersink;Chamfer;Face,0.1mm,100
+PART_129,Gear Blank,Cast Iron,Gear_Teeth;Hole;Keyway;Face,0.01mm,10
+PART_130,Splined Shaft,Titanium,Spline;Step;Fillet;Chamfer,0.005mm,10
+PART_131,Boss with Spotface,Aluminum,Boss;Counterbore;Hole,0.05mm,250
+PART_132,Splined Shaft,Titanium,Spline;Step;Fillet;Chamfer,0.005mm,10
+PART_133,Knurled Grip Handle,Steel,Knurl;Step;Chamfer;Face,0.05mm,100
+PART_134,Splined Shaft,Titanium,Spline;Step;Fillet;Chamfer,0.01mm,10
+PART_135,Internally Threaded Bushing,Copper,Thread;Hole;Chamfer;Face,0.05mm,100
+PART_136,Cam Profile Disc,Steel,Contour_3D;Hole;Keyway,0.01mm,50
+PART_137,Boss with Spotface,Aluminum,Boss;Counterbore;Hole,0.05mm,250
+PART_138,Hex Bolt,Brass,Face;Thread;Chamfer,0.1mm,500
+PART_139,Tapered Sleeve,Aluminum,Taper;Hole;Chamfer,0.02mm,100
+PART_140,Cam Profile Disc,Cast Iron,Contour_3D;Hole;Keyway,0.01mm,50
+PART_141,Sealed Housing Cover,Steel,Groove;Face;Hole;Chamfer,0.1mm,250
+PART_142,Internally Threaded Bushing,Steel,Thread;Hole;Chamfer;Face,0.02mm,100
+PART_143,Pocketed Housing,Steel,Pocket;Hole;Counterbore;Chamfer,0.05mm,10
+PART_144,Engraved ID Plate,Brass,Engraved_Mark;Face;Hole;Chamfer,0.5mm,250
+PART_145,Tapered Sleeve,Aluminum,Taper;Hole;Chamfer,0.05mm,100
+PART_146,Sealed Housing Cover,Aluminum,Groove;Face;Hole;Chamfer,0.1mm,500
+PART_147,Boss with Spotface,Cast Iron,Boss;Counterbore;Hole,0.05mm,100
+PART_148,Threaded Shaft with Relief Groove,Titanium,Thread;Fillet;Step,0.01mm,10
+PART_149,Mounting Bracket,Steel,Slot;Hole;Chamfer;Face,0.05mm,250
+PART_150,Flanged Bushing,Copper,Hole;Face;Chamfer;Counterbore,0.02mm,250
+PART_151,Flange Plate,Steel,Hole;Counterbore;Countersink;Chamfer;Face,0.05mm,100
+PART_152,Stepped Shaft with Retaining Groove,Aluminum,Step;Groove;Fillet;Chamfer,0.01mm,10
+PART_153,Keyed Shaft,Cast Iron,Step;Keyway;Chamfer;Face,0.01mm,50
+PART_154,V-Belt Pulley,Aluminum,Groove;Hole;Keyway;Face,0.02mm,50
+PART_155,Pocketed Housing,Steel,Pocket;Hole;Counterbore;Chamfer,0.05mm,10
+PART_156,Knurled Grip Handle,Aluminum,Knurl;Step;Chamfer;Face,0.05mm,500
+PART_157,Precision Dowel Pin,Steel,Chamfer;Face,0.01mm,2500
+PART_158,Internally Threaded Bushing,Brass,Thread;Hole;Chamfer;Face,0.05mm,100
+PART_159,Hex Bolt,Steel,Face;Thread;Chamfer,0.1mm,500
+PART_160,Precision Dowel Pin,Titanium,Chamfer;Face,0.005mm,2500
+PART_161,Flanged Bushing,Copper,Hole;Face;Chamfer;Counterbore,0.02mm,50
+PART_162,Mounting Bracket,Steel,Slot;Hole;Chamfer;Face,0.05mm,500
+PART_163,Gear Blank,Steel,Gear_Teeth;Hole;Keyway;Face,0.01mm,10
+PART_164,Boss with Spotface,Steel,Boss;Counterbore;Hole,0.02mm,100
+PART_165,Internally Threaded Bushing,Steel,Thread;Hole;Chamfer;Face,0.02mm,500
+PART_166,Stepped Shaft with Retaining Groove,Steel,Step;Groove;Fillet;Chamfer,0.02mm,100
+PART_167,Gear Blank,Cast Iron,Gear_Teeth;Hole;Keyway;Face,0.01mm,50
+PART_168,Knurled Grip Handle,Plastic,Knurl;Step;Chamfer;Face,0.05mm,100
+PART_169,Flange Plate,Steel,Hole;Counterbore;Countersink;Chamfer;Face,0.05mm,100
+PART_170,Splined Shaft,Steel,Spline;Step;Fillet;Chamfer,0.01mm,50
+PART_171,V-Belt Pulley,Cast Iron,Groove;Hole;Keyway;Face,0.02mm,250
+PART_172,Precision Dowel Pin,Steel,Chamfer;Face,0.01mm,500
+PART_173,Flanged Bushing,Copper,Hole;Face;Chamfer;Counterbore,0.02mm,250
+PART_174,Boss with Spotface,Cast Iron,Boss;Counterbore;Hole,0.02mm,50
+PART_175,Cam Profile Disc,Steel,Contour_3D;Hole;Keyway,0.01mm,50
+PART_176,Threaded Shaft with Relief Groove,Titanium,Thread;Fillet;Step,0.01mm,10
+PART_177,Flange Plate,Cast Iron,Hole;Counterbore;Countersink;Chamfer;Face,0.1mm,100
+PART_178,Threaded Shaft with Relief Groove,Steel,Thread;Fillet;Step,0.02mm,10
+PART_179,Stepped Shaft with Retaining Groove,Steel,Step;Groove;Fillet;Chamfer,0.02mm,100
+PART_180,Hex Bolt,Steel,Face;Thread;Chamfer,0.02mm,1000
+PART_181,V-Belt Pulley,Aluminum,Groove;Hole;Keyway;Face,0.05mm,50
+PART_182,Flange Plate,Aluminum,Hole;Counterbore;Countersink;Chamfer;Face,0.05mm,500
+PART_183,Hex Bolt,Brass,Face;Thread;Chamfer,0.02mm,5000
+PART_184,Keyed Shaft,Aluminum,Step;Keyway;Chamfer;Face,0.02mm,10
+PART_185,Sealed Housing Cover,Cast Iron,Groove;Face;Hole;Chamfer,0.1mm,250
+PART_186,Keyed Shaft,Cast Iron,Step;Keyway;Chamfer;Face,0.02mm,100
+PART_187,Internally Threaded Bushing,Copper,Thread;Hole;Chamfer;Face,0.05mm,250
+PART_188,V-Belt Pulley,Steel,Groove;Hole;Keyway;Face,0.05mm,50
+PART_189,Tapered Sleeve,Aluminum,Taper;Hole;Chamfer,0.05mm,50
+PART_190,Keyed Shaft,Aluminum,Step;Keyway;Chamfer;Face,0.02mm,100
+PART_191,Engraved ID Plate,Plastic,Engraved_Mark;Face;Hole;Chamfer,0.5mm,50
+PART_192,Hex Bolt,Brass,Face;Thread;Chamfer,0.05mm,500
+PART_193,Cam Profile Disc,Steel,Contour_3D;Hole;Keyway,0.01mm,10
+PART_194,Flanged Bushing,Brass,Hole;Face;Chamfer;Counterbore,0.02mm,50
+PART_195,Flange Plate,Cast Iron,Hole;Counterbore;Countersink;Chamfer;Face,0.05mm,500
+PART_196,Pocketed Housing,Aluminum,Pocket;Hole;Counterbore;Chamfer,0.05mm,10
+PART_197,Mounting Bracket,Steel,Slot;Hole;Chamfer;Face,0.1mm,500
+PART_198,Mounting Bracket,Steel,Slot;Hole;Chamfer;Face,0.05mm,500
+PART_199,Knurled Grip Handle,Aluminum,Knurl;Step;Chamfer;Face,0.1mm,100
+PART_200,V-Belt Pulley,Aluminum,Groove;Hole;Keyway;Face,0.02mm,250
