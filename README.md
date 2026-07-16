@@ -137,6 +137,77 @@ FSM Check : ✅ Valid — Facing first, Inspection last, all precedence rules sa
 
 ---
 
+## 🤖 LLM Integration — Where and How AI Is Used
+
+This is the component that gives **LLM-CAPP** its name. A large language model runs as a **second, independent route-generation path**, alongside the rule-based Dynamic Route Builder — not as a replacement for it, and never trusted without verification.
+
+### Where It Sits in the Pipeline
+
+```
+Tokenized Features
+        │
+        ├──────────────────────────┐
+        ▼                          ▼
+Dynamic Route Builder      LLM Planner (Llama-3.1-8B via Groq)
+(rule-based construction)  (generates a candidate route directly)
+        │                          │
+        └────────────┬─────────────┘
+                      ▼
+         FSM Validator (same 32-rule check for BOTH)
+                      ▼
+         Self-Correction (if invalid) → Route Builder called directly
+                      ▼
+              Multi-Agent Scoring → NSGA-II → Output
+```
+
+### What the Model Is Given
+
+The LLM receives the part's material, requested features, tolerance, and batch size, together with a system prompt that explicitly supplies:
+
+- The **complete list of 41 valid operations** — so the model cannot invent an operation that doesn't exist in the system.
+- The rule that every plan must **start with Facing and end with Inspection**.
+- An instruction to respect manufacturing precedence (e.g. drill before you tap).
+- A requirement to return **only a structured JSON array**, nothing else.
+
+```
+System Prompt (simplified):
+"You are a manufacturing process planning expert.
+ RULES: 1. Every plan MUST start with Facing, end with Inspection
+        2. Use ONLY these valid operations: [full 41-operation list]
+        3. Respect machining precedence
+        4. Output ONLY a JSON array, nothing else"
+
+User Prompt:
+"Material: Steel, Features: Thread, Fillet, Tolerance: 0.02mm, Batch: 500"
+
+Model Output:
+["Facing", "External Threading", "Corner Rounding/Filleting", "Inspection"]
+```
+
+### What Happens to the Model's Output
+
+The LLM's output is parsed into the same plain operation-list format used everywhere else in the system, then handed to the **FSM Validator** — the identical check applied to every Route-Builder-generated route. If the LLM's sequence violates a precedence rule or omits a required operation, it is **not manually patched**: the Self-Correction Loop instead requests a fresh, guaranteed-valid route directly from the Dynamic Route Builder for the same features. The LLM therefore adds a fast, flexible second opinion, while every correctness guarantee in the system continues to come from the rule-based side.
+
+### Why Llama-3.1-8B via Groq
+
+| Aspect | Detail |
+| --- | --- |
+| Model | Llama-3.1-8B |
+| Hosting | Cloud API (Groq) — no local GPU required |
+| Response time | ~1–2 seconds per request |
+| Output format | Structured JSON, reliably parseable |
+| Trust level | None by default — every output is validated before use |
+
+### Where in the Code
+
+| File | Role |
+| --- | --- |
+| `week2/llm_planner.py` | Builds the prompt, calls the Groq API, parses the JSON response |
+| `week4/fsm_validator.py` | Validates the LLM's route using the shared precedence graph |
+| `week5/self_corrector.py` | Requests a Route-Builder replacement if the LLM's route is invalid |
+
+---
+
 ## 📂 Repository Structure
 
 ```
