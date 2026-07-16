@@ -1,13 +1,12 @@
 # nsga2.py
 # NSGA-II Multi-Objective Optimization
 # Week 4 | LLM-CAPP Project
-# UPDATED: "feature-based filtering" (fixed 77-route bank ko filter karna)
-# poori tarah HATA diya gaya hai. Population ab route_builder.py (Dynamic
-# Route Builder) se aata hai — jo khud completeness guarantee karta hai,
-# isliye alag se filtering/duplicate FEATURE_TO_OPS dict ki zarurat nahi rahi.
-#
-# Core algorithm (dominance check, non-dominated sort, crowding distance)
-# BILKUL UNCHANGED hai — inhe route kaha se aaya, farak nahi padta.
+# UPDATED:
+#   1. generate_valid_routes() ab list of dicts return karta hai
+#      ({"steps": [...], "type": "LATHE_FIRST", "changeovers": 1})
+#      — isliye population creation me r["steps"] use hota hai
+#   2. Cost display INR me (₹)
+#   3. Core algorithm (dominance, sorting, crowding) UNCHANGED
 
 import random
 import sys
@@ -22,7 +21,7 @@ from route_builder import generate_valid_routes
 random.seed(42)
 
 
-# ── Individual (ek solution) ────────────────────── (UNCHANGED)
+# ── Individual (ek solution) ──────────────────────
 class Individual:
     def __init__(self, route_name: str, steps: list, material: str, batch_size: int):
         self.route_name  = route_name
@@ -40,7 +39,7 @@ class Individual:
         return (t, c, e)
 
 
-# ── Dominance check ─────────────────────────────── (UNCHANGED)
+# ── Dominance check ───────────────────────────────
 def dominates(a: Individual, b: Individual) -> bool:
     a_obj = a.objectives
     b_obj = b.objectives
@@ -49,7 +48,7 @@ def dominates(a: Individual, b: Individual) -> bool:
     return not_worse and strictly_better
 
 
-# ── Non-Dominated Sorting ───────────────────────── (UNCHANGED)
+# ── Non-Dominated Sorting ─────────────────────────
 def non_dominated_sort(population: list) -> list:
     fronts = [[]]
     dominated_by = {i: [] for i in range(len(population))}
@@ -83,7 +82,7 @@ def non_dominated_sort(population: list) -> list:
     return fronts[:-1]
 
 
-# ── Crowding Distance ───────────────────────────── (UNCHANGED)
+# ── Crowding Distance ─────────────────────────────
 def crowding_distance(population: list, front: list) -> None:
     n = len(front)
     if n <= 2:
@@ -110,25 +109,21 @@ def crowding_distance(population: list, front: list) -> None:
 
 
 # ── Main NSGA-II Function ─────────────────────────
-def run_nsga2(material: str, batch_size: int, features: list = None, max_routes: int = 15) -> list:
+def run_nsga2(material: str, batch_size: int, features: list = None, max_routes: int = 15, machine_preference: str = "auto") -> list:
     """
     NSGA-II run karo aur Pareto-optimal routes return karo.
-
-    Population ab route_builder.generate_valid_routes() se aata hai —
-    Dynamic Route Builder khud completeness guarantee karta hai
-    (Feature -> Operations mapping + Precedence rules se), isliye
-    alag "relevant routes filter karo" step ki zarurat nahi rahi.
+    machine_preference: "auto", "prefer_lathe", "prefer_milling"
     """
     features = features or []
-    candidate_routes = generate_valid_routes(features, max_routes=max_routes)
+    candidate_routes = generate_valid_routes(features, max_routes=max_routes, machine_preference=machine_preference)
 
-    # Safety net — agar kabhi khaali aaye (bahut rare case), trivial route use karo
+    # Safety net
     if not candidate_routes:
-        candidate_routes = [["Facing", "Inspection"]]
+        candidate_routes = [{"steps": ["Facing", "Inspection"], "type": "FALLBACK", "changeovers": 0}]
 
     population = [
-        Individual(f"Route_{i+1}", steps, material, batch_size)
-        for i, steps in enumerate(candidate_routes)
+        Individual(f"Route_{i+1}", r["steps"], material, batch_size)
+        for i, r in enumerate(candidate_routes)
     ]
 
     fronts = non_dominated_sort(population)
@@ -141,29 +136,31 @@ def run_nsga2(material: str, batch_size: int, features: list = None, max_routes:
 
 
 def print_pareto(pareto: list, material: str, batch_size: int):
-    print(f"\n{'='*65}")
+    print(f"\n{'='*70}")
     print(f"  NSGA-II Results — {material}, Batch: {batch_size}")
-    print(f"{'='*65}")
-    print(f"  {'Route':<12} {'Time(min)':<12} {'Cost($)':<10} {'Energy(kWh)':<14} {'Steps'}")
-    print(f"  {'─'*60}")
+    print(f"{'='*70}")
+    print(f"  {'Route':<10} {'Time(min)':<12} {'Cost(₹)':<12} {'Energy(kWh)':<14} {'Steps'}")
+    print(f"  {'─'*65}")
     for ind in sorted(pareto, key=lambda x: x.objectives[0]):
         t, c, e = ind.objectives
-        print(f"  {ind.route_name:<12} {t:<12} {c:<10} {e:<14} {' → '.join(ind.steps)}")
-    print(f"{'='*65}")
+        has_co = "⚙" if "--- Machine Changeover ---" in ind.steps else " "
+        clean_steps = [s for s in ind.steps if s != "--- Machine Changeover ---"]
+        print(f"  {ind.route_name:<10} {t:<12} ₹{c:<11} {e:<14} {has_co} {' → '.join(clean_steps)}")
+    print(f"{'='*70}")
     print(f"  Pareto-optimal routes: {len(pareto)}")
 
 
 if __name__ == "__main__":
-    print("=== NSGA-II Multi-Objective Optimization ===")
+    print("=== NSGA-II Multi-Objective Optimization (₹ INR) ===")
 
     print("\nTest 1: Thread + Fillet (asli bug case)")
     pareto1 = run_nsga2("Aluminum", 500, ["Thread", "Fillet"])
     print_pareto(pareto1, "Aluminum", 500)
 
-    print("\nTest 2: Hole + Slot")
-    pareto2 = run_nsga2("Steel", 50, ["Hole", "Slot"])
+    print("\nTest 2: Hole + Keyway + Taper (mixed machines)")
+    pareto2 = run_nsga2("Steel", 50, ["Hole", "Keyway", "Taper"])
     print_pareto(pareto2, "Steel", 50)
 
-    print("\nTest 3: Pocket + Chamfer")
+    print("\nTest 3: Pocket + Chamfer (milling only)")
     pareto3 = run_nsga2("Brass", 100, ["Pocket", "Chamfer"])
     print_pareto(pareto3, "Brass", 100)
