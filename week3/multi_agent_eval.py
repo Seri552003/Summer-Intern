@@ -51,10 +51,10 @@ def print_comparison(results: list):
     Saare routes ko ek table jaisa format mein print karo.
     """
     print(f"\n{'='*75}")
-    print(f"  {'Route':<10} {'Time(min)':<12} {'Cost($)':<10} {'Energy(kWh)':<14} {'Efficiency':<10}")
+    print(f"  {'Route':<10} {'Time(min)':<12} {'Cost(₹)':<10} {'Energy(kWh)':<14} {'Efficiency':<10}")
     print(f"{'='*75}")
     for r in results:
-        print(f"  {r['route_name']:<10} {r['time_min']:<12} {r['cost_usd']:<10} {r['energy_kwh']:<14} {r['efficiency_score']:<10}")
+        print(f"  {r['route_name']:<10} {r['time_min']:<12} {r['cost_inr']:<10} {r['energy_kwh']:<14} {r['efficiency_score']:<10}")
     print(f"{'='*75}")
 
 
@@ -66,7 +66,7 @@ def find_best_route(results: list, priority: str = "efficiency") -> dict:
     if priority == "time":
         return min(results, key=lambda r: r["time_min"])
     elif priority == "cost":
-        return min(results, key=lambda r: r["cost_usd"])
+        return min(results, key=lambda r: r["cost_inr"])
     elif priority == "energy":
         return min(results, key=lambda r: r["energy_kwh"])
     else:  # efficiency — higher is better
