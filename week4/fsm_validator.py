@@ -115,10 +115,15 @@ def fix_sequence_with_builder(features: list, max_routes: int = 1) -> list:
     Agar original features pata hain (jo aksar pata hote hain, kyunki
     LLM Planner ko bhi wahi features diye gaye the), seedha Route Builder
     se guaranteed-valid replacement route mangao — ad-hoc guessing nahi.
+
+    NOTE: generate_valid_routes() ab list of DICTS return karta hai
+    ({"steps": [...], "type": ..., "changeovers": ...}) — machine-aware
+    Route Builder ke saath sync karne ke liye ["steps"] explicitly nikala
+    jaata hai (pehle plain list assume ho raha tha, jo crash karta tha).
     """
     from route_builder import generate_valid_routes
     routes = generate_valid_routes(features, max_routes=max_routes)
-    return routes[0] if routes else fix_sequence([])
+    return routes[0]["steps"] if routes else fix_sequence([])
 
 
 def print_validation(result: dict, title: str = ""):

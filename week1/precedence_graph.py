@@ -1,18 +1,7 @@
 # precedence_graph.py
 # Operation ordering rules — Dynamic Route Builder ke liye
 # Week 1 (foundation) → route_builder.py yahi rules use karega
-#
-# Sources:
-#   1. UNIVERSAL   — legacy 77 routes se 100% confirmed (Facing first, Inspection last)
-#   2. HIGH-CONF   — legacy 77 routes se 3+ examples se confirmed, koi contradiction nahi
-#   3. VOCAB-CONSISTENT — feature_vocab.py ki apni FEATURE_TO_OPERATIONS chains se
-#      (jaise "Thread_Internal": [Center Drilling, Drilling, Tapping] implies Drilling->Tapping)
-#   4. LOW-CONFIDENCE  — legacy data me sirf 1 example, isliye NOT enforced,
-#      sirf review ke liye rakhe hain (REVIEW_RULES me)
-#
-# Baaki ~20 operations (Taper Turning, Face Milling, Angular Milling, etc.) ke
-# liye koi hard rule nahi hai — unhe route_builder.py free rakhega kisi bhi
-# valid position pe (jab tak zyada domain-expertise se refine na karein).
+
 
 from itertools import combinations
 

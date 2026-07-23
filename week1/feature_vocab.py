@@ -1,10 +1,3 @@
-# feature_vocab.py
-# Manufacturing Features ki vocabulary + Feature -> Operations Mapping
-# Task 1 — Week 1 | LLM-CAPP Project
-# UPDATED: Dynamic Route Builder ke liye Feature -> Operations mapping add ki gayi hai.
-#          Purane 10 features ke naam SAME rakhe hain (backward compatible),
-#          9 naye features add kiye hain (Taper, Knurl, Counterbore, etc.)
-
 # ============================================================
 # 1. GEOMETRY FEATURES
 # ============================================================
@@ -20,7 +13,6 @@ GEOMETRY_FEATURES = [
     "Groove",             # Nali
     "Step",               # Step down surface
     "Face",               # Flat surface
-    # --- Naye added (lathe + milling coverage ke liye) ---
     "Taper",              # Conical surface
     "Knurl",               # Grip pattern surface
     "Counterbore",         # Bolt head seating
@@ -37,13 +29,6 @@ ALL_FEATURES = set(GEOMETRY_FEATURES)
 # ============================================================
 # 2. FEATURE -> OPERATIONS MAPPING (Dynamic Route Builder — Step 1)
 # ============================================================
-# Har feature ke liye ek ya zyada "alternative operation sequences" hain.
-# Route Builder in me se koi bhi ek valid chain choose karega —
-# yehi COMPLETENESS guarantee karta hai (is feature ko banane ke liye
-# in operations me se ek poori chain route me zaroor honi chahiye).
-#
-# "machine" batata hai feature konsi machine pe banta hai: "Lathe" / "Milling" / "Both"
-
 FEATURE_TO_OPERATIONS = {
     "Hole": {
         "machine": "Both",

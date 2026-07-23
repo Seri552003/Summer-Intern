@@ -412,9 +412,15 @@ else:
         st.markdown("---")
         st.markdown("### 🏆 Optimal Process Route")
         best_steps = valid_routes[0].steps if valid_routes else None
+        best_route_name = valid_routes[0].route_name if valid_routes else ""
 
         if best_steps:
-            st.markdown(f"**Machine Type:** `{get_route_label(best_steps)}` &nbsp;|&nbsp; **Strategy:** {pref_label} &nbsp;|&nbsp; **Pipeline Time:** {elapsed:.2f}s")
+            origin_badge = ""
+            if best_route_name.startswith("Route_LLM"):
+                was_corrected = "corrected" in best_route_name
+                origin_badge = (f" &nbsp;|&nbsp; 🤖 **AI-Suggested Route**"
+                               f"{' (self-corrected)' if was_corrected else ' (validated as-is)'}")
+            st.markdown(f"**Machine Type:** `{get_route_label(best_steps)}` &nbsp;|&nbsp; **Strategy:** {pref_label} &nbsp;|&nbsp; **Pipeline Time:** {elapsed:.2f}s{origin_badge}")
             st.markdown(f'<div class="route-box">{make_route_flow(best_steps)}</div>', unsafe_allow_html=True)
             st.caption("🟡 Yellow=Lathe | 🔵 Blue=Milling | 🟣 Purple=Shared | ⚫ Dark=Universal | ⚙=Changeover")
 
@@ -562,7 +568,12 @@ else:
     st.markdown("### 🏆 Optimal Process Plan")
 
     if best:
-        st.markdown(f"**Machine Type:** `{get_route_label(best['steps'])}` &nbsp;|&nbsp; **Strategy:** {pref_label} &nbsp;|&nbsp; **Pipeline Time:** {elapsed:.2f}s")
+        origin_badge = ""
+        if best["route"].startswith("Route_LLM"):
+            was_corrected = "corrected" in best["route"]
+            origin_badge = (f" &nbsp;|&nbsp; 🤖 **AI-Suggested Route**"
+                           f"{' (self-corrected by Route Builder)' if was_corrected else ' (validated as-is)'}")
+        st.markdown(f"**Machine Type:** `{get_route_label(best['steps'])}` &nbsp;|&nbsp; **Strategy:** {pref_label} &nbsp;|&nbsp; **Pipeline Time:** {elapsed:.2f}s{origin_badge}")
 
         c1,c2,c3,c4,c5 = st.columns(5)
         with c1: st.metric("⏱️ Total Time",   f"{best['t']} min")

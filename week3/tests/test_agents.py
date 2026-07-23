@@ -81,5 +81,5 @@ def test_find_best_route_efficiency():
 def test_find_best_route_cost():
     results = evaluate_all_routes("Steel", 50)
     best = find_best_route(results, "cost")
-    min_cost = min(r["cost_usd"] for r in results)
-    assert best["cost_usd"] == min_cost
+    min_cost = min(r["cost_inr"] for r in results)
+    assert best["cost_inr"] == min_cost
