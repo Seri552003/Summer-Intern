@@ -110,73 +110,123 @@ def crowding_distance(population: list, front: list) -> None:
 
 # ── Main NSGA-II Function ─────────────────────────
 def run_nsga2(material: str, batch_size: int, features: list = None, max_routes: int = 15,
-              machine_preference: str = "auto", include_llm: bool = True,
-              tolerance: str = "0.05mm") -> list:
+              machine_preference: str = "auto", tolerance: str = "0.05mm",
+              llm_attempts: int = 5, route_generation_mode: str = "llm_first") -> list:
     """
     NSGA-II run karo aur Pareto-optimal routes return karo.
-    machine_preference: "auto", "prefer_lathe", "prefer_milling"
 
-    include_llm=True (default): LLM Planner se bhi ek candidate route generate
-    karwaya jaata hai, FSM se validate hota hai (invalid ho toh Route Builder
-    se self-correct), aur TABHI population mein add hota hai jab valid ho.
-    "AI is verified, not trusted" — LLM ka route kabhi bina check ke population
-    mein nahi jaata. Agar valid ho, ye Route Builder ke candidates ke SAATH
-    fairly compete karta hai — agar genuinely behtar hai (Pareto-optimal),
-    normal non_dominated_sort() ke through apne aap Front 0 mein aa jaayega.
+    route_generation_mode="llm_first" (NEW DEFAULT):
+        LLM Planner PRIMARY route-generator hai. llm_attempts baar LLM se
+        candidate routes generate karwaye jaate hain (population diversity
+        ke liye — ek single call se sirf 1 route milta, NSGA-II ko compare
+        karne ke liye multiple chahiye). Har candidate FSM se validate hota
+        hai; invalid ho toh Route Builder turant correct karta hai — Route
+        Builder yahan ek INDEPENDENT generator nahi hai, sirf "corrector".
+        Agar LLM completely fail ho jaaye (API down / sab candidates
+        invalid+uncorrectable), Route Builder ek safety-net fallback deta
+        hai taaki population kabhi khaali na rahe.
+
+    route_generation_mode="route_builder_first" (legacy/backward-compatible):
+        Purana behavior — Route Builder primary generator, LLM ek parallel
+        extra candidate. Testing/comparison ke liye retained.
     """
     features = features or []
-    candidate_routes = generate_valid_routes(features, max_routes=max_routes, machine_preference=machine_preference)
+    population = []
+    llm_status = {"mode": route_generation_mode, "attempts": 0, "llm_valid": 0,
+                  "llm_corrected": 0, "llm_failed": 0,
+                  "route_builder_fallback_used": False, "reason": ""}
 
-    # Safety net
-    if not candidate_routes:
-        candidate_routes = [{"steps": ["Facing", "Inspection"], "type": "FALLBACK", "changeovers": 0}]
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week2")))
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week4")))
 
-    population = [
-        Individual(f"Route_{i+1}", r["steps"], material, batch_size)
-        for i, r in enumerate(candidate_routes)
-    ]
-
-    # ═══════════════════════════════════════════════
-    # LLM CANDIDATE — generate, verify, THEN include
-    # ═══════════════════════════════════════════════
-    llm_status = {"attempted": False, "generated": False, "valid": False,
-                  "corrected": False, "included": False, "reason": ""}
-
-    if include_llm and features:
-        llm_status["attempted"] = True
+    if route_generation_mode == "llm_first" and features:
         try:
-            sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week2")))
-            sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week4")))
             from llm_planner import generate_process_plan
             from fsm_validator import validate_sequence, fix_sequence_with_builder
 
-            llm_result = generate_process_plan(material, features, tolerance, batch_size)
+            for attempt in range(llm_attempts):
+                llm_status["attempts"] += 1
+                try:
+                    llm_result = generate_process_plan(material, features, tolerance, batch_size)
+                    if not llm_result["success"]:
+                        llm_status["llm_failed"] += 1
+                        continue
 
-            if not llm_result["success"]:
-                llm_status["reason"] = "LLM generation failed (API/parsing issue)"
-            else:
-                llm_status["generated"] = True
-                llm_steps = llm_result["steps"]
-                fsm_check = validate_sequence(llm_steps)
+                    llm_steps = llm_result["steps"]
+                    fsm_check = validate_sequence(llm_steps)
 
-                if fsm_check["valid"]:
-                    llm_status["valid"] = True
-                    population.append(Individual("Route_LLM", llm_steps, material, batch_size))
-                    llm_status["included"] = True
-                    llm_status["reason"] = "LLM route valid as-is — added to population"
-                else:
-                    # LLM route broke a rule — self-correct via Route Builder
-                    corrected = fix_sequence_with_builder(features)
-                    if corrected and validate_sequence(corrected)["valid"]:
-                        llm_status["corrected"] = True
-                        population.append(Individual("Route_LLM_corrected", corrected, material, batch_size))
-                        llm_status["included"] = True
-                        llm_status["reason"] = f"LLM route invalid ({fsm_check['errors'][:1]}) — self-corrected, included"
+                    if fsm_check["valid"]:
+                        population.append(Individual(f"Route_LLM_{attempt+1}", llm_steps, material, batch_size))
+                        llm_status["llm_valid"] += 1
                     else:
-                        llm_status["reason"] = "LLM route invalid and could not be self-corrected — excluded"
+                        # Route Builder = CORRECTOR only here, not an independent generator
+                        corrected = fix_sequence_with_builder(features)
+                        if corrected and validate_sequence(corrected)["valid"]:
+                            population.append(Individual(f"Route_LLM_{attempt+1}_corrected", corrected, material, batch_size))
+                            llm_status["llm_corrected"] += 1
+                        else:
+                            llm_status["llm_failed"] += 1
+                except Exception:
+                    llm_status["llm_failed"] += 1
+
+            # Duplicate routes hatao (LLM baar-baar same route de sakta hai)
+            seen, deduped = set(), []
+            for ind in population:
+                key = tuple(ind.steps)
+                if key not in seen:
+                    seen.add(key)
+                    deduped.append(ind)
+            population = deduped
+
+            if population:
+                llm_status["reason"] = (f"{llm_status['llm_valid']} valid, "
+                                        f"{llm_status['llm_corrected']} corrected, "
+                                        f"{llm_status['llm_failed']} failed — "
+                                        f"{len(population)} unique routes in population")
+            else:
+                llm_status["reason"] = "All LLM attempts failed — falling back to Route Builder"
 
         except Exception as e:
-            llm_status["reason"] = f"LLM path skipped: {e}"
+            llm_status["reason"] = f"LLM path unavailable: {e}"
+
+        # ── SAFETY NET — agar LLM se kuch bhi usable nahi mila ──
+        if not population:
+            llm_status["route_builder_fallback_used"] = True
+            candidate_routes = generate_valid_routes(features, max_routes=max(3, max_routes),
+                                                      machine_preference=machine_preference)
+            if not candidate_routes:
+                candidate_routes = [{"steps": ["Facing", "Inspection"], "type": "FALLBACK", "changeovers": 0}]
+            population = [
+                Individual(f"Route_Builder_Fallback_{i+1}", r["steps"], material, batch_size)
+                for i, r in enumerate(candidate_routes)
+            ]
+
+    else:
+        # ── LEGACY MODE: Route Builder primary, LLM parallel (backward-compatible) ──
+        candidate_routes = generate_valid_routes(features, max_routes=max_routes, machine_preference=machine_preference)
+        if not candidate_routes:
+            candidate_routes = [{"steps": ["Facing", "Inspection"], "type": "FALLBACK", "changeovers": 0}]
+        population = [
+            Individual(f"Route_{i+1}", r["steps"], material, batch_size)
+            for i, r in enumerate(candidate_routes)
+        ]
+        if features:
+            try:
+                from llm_planner import generate_process_plan
+                from fsm_validator import validate_sequence, fix_sequence_with_builder
+                llm_result = generate_process_plan(material, features, tolerance, batch_size)
+                if llm_result["success"]:
+                    fsm_check = validate_sequence(llm_result["steps"])
+                    if fsm_check["valid"]:
+                        population.append(Individual("Route_LLM", llm_result["steps"], material, batch_size))
+                        llm_status["llm_valid"] = 1
+                    else:
+                        corrected = fix_sequence_with_builder(features)
+                        if corrected and validate_sequence(corrected)["valid"]:
+                            population.append(Individual("Route_LLM_corrected", corrected, material, batch_size))
+                            llm_status["llm_corrected"] = 1
+            except Exception as e:
+                llm_status["reason"] = f"LLM path skipped: {e}"
 
     fronts = non_dominated_sort(population)
 
@@ -186,11 +236,13 @@ def run_nsga2(material: str, batch_size: int, features: list = None, max_routes:
     pareto_front = [population[i] for i in fronts[0]]
     pareto_front_indices = set(fronts[0])
 
-    # Kisi ko bhi curious ho, LLM ka fate pura transparent hai:
-    llm_status["reached_pareto_front"] = any(
-        population[i].route_name.startswith("Route_LLM") for i in pareto_front_indices
+    llm_status["reached_pareto_front"] = sum(
+        1 for i in pareto_front_indices if population[i].route_name.startswith("Route_LLM")
     )
-    run_nsga2.last_llm_status = llm_status   # debug/inspection ke liye accessible
+    llm_status["route_builder_in_pareto_front"] = sum(
+        1 for i in pareto_front_indices if population[i].route_name.startswith("Route_Builder") or population[i].route_name.startswith("Route_") and not population[i].route_name.startswith("Route_LLM")
+    )
+    run_nsga2.last_llm_status = llm_status
 
     return pareto_front
 
@@ -211,14 +263,15 @@ def print_pareto(pareto: list, material: str, batch_size: int):
     print(f"  Pareto-optimal routes: {len(pareto)}")
 
     status = getattr(run_nsga2, "last_llm_status", None)
-    if status and status["attempted"]:
-        print(f"\n  🤖 LLM Integration Status:")
-        print(f"     Generated       : {status['generated']}")
-        print(f"     Valid as-is     : {status['valid']}")
-        print(f"     Self-corrected  : {status['corrected']}")
-        print(f"     Included in pop : {status['included']}")
-        print(f"     Reached Pareto front : {status['reached_pareto_front']}")
-        print(f"     Detail          : {status['reason']}")
+    if status:
+        print(f"\n  🤖 Route Generation Status (mode: {status['mode']}):")
+        print(f"     LLM attempts         : {status['attempts']}")
+        print(f"     LLM valid as-is      : {status['llm_valid']}")
+        print(f"     LLM self-corrected   : {status['llm_corrected']}")
+        print(f"     LLM failed           : {status['llm_failed']}")
+        print(f"     Route Builder fallback used : {status['route_builder_fallback_used']}")
+        print(f"     LLM routes in Pareto front  : {status['reached_pareto_front']}")
+        print(f"     Detail               : {status['reason']}")
 
 
 if __name__ == "__main__":

@@ -274,9 +274,55 @@ with st.sidebar:
     material = st.selectbox("🧱 Material",
         ["Aluminum","Steel","Brass","Copper","Titanium","Plastic","Cast Iron"])
 
-    st.markdown("**🔩 Geometric Features**")
-    features = st.multiselect("Select features (1 or more)",
-        GEOMETRY_FEATURES, default=["Hole","Slot"])
+    st.markdown("---")
+    st.markdown("**🔩 Feature Input Method**")
+    input_method = st.radio("How do you want to specify features?",
+        ["🖼️ Upload 2D Image (AI extracts features)", "📋 Manual Selection"],
+        index=1, label_visibility="collapsed")
+
+    features = []
+    extraction_info = None
+
+    if input_method.startswith("🖼️"):
+        uploaded_image = st.file_uploader("Upload a 2D engineering drawing / sketch",
+            type=["png", "jpg", "jpeg"])
+
+        if uploaded_image is not None:
+            if st.button("🔍 Extract Features from Image", use_container_width=True):
+                with st.spinner("Analyzing image with AI vision model..."):
+                    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week1")))
+                    from image_feature_extractor import extract_features_from_image
+                    img_bytes = uploaded_image.getvalue()
+                    img_format = uploaded_image.type.split("/")[-1]
+                    extraction_info = extract_features_from_image(img_bytes, image_format=img_format)
+                st.session_state["extraction_result"] = extraction_info
+                st.session_state["uploaded_image_bytes"] = img_bytes
+
+        # Show extraction result (persisted in session_state across reruns)
+        if "extraction_result" in st.session_state:
+            extraction_info = st.session_state["extraction_result"]
+            if extraction_info["success"]:
+                conf = extraction_info["confidence"]
+                conf_icon = "🟢" if conf == "high" else "🟡" if conf == "medium" else "🔴"
+                st.success(f"{conf_icon} Detected (confidence: {conf}): {', '.join(extraction_info['features']) or 'none'}")
+                if extraction_info["notes"]:
+                    st.caption(f"AI notes: {extraction_info['notes']}")
+                if extraction_info["rejected_features"]:
+                    st.warning(f"⚠️ Ignored unrecognized terms: {', '.join(extraction_info['rejected_features'])}")
+                if not extraction_info["features"]:
+                    with st.expander("🔍 Debug: What did the AI actually say? (nothing was detected)"):
+                        st.code(extraction_info.get("raw_response", "(empty)"), language="text")
+
+                st.markdown("**✏️ Confirm or edit detected features:**")
+                features = st.multiselect("Features (edit if AI missed/misread something)",
+                    GEOMETRY_FEATURES, default=extraction_info["features"], key="confirmed_features")
+            else:
+                st.error(f"❌ Extraction failed: {extraction_info.get('error', 'unknown error')}")
+                st.info("Switch to Manual Selection below, or try a clearer image.")
+    else:
+        st.markdown("**🔩 Geometric Features**")
+        features = st.multiselect("Select features (1 or more)",
+            GEOMETRY_FEATURES, default=["Hole","Slot"])
 
     if features:
         l = [f for f in features if get_machine_type(f)=="Lathe"]
