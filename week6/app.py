@@ -297,6 +297,12 @@ with st.sidebar:
                     extraction_info = extract_features_from_image(img_bytes, image_format=img_format)
                 st.session_state["extraction_result"] = extraction_info
                 st.session_state["uploaded_image_bytes"] = img_bytes
+                # Multiselect below reuses key="confirmed_features" across
+                # reruns, so Streamlit ignores its default= after the first
+                # render. Overwrite the key's session_state directly so a
+                # fresh extraction actually replaces the old selection
+                # instead of leaving the previous image's features checked.
+                st.session_state["confirmed_features"] = extraction_info["features"]
 
         # Show extraction result (persisted in session_state across reruns)
         if "extraction_result" in st.session_state:

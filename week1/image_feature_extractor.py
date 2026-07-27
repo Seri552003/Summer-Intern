@@ -30,6 +30,16 @@ client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 VISION_MODEL = "qwen/qwen3.6-27b"   # same model family as llm_planner.py,
                                      # this one also accepts image input
 
+# NOTE: qwen/qwen3.6-27b is a dual-mode (thinking/non-thinking) model. By
+# default it can spend completion tokens on internal reasoning before
+# producing the final answer -- with a small token budget this consumes the
+# whole budget and leaves nothing for the actual JSON, which is the likely
+# cause of earlier "could not parse model response" failures. The
+# reasoning_effort="none" + reasoning_format="hidden" params below disable
+# that, response_format={"type": "json_object"} forces valid JSON, and the
+# larger max_completion_tokens gives room even if reasoning can't be fully
+# disabled. See https://console.groq.com/docs/reasoning for details.
+
 MAX_IMAGE_MB = 20   # Groq's documented per-image limit
 
 
@@ -106,7 +116,17 @@ def extract_features_from_image(image_bytes: bytes, image_format: str = "png") -
                 }
             ],
             temperature=0.2,   # low — consistency zaroori hai, creativity nahi
-            max_tokens=400,
+            max_completion_tokens=1500,   # 400 was too tight — qwen3.6-27b is a
+                                           # dual-mode reasoning model and can burn
+                                           # the whole budget on hidden reasoning,
+                                           # leaving nothing for the actual JSON
+                                           # (this is the likely cause of the old
+                                           # "could not parse model response" error)
+            response_format={"type": "json_object"},   # forces valid JSON output,
+                                                         # instead of just asking nicely
+                                                         # in the prompt
+            reasoning_effort="none",     # disables qwen3.6-27b's internal reasoning
+            reasoning_format="hidden",   # Groq's recommended pairing with JSON mode
         )
         raw = response.choices[0].message.content.strip()
         parsed = _parse_response(raw)
