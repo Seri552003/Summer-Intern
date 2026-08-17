@@ -14,6 +14,10 @@
 import streamlit as st
 import sys, os, time
 import plotly.graph_objects as go
+from dotenv import load_dotenv
+
+# Load .env from week6 folder
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week1")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week2")))
@@ -72,6 +76,28 @@ st.markdown("""<style>
     border-radius:8px; font-size:0.8rem; font-weight:600;
     display:inline-block; margin:3px 2px; border:1px dashed #d97706; }
 .arrow { color:#94a3b8; margin:0 3px; }
+
+/* Red Extract Features button */
+section[data-testid="stSidebar"] button,
+section[data-testid="stSidebar"] .stButton button {
+    background-color: #e53935 !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+}
+section[data-testid="stSidebar"] button:hover,
+section[data-testid="stSidebar"] .stButton button:hover {
+    background-color: #c62828 !important;
+    color: white !important;
+}
+/* Keep primary (Generate) button blue */
+section[data-testid="stSidebar"] button[kind="primary"] {
+    background-color: #0f3460 !important;
+}
+section[data-testid="stSidebar"] button[kind="primary"]:hover {
+    background-color: #1a5276 !important;
+}
 </style>""", unsafe_allow_html=True)
 
 
@@ -261,6 +287,11 @@ with st.sidebar:
     st.markdown("### ⚙️ Part Configuration")
     st.markdown("---")
 
+    material = st.selectbox("🧱 Material",
+        ["Aluminum","Steel","Brass","Copper","Titanium","Plastic","Cast Iron"])
+
+    st.markdown("---")
+
     st.markdown("**🎯 Analysis Mode**")
     analysis_mode = st.radio(
         "What do you want?",
@@ -270,20 +301,12 @@ with st.sidebar:
     route_only = analysis_mode == "🗺️ Route Only"
 
     st.markdown("---")
-
-    material = st.selectbox("🧱 Material",
-        ["Aluminum","Steel","Brass","Copper","Titanium","Plastic","Cast Iron"])
-
-    st.markdown("---")
     st.markdown("**🔩 Feature Input Method**")
-    input_method = st.radio("How do you want to specify features?",
-        ["🖼️ Upload 2D Image (AI extracts features)", "📋 Manual Selection"],
-        index=1, label_visibility="collapsed")
 
     features = []
     extraction_info = None
 
-    if input_method.startswith("🖼️"):
+    if True:
         uploaded_image = st.file_uploader("Upload a 2D engineering drawing / sketch",
             type=["png", "jpg", "jpeg"])
 
@@ -297,11 +320,6 @@ with st.sidebar:
                     extraction_info = extract_features_from_image(img_bytes, image_format=img_format)
                 st.session_state["extraction_result"] = extraction_info
                 st.session_state["uploaded_image_bytes"] = img_bytes
-                # Multiselect below reuses key="confirmed_features" across
-                # reruns, so Streamlit ignores its default= after the first
-                # render. Overwrite the key's session_state directly so a
-                # fresh extraction actually replaces the old selection
-                # instead of leaving the previous image's features checked.
                 st.session_state["confirmed_features"] = extraction_info["features"]
 
         # Show extraction result (persisted in session_state across reruns)
@@ -322,13 +340,12 @@ with st.sidebar:
                 st.markdown("**✏️ Confirm or edit detected features:**")
                 features = st.multiselect("Features (edit if AI missed/misread something)",
                     GEOMETRY_FEATURES, default=extraction_info["features"], key="confirmed_features")
+                # session_state se sync karo — rerun pe multiselect reset ho jaata hai
+                if not features and "confirmed_features" in st.session_state:
+                    features = st.session_state["confirmed_features"]
             else:
                 st.error(f"❌ Extraction failed: {extraction_info.get('error', 'unknown error')}")
-                st.info("Switch to Manual Selection below, or try a clearer image.")
-    else:
-        st.markdown("**🔩 Geometric Features**")
-        features = st.multiselect("Select features (1 or more)",
-            GEOMETRY_FEATURES, default=["Hole","Slot"])
+                st.info("Try uploading a clearer image.")
 
     if features:
         l = [f for f in features if get_machine_type(f)=="Lathe"]
@@ -389,8 +406,8 @@ st.markdown('<p class="hero-sub">Dynamic Route Builder · Machine-Aware Grouping
 if not run_btn:
     cols = st.columns(5)
     for col, (n, l) in zip(cols, [
-        ("19","Features"), ("41","Operations"),
-        ("200","Dataset"), ("32","Precedence Rules"), ("₹96.095","Per USD")
+        ("22","Features"), ("41","Operations"),
+        ("200","Dataset"), ("32","Precedence Rules"), ("₹95.595","Per USD")
     ]):
         with col:
             st.markdown(f'<div class="stat-card"><div class="stat-num">{n}</div>'
@@ -406,10 +423,14 @@ if not run_btn:
         st.markdown(f"4 components: Machining + Tool Change (+{TOOL_CHANGE_TIME_MIN}min) + Position Change (+{POSITION_CHANGE_TIME_MIN}min) + Changeover (+{CHANGEOVER_TIME_MIN}min). Multi-pass depth calculation included.")
     with c3:
         st.markdown("#### 💰 INR Costing")
-        st.markdown("All costs in ₹ INR (1 USD = ₹96.095). Cost = machining time × rate/min. Batch discount: >100 → 8% off, >500 → 15% off.")
+        st.markdown("All costs in ₹ INR (1 USD = ₹95.595). Cost = machining time × rate/min. Batch discount: >100 → 8% off, >500 → 15% off.")
     st.caption("👈 Configure part in sidebar → click **Generate Process Plan**")
 
 else:
+    # Image upload mode mein features session_state se lo
+    if not features and "confirmed_features" in st.session_state:
+        features = st.session_state["confirmed_features"]
+
     if not features:
         st.error("❌ Please select at least one feature!")
         st.stop()
@@ -504,7 +525,6 @@ else:
             st.caption(f"ℹ️ Material factor for **{material}**: {rough_bd['material_factor']}×. "
                        f"Same-tool-group ops do **not** incur tool change time.")
 
-            # Where changes occurred (same detail as Full Analysis mode)
             if rough_bd['tool_changes'] > 0 or rough_bd['position_changes'] > 0:
                 lines = []
                 prev = None
@@ -535,7 +555,6 @@ else:
 
             st.info("💡 Rough estimates. Use **Route + Full Analysis** for dimension-specific accuracy.")
 
-            # Pareto front
             if len(valid_routes) >= 2:
                 st.markdown("---")
                 st.markdown("#### 📈 Pareto Front")
@@ -551,14 +570,12 @@ else:
                 ro_data.sort(key=lambda x: -x["eff"])
                 make_pareto_charts(ro_data, ro_data[0]["route"], "ro_pareto")
 
-            # Alternative routes
             if len(valid_routes) > 1:
                 with st.expander(f"📋 All {len(valid_routes)} valid routes"):
                     for i, ind in enumerate(valid_routes):
                         rt = time_agent(ind.steps, material)
                         st.markdown(f"**Route {i+1}:** {' → '.join(ind.steps)} &nbsp;|&nbsp; ~{rt} min")
 
-            # Feature mapping
             st.markdown("#### Feature → Operation Mapping")
             for feat in features:
                 ops  = FEATURE_TO_OPERATIONS[feat]["alternatives"][0]
@@ -601,7 +618,6 @@ else:
 
     st.dataframe(agent_data, use_container_width=True, hide_index=True)
 
-    # Pareto front
     if len(agent_data) >= 2:
         st.markdown("#### 📈 Pareto Front — Time vs Cost vs Energy")
         st.caption("Each point = one Pareto-optimal route. ⭐ = selected optimal.")
@@ -615,7 +631,6 @@ else:
         st.caption("📊 Route Comparison (Cost ÷ 100 for scale)")
         st.plotly_chart(comp, use_container_width=True, key="fa_comp")
 
-    # Optimal result
     st.markdown("---")
     st.markdown("### 🏆 Optimal Process Plan")
 
@@ -643,7 +658,6 @@ else:
         else:
             st.error("❌ Completeness check failed")
 
-        # Time Breakdown
         st.markdown("---")
         st.markdown("#### ⏱️ Time Breakdown — How Total Time is Calculated")
         bd = time_breakdown(best["steps"], material, dims)
@@ -663,7 +677,6 @@ else:
         st.caption(f"ℹ️ Material factor for **{material}**: {bd['material_factor']}×. "
                    f"Same-tool-group ops do **not** incur tool change time.")
 
-        # Where changes occurred
         if bd['tool_changes'] > 0 or bd['position_changes'] > 0:
             lines = []
             prev = None
@@ -687,7 +700,6 @@ else:
 
         st.plotly_chart(make_time_bar(bd), use_container_width=True, key="fa_time_bar")
 
-        # Per-operation table
         with st.expander("📋 Per-Operation Time Detail"):
             op_rows = []
             prev = None
@@ -717,7 +729,6 @@ else:
                 prev = step
             st.dataframe(op_rows, use_container_width=True, hide_index=True)
 
-        # Cost Breakdown
         st.markdown("---")
         st.markdown("#### 💰 Cost Breakdown (₹ INR)")
         from agents import (_COST_PER_MIN, _MATERIAL_COST_FACTOR,
@@ -767,9 +778,8 @@ else:
             showlegend=False
         )
         st.plotly_chart(fig_cost, use_container_width=True, key="fa_cost_bar")
-        st.caption(f"Material: **{material}** ({mat_factor}×) | 1 USD = ₹96.095 | Batch: {batch_size} units")
+        st.caption(f"Material: **{material}** ({mat_factor}×) | 1 USD = ₹95.595 | Batch: {batch_size} units")
 
-        # Agent Score + Feature Mapping
         st.markdown("---")
         cl, cr = st.columns([1,1])
         with cl:

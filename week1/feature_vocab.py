@@ -4,24 +4,29 @@
 GEOMETRY_FEATURES = [
     # --- Original 10 (unchanged) ---
     "Hole",              # Round chhed — drilling se banta hai
-    "Slot",               # Lambi cut — milling se
-    "Pocket",             # Andar ki khudai — end mill se
-    "Boss",               # Utha hua hissa
-    "Thread",             # Pech wali cutting (external ya internal)
-    "Chamfer",            # Edge pe angle cutting
-    "Fillet",             # Curved/rounded edge
-    "Groove",             # Nali
-    "Step",               # Step down surface
-    "Face",               # Flat surface
-    "Taper",              # Conical surface
-    "Knurl",               # Grip pattern surface
-    "Counterbore",         # Bolt head seating
-    "Countersink",         # Screw head seating
-    "Keyway",              # Shaft keyway slot
-    "Spline",              # Splined shaft feature
-    "Gear_Teeth",          # Gear tooth profile
-    "Contour_3D",          # Free-form 3D surface
-    "Engraved_Mark",       # Text/marking (feature) — "Engraving" operation se naam clash na ho isliye alag rakha
+    "Slot",              # Lambi cut — milling se
+    "Pocket",            # Andar ki khudai — end mill se
+    "Boss",              # Utha hua hissa
+    "Thread",            # Pech wali cutting (external ya internal)
+    "Chamfer",           # Edge pe angle cutting
+    "Fillet",            # Curved/rounded edge
+    "Groove",            # Nali
+    "Step",              # Step down surface
+    "Face",              # Flat surface
+    # --- Extended 9 ---
+    "Taper",             # Conical surface
+    "Knurl",             # Grip pattern surface
+    "Counterbore",       # Bolt head seating
+    "Countersink",       # Screw head seating
+    "Keyway",            # Shaft keyway slot
+    "Spline",            # Splined shaft feature
+    "Gear_Teeth",        # Gear tooth profile
+    "Contour_3D",        # Free-form 3D surface
+    "Engraved_Mark",     # Text/marking — "Engraving" operation se naam clash na ho isliye alag rakha
+    # --- New 3 (added) ---
+    "Turning",           # Plain cylindrical turning
+    "Bore",              # Large precision bore (distinct from Hole)
+    "Center_Drill",      # Explicit center drill callout
 ]
 
 ALL_FEATURES = set(GEOMETRY_FEATURES)
@@ -151,6 +156,25 @@ FEATURE_TO_OPERATIONS = {
         "machine": "Milling",
         "alternatives": [
             ["Engraving"],
+        ],
+    },
+    "Turning": {
+        "machine": "Lathe",
+        "alternatives": [
+            ["Plain/Cylindrical Turning"],
+            ["Step Turning"],
+        ],
+    },
+    "Bore": {
+        "machine": "Lathe",
+        "alternatives": [
+            ["Boring"],
+        ],
+    },
+    "Center_Drill": {
+        "machine": "Both",
+        "alternatives": [
+            ["Center Drilling"],
         ],
     },
 }
