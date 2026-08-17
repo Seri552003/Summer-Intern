@@ -28,21 +28,27 @@ Manual process planning in manufacturing is time-consuming, experience-dependent
 
 Given a part's features, the system:
 
-1. **Constructs** a complete, precedence-valid manufacturing route (guaranteed to cover every requested feature).
-2. **Groups operations by machine** (Lathe/Milling) to minimize costly changeovers.
-3. **Scores** every candidate route on Time, Cost (₹), and Energy using dimension- and material-aware physical formulas.
-4. **Optimizes** across these objectives with NSGA-II to surface the best trade-off — not just one arbitrary answer.
-5. **Validates** every route (rule-based or LLM-generated) against a shared precedence rule set, self-correcting automatically on failure.
-6. **Presents** the result on an interactive dashboard, with full traceability for every number shown.
+1. **Extracts** machining features automatically from a 2D engineering drawing or sketch using a Vision Language Model (VLM), or accepts manual feature selection.
+2. **Constructs** a complete, precedence-valid manufacturing route (guaranteed to cover every requested feature).
+3. **Groups operations by machine** (Lathe/Milling) to minimize costly changeovers.
+4. **Scores** every candidate route on Time, Cost (₹), and Energy using dimension- and material-aware physical formulas.
+5. **Optimizes** across these objectives with NSGA-II to surface the best trade-off — not just one arbitrary answer.
+6. **Validates** every route (rule-based or LLM-generated) against a shared precedence rule set, self-correcting automatically on failure.
+7. **Presents** the result on an interactive dashboard, with full traceability for every number shown.
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-  Part Input (Material, Features, Tolerance, Batch, Machine Preference)
+  Part Input (2D Drawing Image OR Manual Feature Selection)
         │
         ▼
+┌─────────────────────┐
+│  VLM Feature          │  Qwen3.6-27B Vision (via Groq) extracts machining
+│  Extractor            │  features directly from uploaded engineering drawings
+└─────────┬─────────────┘
+          ▼
 ┌─────────────────────┐
 │  Tokenizer            │  Converts input into a numeric token sequence
 └─────────┬─────────────┘
@@ -70,10 +76,11 @@ Given a part's features, the system:
    Route flow · Time/Cost breakdown · Pareto front · Feature mapping
 ```
 
-An **LLM Planner** (Llama-3.1-8B via Groq) runs alongside the Route Builder as an additional candidate-route source, generating a plan directly from tokenized features. Its output passes through the identical FSM validation and self-correction path as every rule-based candidate — it is never trusted without verification.
+An **LLM Planner** (Qwen3.6-27B via Groq) runs alongside the Route Builder as an additional candidate-route source, generating a plan directly from tokenized features. Its output passes through the identical FSM validation and self-correction path as every rule-based candidate — it is never trusted without verification.
 
 ### Core Design Principles
 
+- **Image-driven feature extraction** — a VLM reads the uploaded 2D drawing and identifies machining features automatically; the user can review and edit before running the pipeline.
 - **Completeness by construction** — a route is built feature-by-feature from a Feature-to-Operations mapping and a precedence graph, so a requested feature can never be silently omitted.
 - **Machine-aware by default** — operations are grouped onto a single machine wherever the feature set allows, and a changeover is introduced only when genuinely unavoidable.
 - **Physically grounded costing** — time and cost are derived from real manufacturing formulas (cutting speed, feed rate, multi-pass depth) using the part's actual dimensions and material, not fixed lookups.
@@ -83,13 +90,35 @@ An **LLM Planner** (Llama-3.1-8B via Groq) runs alongside the Route Builder as a
 
 ---
 
+## 🖼️ Image-Based Feature Extraction
+
+The most distinctive user-facing feature of the system: instead of manually selecting operations from a dropdown, the user uploads a 2D engineering drawing (PNG, JPG, or sketch photo) and the system extracts machining features automatically.
+
+### How It Works
+
+1. The uploaded image is sent to **Qwen3.6-27B Vision** (via Groq API) with a structured prompt listing all 22 valid feature names and asking the model to identify which are present.
+2. The model returns a structured JSON response listing detected features, a confidence level, and notes explaining what it saw in the drawing.
+3. The response is parsed and validated against the feature vocabulary — unrecognized terms are flagged and shown to the user separately.
+4. Detected features are pre-filled into a **confirmation multiselect** — the user can add, remove, or correct before running the pipeline.
+
+### What It Can Read
+
+The extractor is designed to work on a range of drawing types:
+- Formal dimensioned engineering drawings (ISO/ASME standard)
+- CAD-generated 2D views
+- Hand sketches or photos showing visible machining features (holes, slots, tapers, keyways, etc.)
+
+Dimensions are **not required** — the extractor identifies feature types from geometry and annotation, not from numeric values.
+
+---
+
 ## 🗺️ Route Only Mode — How It Works
 
-This is the primary interface mode: a fast, dimension-free view of the recommended route and its trade-offs. *(Route + Full Analysis mode, which adds exact part dimensions and a full cost breakdown, is a separate, ongoing extension.)*
+This is the primary interface mode: a fast, dimension-free view of the recommended route and its trade-offs.
 
 ### Step 1 — User Input
 
-Via the sidebar, the user selects: **Material** (Aluminum, Steel, Titanium, Brass, Copper, Plastic, Cast Iron), one or more **Features** (from a vocabulary of 19), **Tolerance**, **Batch Size**, and a **Machine Preference** (Auto / Prefer Lathe / Prefer Milling), then clicks **Generate Process Plan**.
+Via the sidebar, the user: uploads a **2D engineering drawing** (AI extracts features automatically) or selects features manually. Then selects **Material**, **Tolerance**, **Batch Size**, and **Machine Preference** (Auto / Prefer Lathe / Prefer Milling), then clicks **Generate Process Plan**.
 
 ### Step 2 — Tokenization
 
@@ -119,36 +148,37 @@ The selected route is checked against the shared precedence rule set used to con
 
 - **Color-coded route flow** — amber (Lathe), blue (Milling), purple (Shared), dark (Facing/Inspection), dashed amber (Machine Changeover).
 - **Time Breakdown** — five metrics (Machining, Tool Change, Position Change, Changeover, Total) with a bar chart.
-- **"Where changes occurred"** — an expandable, line-by-line trace of every tool change and position change and its cause (e.g. *"Tool Change #1: Facing → Internal Grooving (+2 min)"*).
+- **"Where changes occurred"** — an expandable, line-by-line trace of every tool change and position change and its cause.
 - **Pareto Front** — interactive 3D (Time × Cost × Energy) and 2D (Time vs Cost, bubble = Energy) charts, with the selected route highlighted.
 - **Completeness verification** — explicit confirmation that every requested feature is covered.
 - **Feature → Operation mapping** — which operation(s) satisfy each requested feature, and on which machine.
-
-### Worked Example
-
-```
-Input     : Steel, Features = [Thread, Fillet], Tolerance = 0.02mm, Batch = 500
-Tokens    : [202, 105, 107, 303, 403]
-Route     : Facing → Corner Rounding/Filleting → External Threading → Inspection
-Machine   : Milling Only (0 changeovers)
-Time      : 21.0 min   Cost: ₹4,997   Energy: 1.46 kWh   Efficiency: 79.5/100
-FSM Check : ✅ Valid — Facing first, Inspection last, all precedence rules satisfied
-```
 
 ---
 
 ## 🤖 LLM Integration — Where and How AI Is Used
 
-This is the component that gives **LLM-CAPP** its name. A large language model runs as a **second, independent route-generation path**, alongside the rule-based Dynamic Route Builder — not as a replacement for it, and never trusted without verification.
+Two distinct AI components are used in this system:
 
-### Where It Sits in the Pipeline
+### 1. VLM Feature Extractor (Image Input)
+
+**Model:** Qwen3.6-27B Vision via Groq API
+**Role:** Reads an uploaded 2D engineering drawing and identifies which of the 22 machining features are present.
+**File:** `week1/image_feature_extractor.py`
+
+### 2. LLM Process Planner (Route Generation)
+
+**Model:** Qwen3.6-27B via Groq API
+**Role:** Generates a candidate process route directly from tokenized features, as a second independent path alongside the rule-based Route Builder.
+**File:** `week2/llm_planner.py`
+
+### Where the LLM Planner Sits in the Pipeline
 
 ```
 Tokenized Features
         │
         ├──────────────────────────┐
         ▼                          ▼
-Dynamic Route Builder      LLM Planner (Llama-3.1-8B via Groq)
+Dynamic Route Builder      LLM Planner (Qwen3.6-27B via Groq)
 (rule-based construction)  (generates a candidate route directly)
         │                          │
         └────────────┬─────────────┘
@@ -161,13 +191,6 @@ Dynamic Route Builder      LLM Planner (Llama-3.1-8B via Groq)
 ```
 
 ### What the Model Is Given
-
-The LLM receives the part's material, requested features, tolerance, and batch size, together with a system prompt that explicitly supplies:
-
-- The **complete list of 41 valid operations** — so the model cannot invent an operation that doesn't exist in the system.
-- The rule that every plan must **start with Facing and end with Inspection**.
-- An instruction to respect manufacturing precedence (e.g. drill before you tap).
-- A requirement to return **only a structured JSON array**, nothing else.
 
 ```
 System Prompt (simplified):
@@ -184,17 +207,13 @@ Model Output:
 ["Facing", "External Threading", "Corner Rounding/Filleting", "Inspection"]
 ```
 
-### What Happens to the Model's Output
-
-The LLM's output is parsed into the same plain operation-list format used everywhere else in the system, then handed to the **FSM Validator** — the identical check applied to every Route-Builder-generated route. If the LLM's sequence violates a precedence rule or omits a required operation, it is **not manually patched**: the Self-Correction Loop instead requests a fresh, guaranteed-valid route directly from the Dynamic Route Builder for the same features. The LLM therefore adds a fast, flexible second opinion, while every correctness guarantee in the system continues to come from the rule-based side.
-
-### Why Llama-3.1-8B via Groq
+### Model Details
 
 | Aspect | Detail |
 | --- | --- |
-| Model | Llama-3.1-8B |
+| Model | Qwen3.6-27B (Vision + Text) |
 | Hosting | Cloud API (Groq) — no local GPU required |
-| Response time | ~1–2 seconds per request |
+| Response time | ~1–3 seconds per request |
 | Output format | Structured JSON, reliably parseable |
 | Trust level | None by default — every output is validated before use |
 
@@ -202,6 +221,7 @@ The LLM's output is parsed into the same plain operation-list format used everyw
 
 | File | Role |
 | --- | --- |
+| `week1/image_feature_extractor.py` | VLM-based feature extraction from 2D drawings |
 | `week2/llm_planner.py` | Builds the prompt, calls the Groq API, parses the JSON response |
 | `week4/fsm_validator.py` | Validates the LLM's route using the shared precedence graph |
 | `week5/self_corrector.py` | Requests a Route-Builder replacement if the LLM's route is invalid |
@@ -214,7 +234,8 @@ The LLM's output is parsed into the same plain operation-list format used everyw
 INTERN-PROJECT/
 │
 ├── week1/                       Feature Vocabulary, Tokenization, Dynamic Route Builder
-│   ├── feature_vocab.py         19 features, Feature→Operations mapping
+│   ├── feature_vocab.py         22 features, Feature→Operations mapping
+│   ├── image_feature_extractor.py  VLM-based feature extraction from 2D drawings
 │   ├── material_tokens.py       7 materials, tolerance & batch categories
 │   ├── token_map.json           Token ID mapping (features, materials, 41 operations)
 │   ├── parser.py                JSON input validator
@@ -224,7 +245,7 @@ INTERN-PROJECT/
 │   └── tests/                   Unit tests
 │
 ├── week2/                       LLM Planner & Route Registry
-│   ├── llm_planner.py           Groq / Llama-3.1-8B process-plan generation
+│   ├── llm_planner.py           Groq / Qwen3.6-27B process-plan generation
 │   ├── routes.py                Atomic operations registry
 │   └── planner.py               End-to-end single-part planning
 │
@@ -249,7 +270,7 @@ INTERN-PROJECT/
 │   └── app.py                   Streamlit interactive dashboard
 │
 ├── data/                        Dataset
-│   ├── generate_dataset.py      200 parts across 19 manufacturing archetypes
+│   ├── generate_dataset.py      200 parts across 22 manufacturing archetypes
 │   ├── parts_dataset.json/csv
 │   └── final_results.json
 │
@@ -260,10 +281,12 @@ INTERN-PROJECT/
 
 ## ⚙️ How to Run
 
-**Launch the interactive dashboard:**
+**Set environment variables and launch the dashboard:**
 
 ```powershell
 cd week6
+$env:GROQ_API_KEY="your_groq_api_key_here"
+$env:STREAMLIT_BROWSER_GATHER_USAGE_STATS="false"
 streamlit run app.py
 ```
 
@@ -301,21 +324,19 @@ cd week1 && python -m pytest tests/ -v
 | Week 5 — Self-Correction            | 12    | ✅ All Passing |
 | **Total**                           | **58**| **✅ All Passing** |
 
-All 19 individual features and 30 random multi-feature combinations are additionally stress-tested end-to-end (49/49 produce complete, valid, machine-grouped routes).
-
 ---
 
 ## 📊 System at a Glance
 
 | Metric                     | Value                                             |
 | ---------------------------- | -------------------------------------------------- |
-| Geometric features            | 19                                                   |
+| Geometric features            | 22                                                   |
 | Machining operations          | 41 (canonical, shared across all modules)            |
 | Precedence rules enforced      | 32, cycle-checked                                    |
-| Dataset                        | 200 parts across 19 realistic manufacturing archetypes |
+| Dataset                        | 200 parts across 22 realistic manufacturing archetypes |
 | Optimization objectives        | 3 — Time, Cost, Energy                               |
-| Currency                       | INR (1 USD = ₹96.095)                                |
-| LLM                            | Llama-3.1-8B via Groq (~1–2s response time)          |
+| Currency                       | INR (1 USD = ₹95.595)                                |
+| LLM / VLM                      | Qwen3.6-27B via Groq (~1–3s response time)           |
 | Interface                      | Interactive Streamlit dashboard with Pareto visualization |
 
 ---
@@ -323,7 +344,7 @@ All 19 individual features and 30 random multi-feature combinations are addition
 ## 🛠️ Tech Stack
 
 - **Language:** Python 3.10+
-- **LLM:** Llama-3.1-8B via Groq API
+- **LLM / VLM:** Qwen3.6-27B via Groq API (text + vision)
 - **Optimization:** NSGA-II (custom implementation)
 - **UI:** Streamlit, Plotly (interactive 3D/2D charts)
 - **Testing:** pytest
@@ -334,10 +355,10 @@ All 19 individual features and 30 random multi-feature combinations are addition
 
 ## 🔜 Next Steps
 
-- Extend **Route + Full Analysis** mode (exact dimension inputs, full per-operation cost breakdown, radar chart) to the same polish level as Route Only mode.
 - Calibrate cutting-parameter tables against real machining data where available.
 - Review low-confidence precedence rules for possible promotion to enforced status.
 - Extend the LLM Planner to accept free-text natural-language part descriptions.
+- Add multi-sample consensus logic to the VLM feature extractor for higher extraction accuracy.
 
 ---
 
