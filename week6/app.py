@@ -454,6 +454,18 @@ else:
     pareto = run_nsga2(material, batch_size, features=features, machine_preference=pref_value)
     st.success(f"✅ Found **{len(pareto)}** Pareto-optimal route(s) — Strategy: *{pref_label}*")
 
+    # nsga2.py machine-preference override / incomplete-fallback status
+    # compute karta tha lekin UI kabhi dikhata hi nahi tha -- isliye jab
+    # "Prefer Lathe/Milling" ke saath koi valid route nahi bana paata tha,
+    # user ko koi warning nahi milti thi, bas silently Auto pe switch ho
+    # jaata (ya worse, ek incomplete 2-step route "valid" dikh jaata).
+    gen_status = getattr(run_nsga2, "last_llm_status", None)
+    if gen_status:
+        if gen_status.get("machine_pref_overridden"):
+            st.warning(f"⚠️ {gen_status['reason']}")
+        elif gen_status.get("fallback_incomplete"):
+            st.error(f"❌ {gen_status['reason']} Neeche dikhaya gaya route features cover NAHI karta — features/tolerance/batch adjust karke dobara try karo.")
+
     test_routes = generate_valid_routes(features, max_routes=1, machine_preference=pref_value)
     if test_routes and test_routes[0].get("warnings"):
         for w in test_routes[0]["warnings"]:

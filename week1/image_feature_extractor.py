@@ -5,13 +5,18 @@
 # model (qwen/qwen3.6-27b) se manufacturing features extract karta hai.
 #
 # Design principle (existing llm_planner.py se consistent):
-#   - Model ko sirf EXISTING 19-feature vocabulary di jaati hai — koi naya
+#   - Model ko sirf EXISTING feature vocabulary di jaati hai — koi naya
 #     naam invent nahi kar sakta.
 #   - Output feature_vocab.is_valid_feature() se validate hota hai — agar
 #     model kuch galat de, wo silently reject hota hai (drop, warning nahi crash).
 #   - "AI is verified, not trusted" — extraction ka result UI mein user ko
 #     confirm/edit karne ke liye dikhaya jaata hai, blindly pipeline mein
 #     aage nahi bhej diya jaata.
+#   - Run-to-run consistency: same image ko baar baar extract karne pe kabhi
+#     1-2 feature miss ho jaate the (LLM sampling variance + hidden
+#     reasoning token budget se). Fix: ab har extraction N=2 independent
+#     calls karta hai aur unke UNION ko final result maanta hai (self-
+#     consistency / ensemble pattern).
 
 import os
 import json
@@ -57,6 +62,9 @@ VISION_MODEL = "qwen/qwen3.6-27b"   # same model family as llm_planner.py,
 # disabled. See https://console.groq.com/docs/reasoning for details.
 
 MAX_IMAGE_MB = 20   # Groq's documented per-image limit
+N_EXTRACTION_SAMPLES = 2   # kitni independent calls union karni hain --
+                            # 2 latency/consistency ka accha balance hai;
+                            # agar ab bhi feature miss ho to 3 kar dena
 
 
 VISION_SYSTEM_PROMPT = """You are a manufacturing engineer analyzing a 2D
@@ -73,7 +81,10 @@ RULES:
    a cylindrical surface = Thread, a rectangular cut = Slot or Pocket).
 2. If the image is unclear, low-resolution, or ambiguous, still return your
    best guess but set "confidence" to "low".
-3. Output ONLY a JSON object in this exact format, nothing else:
+3. Before finalizing, systematically re-check the image against EVERY name in
+   the feature list above, one by one -- do not stop as soon as you notice a
+   few features.
+4. Output ONLY a JSON object in this exact format, nothing else:
    {{"features": ["Hole", "Thread", ...], "confidence": "high/medium/low",
      "notes": "brief explanation of what was seen"}}
 """
@@ -84,19 +95,81 @@ def _encode_image(image_bytes: bytes) -> str:
     return base64.b64encode(image_bytes).decode("utf-8")
 
 
+def _extract_single(b64_image: str, image_format: str, feature_list_str: str) -> dict:
+    """Ek single Groq API call karke parse + validate karta hai. Internal
+    helper -- extract_features_from_image() isse N baar call karke union
+    leta hai consistency ke liye."""
+    try:
+        response = client.chat.completions.create(
+            model=VISION_MODEL,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": VISION_SYSTEM_PROMPT.format(feature_list=feature_list_str)},
+                        {"type": "image_url", "image_url": {
+                            "url": f"data:image/{image_format};base64,{b64_image}"
+                        }},
+                    ],
+                }
+            ],
+            temperature=0,     # was 0.2 -- 0 minimizes run-to-run sampling
+                               # variance, jo same image pe har baar alag
+                               # result aane ki main wajah thi
+            max_completion_tokens=1500,
+            response_format={"type": "json_object"},
+            reasoning_effort="none",
+            reasoning_format="hidden",
+        )
+        raw = response.choices[0].message.content.strip()
+        parsed = _parse_response(raw)
+
+        valid_features = []
+        rejected = []
+        for f in parsed.get("features", []):
+            if is_valid_feature(f):
+                if f not in valid_features:
+                    valid_features.append(f)
+            else:
+                rejected.append(f)
+
+        return {
+            "success": True,
+            "features": valid_features,
+            "rejected_features": rejected,
+            "confidence": parsed.get("confidence", "medium"),
+            "notes": parsed.get("notes", ""),
+            "raw_response": raw,
+        }
+    except Exception as e:
+        return {
+            "success": False, "features": [], "rejected_features": [],
+            "confidence": None, "notes": "",
+            "error": f"Vision API error: {str(e)}",
+        }
+
+
 def extract_features_from_image(image_bytes: bytes, image_format: str = "png") -> dict:
     """
     Main entry point. 2D image (raw bytes) leke Groq vision model se
     manufacturing features extract karta hai.
 
+    Consistency ke liye N_EXTRACTION_SAMPLES independent calls karta hai aur
+    unke valid features ka UNION final result hota hai -- ek call kisi
+    feature ko miss kare (sampling variance ya truncation ki wajah se) to
+    doosri call usually usse pakad leti hai, isliye same image baar baar
+    extract karne pe result stabilize ho jaata hai.
+
     Returns:
         {
             "success": bool,
-            "features": [...],       # validated, only known-vocabulary features
-            "rejected_features": [...],  # model ne diya but vocabulary mein nahi tha
+            "features": [...],       # validated, union across all samples
+            "rejected_features": [...],  # union of out-of-vocabulary terms seen
             "confidence": "high"/"medium"/"low",
             "notes": "...",
-            "raw_response": "..."
+            "raw_response": "...",   # from the last successful sample
+            "sample_agreement": {feature: count, ...}  # har feature kitne
+                                                          # samples mein dikha
         }
     """
     if client is None:
@@ -117,61 +190,45 @@ def extract_features_from_image(image_bytes: bytes, image_format: str = "png") -
     b64_image = _encode_image(image_bytes)
     feature_list_str = ", ".join(GEOMETRY_FEATURES)
 
-    try:
-        response = client.chat.completions.create(
-            model=VISION_MODEL,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": VISION_SYSTEM_PROMPT.format(feature_list=feature_list_str)},
-                        {"type": "image_url", "image_url": {
-                            "url": f"data:image/{image_format};base64,{b64_image}"
-                        }},
-                    ],
-                }
-            ],
-            temperature=0.2,   # low — consistency zaroori hai, creativity nahi
-            max_completion_tokens=1500,   # 400 was too tight — qwen3.6-27b is a
-                                           # dual-mode reasoning model and can burn
-                                           # the whole budget on hidden reasoning,
-                                           # leaving nothing for the actual JSON
-                                           # (this is the likely cause of the old
-                                           # "could not parse model response" error)
-            response_format={"type": "json_object"},   # forces valid JSON output,
-                                                         # instead of just asking nicely
-                                                         # in the prompt
-            reasoning_effort="none",     # disables qwen3.6-27b's internal reasoning
-            reasoning_format="hidden",   # Groq's recommended pairing with JSON mode
-        )
-        raw = response.choices[0].message.content.strip()
-        parsed = _parse_response(raw)
+    samples = [
+        _extract_single(b64_image, image_format, feature_list_str)
+        for _ in range(N_EXTRACTION_SAMPLES)
+    ]
 
-        # ── Validation Layer — sirf known vocabulary allow hoti hai ──
-        valid_features = []
-        rejected = []
-        for f in parsed.get("features", []):
-            if is_valid_feature(f):
-                if f not in valid_features:   # duplicate na ho
-                    valid_features.append(f)
-            else:
-                rejected.append(f)
+    successful = [s for s in samples if s["success"]]
+    if not successful:
+        return samples[0]
 
-        return {
-            "success": True,
-            "features": valid_features,
-            "rejected_features": rejected,   # transparency ke liye — user dekh sake
-            "confidence": parsed.get("confidence", "medium"),
-            "notes": parsed.get("notes", ""),
-            "raw_response": raw,
-        }
+    union_features = []
+    union_rejected = []
+    agreement = {}
+    confidences = []
+    for s in successful:
+        for f in s["features"]:
+            agreement[f] = agreement.get(f, 0) + 1
+            if f not in union_features:
+                union_features.append(f)
+        for f in s["rejected_features"]:
+            if f not in union_rejected:
+                union_rejected.append(f)
+        confidences.append(s["confidence"])
 
-    except Exception as e:
-        return {
-            "success": False, "features": [], "rejected_features": [],
-            "confidence": None, "notes": "",
-            "error": f"Vision API error: {str(e)}",
-        }
+    conf_rank = {"high": 3, "medium": 2, "low": 1, None: 0}
+    best_confidence = max(confidences, key=lambda c: conf_rank.get(c, 0)) if confidences else "low"
+
+    combined_notes = successful[-1]["notes"]
+    if len(successful) > 1 and any(agreement[f] < len(successful) for f in union_features):
+        combined_notes += f" (combined from {len(successful)} passes; not every feature was seen in every pass)"
+
+    return {
+        "success": True,
+        "features": union_features,
+        "rejected_features": union_rejected,
+        "confidence": best_confidence,
+        "notes": combined_notes,
+        "raw_response": successful[-1]["raw_response"],
+        "sample_agreement": agreement,
+    }
 
 
 def _parse_response(raw_response: str) -> dict:
@@ -179,21 +236,17 @@ def _parse_response(raw_response: str) -> dict:
     (llm_planner.py ke _parse_steps() jaisa hi pattern)."""
     text = raw_response.strip()
 
-    # Strategy 1: Direct JSON parse
     try:
         return json.loads(text)
     except json.JSONDecodeError:
         pass
 
-    # Strategy 2: Strip markdown code fences (```json ... ``` or ``` ... ```)
-    # Bahut common — vision models often wrap JSON in fences even when told not to
     fence_stripped = re.sub(r'^```(?:json)?\s*|\s*```$', '', text, flags=re.MULTILINE).strip()
     try:
         return json.loads(fence_stripped)
     except json.JSONDecodeError:
         pass
 
-    # Strategy 3: Find the {...} substring anywhere in the (fence-stripped) text
     match = re.search(r'\{.*\}', fence_stripped, re.DOTALL)
     if match:
         try:
@@ -201,7 +254,6 @@ def _parse_response(raw_response: str) -> dict:
         except json.JSONDecodeError:
             pass
 
-    # Strategy 4: Fix common JSON issues — single quotes instead of double quotes
     if match:
         try:
             fixed = match.group().replace("'", '"')
@@ -209,15 +261,11 @@ def _parse_response(raw_response: str) -> dict:
         except json.JSONDecodeError:
             pass
 
-    # Strategy 5 (last resort): keyword-match known feature names directly in the
-    # raw text, even if it's not valid JSON at all. Better to recover SOMETHING
-    # than to return empty when the model clearly did describe the image.
     found = [f for f in GEOMETRY_FEATURES if re.search(rf'\b{re.escape(f)}\b', text, re.IGNORECASE)]
     if found:
         return {"features": found, "confidence": "low",
                 "notes": "Recovered via keyword match — model response was not valid JSON"}
 
-    # Total fallback — genuinely kuch nahi mila
     return {"features": [], "confidence": "low", "notes": "Could not parse model response",
             "_debug_raw": text[:300]}
 
@@ -242,10 +290,11 @@ if __name__ == "__main__":
             print(f"Rejected    : {result['rejected_features']}")
             print(f"Confidence  : {result['confidence']}")
             print(f"Notes       : {result['notes']}")
+            if "sample_agreement" in result:
+                print(f"Agreement   : {result['sample_agreement']}")
         else:
             print(f"No test image found at '{test_image_path}' — place one there to test live.")
 
-    # Validation logic can be tested without the API using a mock response:
     print("\n=== Validation Layer Test (no API needed) ===")
     mock_parsed = {"features": ["Hole", "Thread", "FakeFeatureXYZ", "Slot"], "confidence": "high"}
     valid = [f for f in mock_parsed["features"] if is_valid_feature(f)]

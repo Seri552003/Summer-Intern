@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../w
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week1")))
 
 from agents import time_agent, cost_agent, energy_agent
-from route_builder import generate_valid_routes
+from route_builder import generate_valid_routes, is_complete
 
 random.seed(42)
 
@@ -134,7 +134,8 @@ def run_nsga2(material: str, batch_size: int, features: list = None, max_routes:
     population = []
     llm_status = {"mode": route_generation_mode, "attempts": 0, "llm_valid": 0,
                   "llm_corrected": 0, "llm_failed": 0,
-                  "route_builder_fallback_used": False, "reason": ""}
+                  "route_builder_fallback_used": False, "reason": "",
+                  "machine_pref_overridden": False, "fallback_incomplete": False}
 
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week2")))
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../week4")))
@@ -155,13 +156,23 @@ def run_nsga2(material: str, batch_size: int, features: list = None, max_routes:
                     llm_steps = llm_result["steps"]
                     fsm_check = validate_sequence(llm_steps)
 
-                    if fsm_check["valid"]:
+                    # FSM sirf sequence-ORDER check karta hai (Facing pehle,
+                    # Inspection last, precedence sahi) -- ye kabhi check
+                    # nahi karta ki route mein requested features actually
+                    # cover ho rahe hain. Isse ek lazy/minimal LLM route
+                    # (jaise sirf "Facing, Inspection") FSM se trivially
+                    # "valid" pass ho jaata, aur chunki uska time/cost/energy
+                    # sabse kam hota (kuch kaam nahi kiya), NSGA-II use
+                    # automatically "best" maan leta -- saare asli complete
+                    # routes ko dominate karke Pareto front jeet leta. Ab
+                    # completeness bhi explicitly check karte hain.
+                    if fsm_check["valid"] and is_complete(llm_steps, features):
                         population.append(Individual(f"Route_LLM_{attempt+1}", llm_steps, material, batch_size))
                         llm_status["llm_valid"] += 1
                     else:
                         # Route Builder = CORRECTOR only here, not an independent generator
                         corrected = fix_sequence_with_builder(features)
-                        if corrected and validate_sequence(corrected)["valid"]:
+                        if corrected and validate_sequence(corrected)["valid"] and is_complete(corrected, features):
                             population.append(Individual(f"Route_LLM_{attempt+1}_corrected", corrected, material, batch_size))
                             llm_status["llm_corrected"] += 1
                         else:
@@ -194,8 +205,37 @@ def run_nsga2(material: str, batch_size: int, features: list = None, max_routes:
             llm_status["route_builder_fallback_used"] = True
             candidate_routes = generate_valid_routes(features, max_routes=max(3, max_routes),
                                                       machine_preference=machine_preference)
+
+            # Agar restrictive machine_preference (prefer_lathe/prefer_milling)
+            # ke saath koi route hi nahi ban paaya -- kyunki requested
+            # features force karte hain doosre machine type ki zaroorat --
+            # to "auto" try karo. Pehle ye silently trivial 2-step fallback
+            # de deta tha, jisse lagta LLM ne khud hi ek incomplete route
+            # "valid" maan liya, jabki asal wajah sirf machine-preference
+            # constraint thi.
+            if not candidate_routes and machine_preference != "auto":
+                candidate_routes = generate_valid_routes(features, max_routes=max(3, max_routes),
+                                                          machine_preference="auto")
+                if candidate_routes:
+                    llm_status["machine_pref_overridden"] = True
+                    llm_status["reason"] = (
+                        f"'{machine_preference}' se koi valid route nahi bana (requested "
+                        f"features doosre machine type maangte hain) — Auto strategy use ki gayi."
+                    )
+
             if not candidate_routes:
+                # Genuinely koi bhi complete route nahi ban saka is feature
+                # combination ke liye (kisi bhi machine strategy se). Ab bhi
+                # ek fallback dena hai (crash se behtar), lekin explicitly
+                # flag karte hain ki ye INCOMPLETE hai, taaki UI ise kabhi
+                # "the answer" ki tarah na dikhaye.
                 candidate_routes = [{"steps": ["Facing", "Inspection"], "type": "FALLBACK", "changeovers": 0}]
+                llm_status["fallback_incomplete"] = True
+                llm_status["reason"] = (
+                    "Koi bhi complete, valid route is feature combination ke liye "
+                    "nahi ban saka — dikhaya gaya route features cover NAHI karta."
+                )
+
             population = [
                 Individual(f"Route_Builder_Fallback_{i+1}", r["steps"], material, batch_size)
                 for i, r in enumerate(candidate_routes)
@@ -204,8 +244,19 @@ def run_nsga2(material: str, batch_size: int, features: list = None, max_routes:
     else:
         # ── LEGACY MODE: Route Builder primary, LLM parallel (backward-compatible) ──
         candidate_routes = generate_valid_routes(features, max_routes=max_routes, machine_preference=machine_preference)
+        if not candidate_routes and machine_preference != "auto":
+            candidate_routes = generate_valid_routes(features, max_routes=max_routes, machine_preference="auto")
+            if candidate_routes:
+                llm_status["machine_pref_overridden"] = True
+                llm_status["reason"] = (
+                    f"'{machine_preference}' se koi valid route nahi bana — Auto strategy use ki gayi."
+                )
         if not candidate_routes:
             candidate_routes = [{"steps": ["Facing", "Inspection"], "type": "FALLBACK", "changeovers": 0}]
+            llm_status["fallback_incomplete"] = True
+            llm_status["reason"] = (
+                "Koi bhi complete, valid route is feature combination ke liye nahi ban saka."
+            )
         population = [
             Individual(f"Route_{i+1}", r["steps"], material, batch_size)
             for i, r in enumerate(candidate_routes)
@@ -217,12 +268,12 @@ def run_nsga2(material: str, batch_size: int, features: list = None, max_routes:
                 llm_result = generate_process_plan(material, features, tolerance, batch_size)
                 if llm_result["success"]:
                     fsm_check = validate_sequence(llm_result["steps"])
-                    if fsm_check["valid"]:
+                    if fsm_check["valid"] and is_complete(llm_result["steps"], features):
                         population.append(Individual("Route_LLM", llm_result["steps"], material, batch_size))
                         llm_status["llm_valid"] = 1
                     else:
                         corrected = fix_sequence_with_builder(features)
-                        if corrected and validate_sequence(corrected)["valid"]:
+                        if corrected and validate_sequence(corrected)["valid"] and is_complete(corrected, features):
                             population.append(Individual("Route_LLM_corrected", corrected, material, batch_size))
                             llm_status["llm_corrected"] = 1
             except Exception as e:
