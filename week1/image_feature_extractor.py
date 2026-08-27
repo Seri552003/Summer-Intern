@@ -22,7 +22,23 @@ from dotenv import load_dotenv
 from groq import Groq
 from feature_vocab import GEOMETRY_FEATURES, is_valid_feature
 
-load_dotenv()
+# .env dhoondne ke liye bare load_dotenv() bharosemand nahi tha -- wo current
+# working directory se search karta hai, aur agar Streamlit kisi aur folder
+# se start ho (ya kabhi CWD change ho), ye silently .env miss kar deta tha,
+# jisse "GROQ_API_KEY not configured" error baar baar wapas aata tha. Ab
+# explicitly dono jagah check karte hain jahan .env ho sakti hai.
+_THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+_CANDIDATE_ENV_PATHS = [
+    os.path.join(_THIS_DIR, ".env"),                      # week1/.env
+    os.path.join(_THIS_DIR, "..", "week6", ".env"),        # week6/.env (app.py isi se load karta hai)
+    os.path.join(_THIS_DIR, "..", ".env"),                 # project root .env
+]
+for _env_path in _CANDIDATE_ENV_PATHS:
+    if os.path.exists(_env_path):
+        load_dotenv(_env_path)
+        break
+else:
+    load_dotenv()   # last resort -- purana CWD-based default behaviour
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
