@@ -1,0 +1,7 @@
+streamlit
+groq
+python-dotenv
+matplotlib
+numpy
+plotly
+pytest
