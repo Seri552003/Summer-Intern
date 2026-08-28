@@ -210,6 +210,29 @@ def make_time_bar(bd):
 
 def make_pareto_charts(data_list, best_route_name, key_prefix):
     """Draw 3D + 2D Pareto front charts."""
+    # Route Builder kabhi kabhi same operation-set ke multiple step-order
+    # variants deta hai -- unka Time/Cost/Energy bilkul identical hota hai
+    # (order se in metrics pe farak nahi padta), isliye wo chart mein
+    # bilkul ek hi (x,y,z) point pe overlap ho jaate the aur unke text
+    # labels ek dusre ke upar garbled ho jaate the. Ab metrics ke hisaab se
+    # dedupe karte hain -- ek hi jagah ka sirf ek representative point
+    # dikhega, hover mein baaki equivalent routes ka count mil jaayega.
+    seen = {}
+    deduped = []
+    for r in data_list:
+        key = (r["t"], r["c"], r["e"])
+        if key not in seen:
+            seen[key] = r
+            deduped.append(r)
+        else:
+            seen[key].setdefault("_equivalent_count", 1)
+            seen[key]["_equivalent_count"] += 1
+            # Agar best route in duplicates mein hai, to representative
+            # point ka naam bhi best route ka rakho taaki highlight sahi jagah lage
+            if r["route"] == best_route_name:
+                seen[key]["route"] = best_route_name
+    data_list = deduped
+
     if len(data_list) < 2:
         return
 
@@ -218,33 +241,34 @@ def make_pareto_charts(data_list, best_route_name, key_prefix):
     energies = [r["e"] for r in data_list]
     effs     = [r["eff"] for r in data_list]
     hover    = [
-        f"<b>{r['route']}</b><br>Machine: {r['label']}<br>"
+        f"<b>{r['route']}</b>" +
+        (f" (+{r['_equivalent_count']-1} equivalent route(s))" if r.get("_equivalent_count", 1) > 1 else "") +
+        f"<br>Machine: {r['label']}<br>"
         f"Time: {r['t']} min<br>Cost: ₹{r['c']:,.0f}<br>"
         f"Energy: {r['e']} kWh<br>Efficiency: {r['eff']}/100"
         for r in data_list
     ]
 
-    # 3D
+    # 3D — chhote, clean dots; koi per-point text label chart pe nahi
+    # (sirf hover pe) taaki bahut saare points hone par bhi clutter na ho
     fig3d = go.Figure()
     fig3d.add_trace(go.Scatter3d(
         x=times, y=costs, z=energies,
-        mode='markers+text',
-        text=[r["route"] for r in data_list],
-        textposition='top center',
+        mode='markers',
         hovertext=hover, hoverinfo='text',
-        marker=dict(size=10, color=effs, colorscale='RdYlGn',
+        marker=dict(size=6, color=effs, colorscale='RdYlGn',
                     colorbar=dict(title="Efficiency"),
-                    showscale=True, line=dict(color='white', width=1)),
+                    showscale=True, opacity=0.85,
+                    line=dict(color='white', width=0.5)),
         name="Routes"
     ))
     best = next((r for r in data_list if r["route"] == best_route_name), None)
     if best:
         fig3d.add_trace(go.Scatter3d(
             x=[best["t"]], y=[best["c"]], z=[best["e"]],
-            mode='markers+text', text=["⭐ Best"], textposition='top center',
-            hovertext=[f"<b>⭐ OPTIMAL</b><br>Time:{best['t']}min Cost:₹{best['c']:,.0f}"],
+            mode='markers', hovertext=[f"<b>⭐ OPTIMAL — {best['route']}</b><br>Time:{best['t']}min Cost:₹{best['c']:,.0f}"],
             hoverinfo='text',
-            marker=dict(size=16, color='gold', symbol='diamond',
+            marker=dict(size=12, color='gold', symbol='diamond',
                         line=dict(color='orange', width=2)),
             name="Optimal"
         ))
@@ -256,20 +280,19 @@ def make_pareto_charts(data_list, best_route_name, key_prefix):
     )
     st.plotly_chart(fig3d, use_container_width=True, key=f"{key_prefix}_3d")
 
-    # 2D
+    # 2D — same clean-dot style
     st.markdown("##### 2D View: Time vs Cost  *(bubble size = Energy)*")
     fig2d = go.Figure()
     for i, r in enumerate(data_list):
         is_best = r["route"] == best_route_name
         fig2d.add_trace(go.Scatter(
             x=[r["t"]], y=[r["c"]],
-            mode='markers+text',
-            text=[f"{'⭐ ' if is_best else ''}{r['route']}"],
-            textposition='top center',
+            mode='markers',
             hovertext=[hover[i]], hoverinfo='text',
-            marker=dict(size=max(12, r["e"]*15),
+            marker=dict(size=max(10, r["e"]*10) if is_best else max(8, r["e"]*8),
                         color='gold' if is_best else '#3b82f6',
-                        line=dict(color='orange' if is_best else 'white', width=2),
+                        symbol='diamond' if is_best else 'circle',
+                        line=dict(color='orange' if is_best else 'white', width=1.5),
                         opacity=0.85),
             showlegend=False
         ))
@@ -451,7 +474,7 @@ else:
 
     # STEP 2
     st.markdown('<div class="step-hdr">STEP 2 — Machine-Aware Route Generation + NSGA-II Optimization</div>', unsafe_allow_html=True)
-    pareto = run_nsga2(material, batch_size, features=features, machine_preference=pref_value)
+    pareto = run_nsga2(material, batch_size, features=features, machine_preference=pref_value, max_routes=30)
     st.success(f"✅ Found **{len(pareto)}** Pareto-optimal route(s) — Strategy: *{pref_label}*")
 
     # nsga2.py machine-preference override / incomplete-fallback status
@@ -496,8 +519,20 @@ else:
     if route_only:
         st.markdown("---")
         st.markdown("### 🏆 Optimal Process Route")
-        best_steps = valid_routes[0].steps if valid_routes else None
-        best_route_name = valid_routes[0].route_name if valid_routes else ""
+        # valid_routes[0] tha pehle -- pareto list mein jo bhi order mein
+        # pehle aaya, wo "optimal" ban jaata tha, actual highest-efficiency
+        # nahi. Ab genuinely best-scoring route select karte hain.
+        best_ind = None
+        best_eff_ro = -1
+        for ind in valid_routes:
+            eff_ro = efficiency_agent(time_agent(ind.steps, material),
+                                       cost_agent(ind.steps, material, batch_size),
+                                       energy_agent(ind.steps, material))
+            if eff_ro > best_eff_ro:
+                best_eff_ro = eff_ro
+                best_ind = ind
+        best_steps = best_ind.steps if best_ind else None
+        best_route_name = best_ind.route_name if best_ind else ""
 
         if best_steps:
             origin_badge = ""
@@ -567,20 +602,50 @@ else:
 
             st.info("💡 Rough estimates. Use **Route + Full Analysis** for dimension-specific accuracy.")
 
-            if len(valid_routes) >= 2:
-                st.markdown("---")
-                st.markdown("#### 📈 Pareto Front")
-                ro_data = []
-                for ind in valid_routes:
-                    rt  = time_agent(ind.steps, material)
-                    rc  = cost_agent(ind.steps, material, batch_size)
-                    re  = energy_agent(ind.steps, material)
-                    reff= efficiency_agent(rt, rc, re)
-                    ro_data.append({"route": ind.route_name, "steps": ind.steps,
-                                    "t": rt, "c": rc, "e": re, "eff": reff,
-                                    "label": get_route_label(ind.steps)})
+            st.markdown("---")
+            st.markdown("#### 📈 Pareto Front")
+
+            ro_data = []
+            for ind in valid_routes:
+                rt   = time_agent(ind.steps, material)
+                rc   = cost_agent(ind.steps, material, batch_size)
+                re_  = energy_agent(ind.steps, material)
+                reff = efficiency_agent(rt, rc, re_)
+                ro_data.append({"route": ind.route_name, "steps": ind.steps,
+                                "t": rt, "c": rc, "e": re_, "eff": reff,
+                                "label": get_route_label(ind.steps)})
+
+            # Kuch features (Hole, Thread, Face, Boss, Keyway, Groove,
+            # Turning, Contour_3D) ke multiple ALTERNATIVE operation-chains
+            # hain (e.g. Hole = Drilling, ya Drilling+Reaming, ya
+            # Drilling+Boring -- teeno alag). Route Builder inhe already
+            # explore karta hai jab max_routes zyada diya jaaye, aur har
+            # alternative ka Time/Cost/Energy genuinely alag hota hai --
+            # isliye yahan explicitly zyada candidates maang ke Pareto
+            # front mein ye asli diversity bhi shaamil kar lete hain
+            # (koi fake/duplicate data nahi, sirf jo already exist karta
+            # hai use surface karte hain).
+            if len(ro_data) < 5:
+                extra_routes = generate_valid_routes(features, max_routes=50, machine_preference=pref_value)
+                for r in extra_routes:
+                    clean_check = [s for s in r["steps"] if s != "--- Machine Changeover ---"]
+                    if not is_complete(clean_check, features):
+                        continue
+                    if not validate_sequence(clean_check)["valid"]:
+                        continue
+                    rt   = time_agent(r["steps"], material)
+                    rc   = cost_agent(r["steps"], material, batch_size)
+                    re_  = energy_agent(r["steps"], material)
+                    reff = efficiency_agent(rt, rc, re_)
+                    ro_data.append({"route": f"Route_Alt_{len(ro_data)+1}", "steps": r["steps"],
+                                    "t": rt, "c": rc, "e": re_, "eff": reff,
+                                    "label": get_route_label(clean_check)})
+
+            if len(ro_data) >= 2:
                 ro_data.sort(key=lambda x: -x["eff"])
-                make_pareto_charts(ro_data, ro_data[0]["route"], "ro_pareto")
+                make_pareto_charts(ro_data, best_route_name, "ro_pareto")
+            elif len(ro_data) == 1:
+                st.info("Only one distinct valid route found across all strategies for this feature combination — not enough points for a Pareto chart.")
 
             if len(valid_routes) > 1:
                 with st.expander(f"📋 All {len(valid_routes)} valid routes"):
