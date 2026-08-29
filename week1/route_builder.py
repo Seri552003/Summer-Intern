@@ -73,7 +73,7 @@ def get_operation_combinations(features: list) -> list:
 # STEP 2: Topological ordering within a machine-phase
 # ════════════════════════════════════════════════════
 
-def _topological_orderings(operations: set, num_variants: int = 3, max_attempts: int = 20) -> list:
+def _topological_orderings(operations: set, num_variants: int = 8, max_attempts: int = 60) -> list:
     """
     Randomized Kahn's algorithm — operations ke liye multiple DIFFERENT
     valid topological orderings nikalta hai.
@@ -244,7 +244,7 @@ def build_routes(features: list, max_routes: int = 5, machine_preference: str = 
         all_warnings.extend(classification["warnings"])
 
         if route_type == "LATHE_ONLY":
-            for ordering in _topological_orderings(lathe_ops, num_variants=3):
+            for ordering in _topological_orderings(lathe_ops, num_variants=8):
                 route = [pg.ALWAYS_FIRST] + ordering + [pg.ALWAYS_LAST]
                 key = tuple(route)
                 if key not in seen_routes:
@@ -256,7 +256,7 @@ def build_routes(features: list, max_routes: int = 5, machine_preference: str = 
                     })
 
         elif route_type == "MILLING_ONLY":
-            for ordering in _topological_orderings(milling_ops, num_variants=3):
+            for ordering in _topological_orderings(milling_ops, num_variants=8):
                 route = [pg.ALWAYS_FIRST] + ordering + [pg.ALWAYS_LAST]
                 key = tuple(route)
                 if key not in seen_routes:
@@ -268,8 +268,8 @@ def build_routes(features: list, max_routes: int = 5, machine_preference: str = 
                     })
 
         elif route_type == "LATHE_FIRST":
-            for l_order in _topological_orderings(lathe_ops, num_variants=2):
-                for m_order in _topological_orderings(milling_ops, num_variants=2):
+            for l_order in _topological_orderings(lathe_ops, num_variants=4):
+                for m_order in _topological_orderings(milling_ops, num_variants=4):
                     route = [pg.ALWAYS_FIRST] + l_order + ["--- Machine Changeover ---"] + m_order + [pg.ALWAYS_LAST]
                     key = tuple(route)
                     if key not in seen_routes:
@@ -281,8 +281,8 @@ def build_routes(features: list, max_routes: int = 5, machine_preference: str = 
                         })
 
         elif route_type == "MILLING_FIRST":
-            for m_order in _topological_orderings(milling_ops, num_variants=2):
-                for l_order in _topological_orderings(lathe_ops, num_variants=2):
+            for m_order in _topological_orderings(milling_ops, num_variants=4):
+                for l_order in _topological_orderings(lathe_ops, num_variants=4):
                     route = [pg.ALWAYS_FIRST] + m_order + ["--- Machine Changeover ---"] + l_order + [pg.ALWAYS_LAST]
                     key = tuple(route)
                     if key not in seen_routes:
