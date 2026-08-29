@@ -209,7 +209,10 @@ def make_time_bar(bd):
 
 
 def make_pareto_charts(data_list, best_route_name, key_prefix):
-    """Draw 3D + 2D Pareto front charts."""
+    """Draw 3D + 2D Pareto front charts. Returns True if a chart was drawn,
+    False if there weren't enough genuinely distinct points to plot --
+    caller should show its own message in that case rather than leaving
+    silent empty space."""
     # Route Builder kabhi kabhi same operation-set ke multiple step-order
     # variants deta hai -- unka Time/Cost/Energy bilkul identical hota hai
     # (order se in metrics pe farak nahi padta), isliye wo chart mein
@@ -234,7 +237,7 @@ def make_pareto_charts(data_list, best_route_name, key_prefix):
     data_list = deduped
 
     if len(data_list) < 2:
-        return
+        return False
 
     times    = [r["t"] for r in data_list]
     costs    = [r["c"] for r in data_list]
@@ -303,6 +306,7 @@ def make_pareto_charts(data_list, best_route_name, key_prefix):
         paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(248,250,252,1)'
     )
     st.plotly_chart(fig2d, use_container_width=True, key=f"{key_prefix}_2d")
+    return True
 
 
 # ── Sidebar ───────────────────────────────────────────────────
@@ -643,9 +647,11 @@ else:
 
             if len(ro_data) >= 2:
                 ro_data.sort(key=lambda x: -x["eff"])
-                make_pareto_charts(ro_data, best_route_name, "ro_pareto")
+                drew_chart = make_pareto_charts(ro_data, best_route_name, "ro_pareto")
+                if not drew_chart:
+                    st.info("All candidate routes for this feature combination converge to the same Time/Cost/Energy — nothing distinct to plot on a Pareto chart.")
             elif len(ro_data) == 1:
-                st.info("Only one distinct valid route found across all strategies for this feature combination — not enough points for a Pareto chart.")
+                st.info("Only one distinct valid route found for this feature combination — not enough points for a Pareto chart.")
 
             if len(valid_routes) > 1:
                 with st.expander(f"📋 All {len(valid_routes)} valid routes"):
@@ -701,7 +707,9 @@ else:
         fa_data = [{"route": r["Route"], "t": r["Time (min)"], "c": r["Cost (₹)"],
                     "e": r["Energy (kWh)"], "eff": r["Efficiency"],
                     "label": r["Machine Type"]} for r in agent_data]
-        make_pareto_charts(fa_data, best["route"] if best else "", "fa_pareto")
+        drew_chart = make_pareto_charts(fa_data, best["route"] if best else "", "fa_pareto")
+        if not drew_chart:
+            st.info("All candidate routes converge to the same Time/Cost/Energy — nothing distinct to plot on a Pareto chart.")
 
     comp = make_comparison_chart(agent_data)
     if comp:
