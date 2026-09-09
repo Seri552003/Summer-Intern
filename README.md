@@ -364,4 +364,4 @@ cd week1 && python -m pytest tests/ -v
 
 ## 🔗 Repository
 
-[github.com/Radhana123/LLM-CAPP-Project_Summer_Intern](https://github.com/Radhana123/LLM-CAPP-Project_Summer_Intern)
+[https://github.com/Seri552003/Summer-Intern](https://github.com/Seri552003/Summer-Intern)
