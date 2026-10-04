@@ -2,7 +2,7 @@
 # Week 1 (extension) | LLM-CAPP Project
 #
 # 2D image (engineering sketch / drawing / photo) leke, Groq ke vision-capable
-# model (qwen/qwen3.6-27b) se manufacturing features extract karta hai.
+# model (qwen/qwen3.8-27b) se manufacturing features extract karta hai.
 #
 # Design principle (existing llm_planner.py se consistent):
 #   - Model ko sirf EXISTING feature vocabulary di jaati hai — koi naya
@@ -48,10 +48,10 @@ else:
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
 
-VISION_MODEL = "qwen/qwen3.6-27b"   # same model family as llm_planner.py,
+VISION_MODEL = "qwen/qwen3.8-27b"   # same model family as llm_planner.py,
                                      # this one also accepts image input
 
-# NOTE: qwen/qwen3.6-27b is a dual-mode (thinking/non-thinking) model. By
+# NOTE: qwen/qwen3.8-27b is a dual-mode (thinking/non-thinking) model. By
 # default it can spend completion tokens on internal reasoning before
 # producing the final answer -- with a small token budget this consumes the
 # whole budget and leaves nothing for the actual JSON, which is the likely

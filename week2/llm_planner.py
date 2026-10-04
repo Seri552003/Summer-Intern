@@ -21,7 +21,7 @@ if not GROQ_API_KEY:
     print("⚠️  GROQ_API_KEY not found in .env file!")
 
 client = Groq(api_key=GROQ_API_KEY) if GROQ_API_KEY else None
-MODEL  = "qwen/qwen3.6-27b"   # migrated from deprecated llama-3.1-8b-instant
+MODEL  = "qwen/qwen3.8-27b"   # migrated from deprecated llama-3.1-8b-instant
                                # this model also supports vision (image input),
                                # used by image_feature_extractor.py below
 
