@@ -73,6 +73,12 @@ def get_operation_combinations(features: list) -> list:
 # STEP 2: Topological ordering within a machine-phase
 # ════════════════════════════════════════════════════
 
+# Parting-off part ko bar se kaat deta hai -- us machine-phase mein iske baad
+# koi aur kaam nahi ho sakta. Ye precedence graph mein sirf "sink" hai (iska koi
+# successor nahi), isliye ise phase ke END mein khiskane se baaki rules nahi tootte.
+_LAST_IN_PHASE = ("Parting-off",)
+
+
 def _topological_orderings(operations: set, num_variants: int = 8, max_attempts: int = 60) -> list:
     """
     Randomized Kahn's algorithm — operations ke liye multiple DIFFERENT
@@ -109,6 +115,12 @@ def _topological_orderings(operations: set, num_variants: int = 8, max_attempts:
                 in_degree_copy[neighbor] -= 1
                 if in_degree_copy[neighbor] == 0:
                     available.append(neighbor)
+
+        # Parting-off ko phase ke end mein rakho (agar uska koi successor nahi)
+        movable = [op for op in _LAST_IN_PHASE if op in order
+                   and not any(a == op for a, _b in relevant_edges)]
+        if movable:
+            order = [op for op in order if op not in movable] + movable
 
         if len(order) == len(operations) and order not in results:
             results.append(order)
