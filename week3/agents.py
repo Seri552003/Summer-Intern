@@ -3,27 +3,39 @@
 # Week 3 | LLM-CAPP Project
 #
 # Time = Dimension-based machining time + Tool Change + Position Change + Changeover
-# Cost = INR (1 USD = Rs.96.095)
+# Cost = INR (rate defined ONCE below as USD_TO_INR)
 # Energy = kWh
 
 import math
 
 # ── USD to INR conversion rate ─────────────────────
-USD_TO_INR = 96.095   # 1 USD = Rs.96.095
+# SINGLE SOURCE OF TRUTH. Every INR figure in the cost tables below is derived
+# from this constant (directly, or via _inr()), and the dashboard imports it
+# for display, so changing it here updates every reported cost.
+USD_TO_INR = 95.595   # 1 USD = Rs.95.595
+
+# The per-minute machine-rate table (_COST_PER_MIN) was calibrated in INR at
+# this older rate; _inr() rescales it to the current USD_TO_INR.
+_RATE_BASIS = 95.33
+
+
+def _inr(value_at_rate_basis: float) -> int:
+    """Rescale an INR figure calibrated at _RATE_BASIS to the current USD_TO_INR."""
+    return round(value_at_rate_basis * USD_TO_INR / _RATE_BASIS)
 
 # ═══════════════════════════════════════════════════
 # PENALTY CONSTANTS
 # ═══════════════════════════════════════════════════
 CHANGEOVER_TIME_MIN    = 15
-CHANGEOVER_COST_INR    = round(15 * USD_TO_INR)   # $15 → Rs.1441
+CHANGEOVER_COST_INR    = round(15 * USD_TO_INR)   # $15 reference value
 CHANGEOVER_ENERGY_KWH  = 0.30
 
 TOOL_CHANGE_TIME_MIN   = 2
-TOOL_CHANGE_COST_INR   = round(2 * USD_TO_INR)    # $2  → Rs.192
+TOOL_CHANGE_COST_INR   = round(2 * USD_TO_INR)    # $2  reference value
 TOOL_CHANGE_ENERGY_KWH = 0.05
 
 POSITION_CHANGE_TIME_MIN   = 1
-POSITION_CHANGE_COST_INR   = round(1 * USD_TO_INR) # $1  → Rs.96
+POSITION_CHANGE_COST_INR   = round(1 * USD_TO_INR) # $1  reference value
 POSITION_CHANGE_ENERGY_KWH = 0.02
 
 # Operations that share same tool family
@@ -275,51 +287,53 @@ def _op_time(op: str, material: str, dims: dict) -> float:
 
 
 # ═══════════════════════════════════════════════════
-# BASE COST + ENERGY (1 USD = Rs.96.095)
+# BASE COST + ENERGY
 # ═══════════════════════════════════════════════════
-_BASE_COST = {
-    "Facing": 961,               # $10
-    "Center Drilling": 769,      # $8
-    "Drilling": 1441,            # $15
-    "Reaming": 1153,             # $12
-    "Inspection": 480,           # $5
-    "Boring": 1922,              # $20
-    "Chamfering": 673,           # $7
-    "External Threading": 1730,  # $18
-    "Plain/Cylindrical Turning": 1538,  # $16
-    "Taper Turning": 1634,              # $17
-    "Step Turning": 1538,               # $16
-    "Grooving/Necking": 1249,           # $13
-    "Parting-off": 865,                 # $9
-    "Knurling": 769,                    # $8
-    "Forming": 1345,                    # $14
-    "Internal Grooving": 1441,          # $15
-    "Tapping": 1153,                    # $12
-    "Counterboring": 961,               # $10
-    "Countersinking": 865,              # $9
-    "Contour Turning": 2114,            # $22
-    "Undercutting": 961,                # $10
-    "Eccentric Turning": 1922,          # $20
-    "Polishing/Burnishing": 1057,       # $11
-    "Face Milling": 1153,               # $12
-    "Slab/Peripheral Milling": 1730,    # $18
-    "Surface Contouring": 2691,         # $28
-    "Slot Milling": 1345,               # $14
-    "T-Slot Milling": 1634,             # $17
-    "Dovetail Milling": 1538,           # $16
-    "Woodruff Keyway Milling": 1057,    # $11
-    "Pocket Milling": 1538,             # $16
-    "Profile Milling": 1441,            # $15
-    "Spotfacing": 769,                  # $8
-    "Corner Rounding/Filleting": 865,   # $9
-    "Gear/Spline Milling": 2498,        # $26
-    "Thread Milling": 1634,             # $17
-    "Angular Milling": 1345,            # $14
-    "Gang Milling": 1249,               # $13
-    "Form Milling": 1634,               # $17
-    "Helical Milling": 1922,            # $20
-    "Engraving": 961,                   # $10
+# USD reference value per operation; INR value is derived from USD_TO_INR.
+_BASE_COST_USD = {
+    "Facing": 10,
+    "Center Drilling": 8,
+    "Drilling": 15,
+    "Reaming": 12,
+    "Inspection": 5,
+    "Boring": 20,
+    "Chamfering": 7,
+    "External Threading": 18,
+    "Plain/Cylindrical Turning": 16,
+    "Taper Turning": 17,
+    "Step Turning": 16,
+    "Grooving/Necking": 13,
+    "Parting-off": 9,
+    "Knurling": 8,
+    "Forming": 14,
+    "Internal Grooving": 15,
+    "Tapping": 12,
+    "Counterboring": 10,
+    "Countersinking": 9,
+    "Contour Turning": 22,
+    "Undercutting": 10,
+    "Eccentric Turning": 20,
+    "Polishing/Burnishing": 11,
+    "Face Milling": 12,
+    "Slab/Peripheral Milling": 18,
+    "Surface Contouring": 28,
+    "Slot Milling": 14,
+    "T-Slot Milling": 17,
+    "Dovetail Milling": 16,
+    "Woodruff Keyway Milling": 11,
+    "Pocket Milling": 16,
+    "Profile Milling": 15,
+    "Spotfacing": 8,
+    "Corner Rounding/Filleting": 9,
+    "Gear/Spline Milling": 26,
+    "Thread Milling": 17,
+    "Angular Milling": 14,
+    "Gang Milling": 13,
+    "Form Milling": 17,
+    "Helical Milling": 20,
+    "Engraving": 10,
 }
+_BASE_COST = {op: round(usd * USD_TO_INR) for op, usd in _BASE_COST_USD.items()}
 
 _BASE_ENERGY = {
     "Facing": 0.30, "Center Drilling": 0.20, "Drilling": 0.50, "Reaming": 0.25,
@@ -412,28 +426,28 @@ def time_agent(route_steps: list, material: str,
 # ═══════════════════════════════════════════════════
 _COST_PER_MIN = {
     # Lathe operations (₹/min)
-    "Facing": round(160 * 96.095/95.33),      "Center Drilling": round(220 * 96.095/95.33),
-    "Drilling": round(179 * 96.095/95.33),    "Reaming": round(286 * 96.095/95.33),
-    "Boring": round(191 * 96.095/95.33),      "Chamfering": round(222 * 96.095/95.33),
-    "External Threading": round(245 * 96.095/95.33), "Plain/Cylindrical Turning": round(169 * 96.095/95.33),
-    "Taper Turning": round(162 * 96.095/95.33), "Step Turning": round(169 * 96.095/95.33),
-    "Grooving/Necking": round(207 * 96.095/95.33), "Parting-off": round(215 * 96.095/95.33),
-    "Knurling": round(254 * 96.095/95.33),    "Forming": round(223 * 96.095/95.33),
-    "Internal Grooving": round(204 * 96.095/95.33), "Tapping": round(229 * 96.095/95.33),
-    "Counterboring": round(238 * 96.095/95.33), "Countersinking": round(286 * 96.095/95.33),
-    "Contour Turning": round(175 * 96.095/95.33), "Undercutting": round(238 * 96.095/95.33),
-    "Eccentric Turning": round(174 * 96.095/95.33), "Polishing/Burnishing": round(175 * 96.095/95.33),
+    "Facing": _inr(160),      "Center Drilling": _inr(220),
+    "Drilling": _inr(179),    "Reaming": _inr(286),
+    "Boring": _inr(191),      "Chamfering": _inr(222),
+    "External Threading": _inr(245), "Plain/Cylindrical Turning": _inr(169),
+    "Taper Turning": _inr(162), "Step Turning": _inr(169),
+    "Grooving/Necking": _inr(207), "Parting-off": _inr(215),
+    "Knurling": _inr(254),    "Forming": _inr(223),
+    "Internal Grooving": _inr(204), "Tapping": _inr(229),
+    "Counterboring": _inr(238), "Countersinking": _inr(286),
+    "Contour Turning": _inr(175), "Undercutting": _inr(238),
+    "Eccentric Turning": _inr(174), "Polishing/Burnishing": _inr(175),
     # Milling operations (₹/min)
-    "Face Milling": round(191 * 96.095/95.33), "Slab/Peripheral Milling": round(172 * 96.095/95.33),
-    "Surface Contouring": round(178 * 96.095/95.33), "Slot Milling": round(191 * 96.095/95.33),
-    "T-Slot Milling": round(180 * 96.095/95.33), "Dovetail Milling": round(191 * 96.095/95.33),
-    "Woodruff Keyway Milling": round(210 * 96.095/95.33), "Pocket Milling": round(169 * 96.095/95.33),
-    "Profile Milling": round(179 * 96.095/95.33), "Spotfacing": round(254 * 96.095/95.33),
-    "Corner Rounding/Filleting": round(215 * 96.095/95.33), "Gear/Spline Milling": round(177 * 96.095/95.33),
-    "Thread Milling": round(203 * 96.095/95.33), "Angular Milling": round(191 * 96.095/95.33),
-    "Gang Milling": round(207 * 96.095/95.33), "Form Milling": round(180 * 96.095/95.33),
-    "Helical Milling": round(173 * 96.095/95.33), "Engraving": round(159 * 96.095/95.33),
-    "Inspection": round(95 * 96.095/95.33),
+    "Face Milling": _inr(191), "Slab/Peripheral Milling": _inr(172),
+    "Surface Contouring": _inr(178), "Slot Milling": _inr(191),
+    "T-Slot Milling": _inr(180), "Dovetail Milling": _inr(191),
+    "Woodruff Keyway Milling": _inr(210), "Pocket Milling": _inr(169),
+    "Profile Milling": _inr(179), "Spotfacing": _inr(254),
+    "Corner Rounding/Filleting": _inr(215), "Gear/Spline Milling": _inr(177),
+    "Thread Milling": _inr(203), "Angular Milling": _inr(191),
+    "Gang Milling": _inr(207), "Form Milling": _inr(180),
+    "Helical Milling": _inr(173), "Engraving": _inr(159),
+    "Inspection": _inr(95),
 }
 
 # ═══════════════════════════════════════════════════

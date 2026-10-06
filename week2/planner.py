@@ -39,7 +39,9 @@ def plan(part_json: dict) -> dict:
             "errors": [f"Koi valid route nahi ban paya in features ke liye: {features}"]
         }
 
-    selected_route = candidate_routes[0]
+    # generate_valid_routes() returns dicts ({"steps": [...], "type": ..., "changeovers": n});
+    # callers of plan() expect plain lists of operation names.
+    selected_route = candidate_routes[0]["steps"]
 
     return {
         "success": True,
@@ -47,7 +49,7 @@ def plan(part_json: dict) -> dict:
         "token_labels": token_result.get("token_labels", features),
         "selected_route": "Route_1",
         "process_steps": selected_route,
-        "alternative_routes": candidate_routes[1:],
+        "alternative_routes": [r["steps"] for r in candidate_routes[1:]],
     }
 
 

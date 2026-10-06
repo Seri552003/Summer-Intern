@@ -4,7 +4,7 @@
 #   - Analysis Mode (Route Only / Full Analysis)
 #   - Machine Preference dropdown (Auto / Prefer Lathe / Prefer Milling)
 #   - Color-coded route flow (Lathe=Yellow, Milling=Blue, Shared=Purple)
-#   - INR costs (1 USD = Rs.96.095)
+#   - INR costs (rate comes from agents.USD_TO_INR)
 #   - Dimension-based time calculation with multi-pass depth
 #   - Time breakdown: Machining + Tool Change + Position Change + Changeover
 #   - Cost breakdown with bar chart
@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../w
 
 from tokenizer import tokenize
 from feature_vocab import GEOMETRY_FEATURES, FEATURE_TO_OPERATIONS, get_machine_type
-from agents import (time_agent, cost_agent, energy_agent, efficiency_agent,
+from agents import (USD_TO_INR, time_agent, cost_agent, energy_agent, efficiency_agent,
                     time_breakdown, TOOL_CHANGE_TIME_MIN,
                     POSITION_CHANGE_TIME_MIN, CHANGEOVER_TIME_MIN,
                     SAME_TOOL_GROUPS)
@@ -435,7 +435,7 @@ if not run_btn:
     cols = st.columns(5)
     for col, (n, l) in zip(cols, [
         (str(len(GEOMETRY_FEATURES)),"Features"), ("41","Operations"),
-        ("200","Dataset"), (str(len(PRECEDENCE_EDGES)),"Precedence Rules"), ("₹95.595","Per USD")
+        ("200","Dataset"), (str(len(PRECEDENCE_EDGES)),"Precedence Rules"), (f"₹{USD_TO_INR:g}","Per USD")
     ]):
         with col:
             st.markdown(f'<div class="stat-card"><div class="stat-num">{n}</div>'
@@ -451,7 +451,7 @@ if not run_btn:
         st.markdown(f"4 components: Machining + Tool Change (+{TOOL_CHANGE_TIME_MIN}min) + Position Change (+{POSITION_CHANGE_TIME_MIN}min) + Changeover (+{CHANGEOVER_TIME_MIN}min). Multi-pass depth calculation included.")
     with c3:
         st.markdown("#### 💰 INR Costing")
-        st.markdown("All costs in ₹ INR (1 USD = ₹95.595). Cost = machining time × rate/min. Batch discount: >100 → 8% off, >500 → 15% off.")
+        st.markdown(f"All costs in ₹ INR (1 USD = ₹{USD_TO_INR:g}). Cost = machining time × rate/min. Batch discount: >100 → 8% off, >500 → 15% off.")
     st.caption("👈 Configure part in sidebar → click **Generate Process Plan**")
 
 else:
@@ -864,7 +864,7 @@ else:
             showlegend=False
         )
         st.plotly_chart(fig_cost, use_container_width=True, key="fa_cost_bar")
-        st.caption(f"Material: **{material}** ({mat_factor}×) | 1 USD = ₹95.595 | Batch: {batch_size} units")
+        st.caption(f"Material: **{material}** ({mat_factor}×) | 1 USD = ₹{USD_TO_INR:g} | Batch: {batch_size} units")
 
         st.markdown("---")
         cl, cr = st.columns([1,1])

@@ -9,7 +9,7 @@ Department of Mechanical Engineering, IIT Kharagpur · Supervised by Prof. Sankh
 
 ## 📌 Project Status
 
-**Weeks 1–6 Complete** | 58/58 Tests Passing | Interactive UI Live
+**Weeks 1–6 Complete** | 64/64 Tests Passing | Interactive UI Live
 
 | Week   | Module                                                  | Status      |
 | ------ | -------------------------------------------------------- | ----------- |
@@ -270,7 +270,7 @@ INTERN-PROJECT/
 │   └── app.py                   Streamlit interactive dashboard
 │
 ├── data/                        Dataset
-│   ├── generate_dataset.py      200 parts across 22 manufacturing archetypes
+│   ├── generate_dataset.py      200 parts across 19 manufacturing archetypes
 │   ├── parts_dataset.json/csv
 │   └── final_results.json
 │
@@ -308,7 +308,7 @@ cd week5 && python self_corrector.py
 **Run all tests:**
 
 ```powershell
-cd week1 && python -m pytest tests/ -v
+pytest            # from the repository root: runs every module's tests
 ```
 
 ---
@@ -318,11 +318,11 @@ cd week1 && python -m pytest tests/ -v
 | Module                           | Tests | Status         |
 | ---------------------------------- | ----- | -------------- |
 | Week 1 — Vocabulary & Tokenizer     | 21    | ✅ All Passing |
-| Week 1 — Route Builder              | 5     | ✅ All Passing |
-| Week 3 — Multi-Agent Eval           | 10    | ✅ All Passing |
-| Week 4 — NSGA-II & FSM              | 10    | ✅ All Passing |
+| Week 2 — Planner                    | 6     | ✅ All Passing |
+| Week 3 — Multi-Agent Eval           | 13    | ✅ All Passing |
+| Week 4 — NSGA-II & FSM              | 12    | ✅ All Passing |
 | Week 5 — Self-Correction            | 12    | ✅ All Passing |
-| **Total**                           | **58**| **✅ All Passing** |
+| **Total**                           | **64**| **✅ All Passing** |
 
 ---
 
@@ -333,7 +333,7 @@ cd week1 && python -m pytest tests/ -v
 | Geometric features            | 36                                                   |
 | Machining operations          | 41 (canonical, shared across all modules)            |
 | Precedence rules enforced      | 44, cycle-checked                                    |
-| Dataset                        | 200 parts across 22 realistic manufacturing archetypes |
+| Dataset                        | 200 parts across 19 realistic manufacturing archetypes |
 | Optimization objectives        | 3 — Time, Cost, Energy                               |
 | Currency                       | INR (1 USD = ₹95.595)                                |
 | LLM / VLM                      | Qwen3.8-27B via Groq (~1–3s response time)           |

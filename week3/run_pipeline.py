@@ -70,7 +70,7 @@ def process_part(part: dict) -> dict:
         "best_route": best["route_name"],
         "route_steps": best["steps"],
         "time_min": best["time_min"],
-        "cost_usd": best["cost_usd"],
+        "cost_inr": best["cost_inr"],
         "energy_kwh": best["energy_kwh"],
         "efficiency_score": best["efficiency_score"]
     }
@@ -104,12 +104,12 @@ def print_summary(results: list):
 
     if success_count > 0:
         avg_time = sum(r["time_min"] for r in results if r["success"]) / success_count
-        avg_cost = sum(r["cost_usd"] for r in results if r["success"]) / success_count
+        avg_cost = sum(r["cost_inr"] for r in results if r["success"]) / success_count
         avg_energy = sum(r["energy_kwh"] for r in results if r["success"]) / success_count
         avg_eff = sum(r["efficiency_score"] for r in results if r["success"]) / success_count
 
         print(f"\n  Average Time    : {avg_time:.2f} min")
-        print(f"  Average Cost    : ${avg_cost:.2f}")
+        print(f"  Average Cost    : ₹{avg_cost:,.2f}")
         print(f"  Average Energy  : {avg_energy:.2f} kWh")
         print(f"  Average Efficiency : {avg_eff:.2f}/100")
 
@@ -160,6 +160,6 @@ if __name__ == "__main__":
     for r in results[:3]:
         if r["success"]:
             print(f"  {r['part_id']} ({r['material']}, {r['features']}) → {r['best_route']} | "
-                  f"Time:{r['time_min']}min Cost:${r['cost_usd']} Eff:{r['efficiency_score']}")
+                  f"Time:{r['time_min']}min Cost:₹{r['cost_inr']} Eff:{r['efficiency_score']}")
         else:
             print(f"  {r['part_id']} → FAILED: {r['errors']}")

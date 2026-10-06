@@ -35,7 +35,10 @@ def evaluate_all_routes(material: str, batch_size: int, features: list = None) -
     if features:
         from route_builder import generate_valid_routes
         candidate_routes = generate_valid_routes(features, max_routes=15)
-        for i, steps in enumerate(candidate_routes):
+        for i, route in enumerate(candidate_routes):
+            # generate_valid_routes() returns dicts ({"steps": [...], "type": ...,
+            # "changeovers": n}); the scoring agents need the plain step list.
+            steps = route["steps"] if isinstance(route, dict) else route
             result = evaluate_route(f"Route_{i+1}", steps, material, batch_size)
             results.append(result)
     else:
