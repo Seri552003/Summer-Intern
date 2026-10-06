@@ -330,14 +330,11 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown("**🔩 Feature Input Method**")
-    input_method = st.radio("How do you want to specify features?",
-        ["🖼️ Upload 2D Image (AI extracts features)", "📋 Manual Selection"],
-        index=1, label_visibility="collapsed")
 
     features = []
     extraction_info = None
 
-    if input_method.startswith("🖼️"):
+    if True:
         uploaded_image = st.file_uploader("Upload a 2D engineering drawing / sketch",
             type=["png", "jpg", "jpeg"])
 
@@ -376,11 +373,7 @@ with st.sidebar:
                     features = st.session_state["confirmed_features"]
             else:
                 st.error(f"❌ Extraction failed: {extraction_info.get('error', 'unknown error')}")
-                st.info("Switch to Manual Selection above, or try a clearer image.")
-    else:
-        st.markdown("**🔩 Geometric Features**")
-        features = st.multiselect("Select features (1 or more)",
-            GEOMETRY_FEATURES, default=["Hole","Slot"])
+                st.info("Try uploading a clearer image.")
 
     if features:
         l = [f for f in features if get_machine_type(f)=="Lathe"]
@@ -463,8 +456,7 @@ if not run_btn:
 
 else:
     # Image upload mode mein features session_state se lo
-    if (not features and input_method.startswith("🖼️")
-            and "confirmed_features" in st.session_state):
+    if not features and "confirmed_features" in st.session_state:
         features = st.session_state["confirmed_features"]
 
     if not features:
