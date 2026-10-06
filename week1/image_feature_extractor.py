@@ -23,6 +23,7 @@ import json
 import base64
 import re
 
+import time
 from dotenv import load_dotenv
 from groq import Groq
 from feature_vocab import GEOMETRY_FEATURES, is_valid_feature
@@ -74,6 +75,21 @@ EXTRACTION_PASSES = ["geometry", "annotation"]
 # lagta hai -- agar quota ki dikkat ho ya response khaali aaye to "none" kar do.
 REASONING_EFFORT = "low"
 MAX_COMPLETION_TOKENS = 4000   # thinking ke liye extra jagah (JSON chhota hi hota hai)
+
+# Groq's free ("on_demand") tier caps OUTPUT tokens per minute (1000 for this
+# model at the time of writing), and counts the requested max_completion_tokens
+# plus hidden reasoning tokens. A 429 "rate_limit_exceeded" therefore means the
+# default settings above are too big for the account's tier. On a 429 we retry
+# with this smaller budget (reasoning off; the JSON answer itself is ~200 tokens),
+# and once more after a pause. Paid tiers never hit this path.
+LOW_QUOTA_REASONING = "none"
+LOW_QUOTA_MAX_TOKENS = 450
+RATE_LIMIT_PAUSE_S = 20
+
+
+def _is_rate_limit(err) -> bool:
+    text = str(err).lower()
+    return "429" in text or "rate_limit" in text or "rate limit" in text
 
 # Har feature drawing mein kaisa dikhta hai -- model ko sirf naam dene se wo
 # Boss/Fillet/Counterbore/Step jaise features ka matlab guess karta tha.
@@ -162,28 +178,50 @@ def _extract_single(b64_image: str, image_format: str, feature_guide_str: str, f
     """Ek single Groq API call karke parse + validate karta hai. Internal
     helper -- extract_features_from_image() isse N baar call karke union
     leta hai consistency ke liye."""
-    try:
-        response = client.chat.completions.create(
+    prompt_text = VISION_SYSTEM_PROMPT.format(feature_guide=feature_guide_str, focus=focus_text)
+
+    def _call(reasoning_effort, max_tokens):
+        return client.chat.completions.create(
             model=VISION_MODEL,
             messages=[
                 {
                     "role": "user",
                     "content": [
-                        {"type": "text", "text": VISION_SYSTEM_PROMPT.format(feature_guide=feature_guide_str, focus=focus_text)},
+                        {"type": "text", "text": prompt_text},
                         {"type": "image_url", "image_url": {
                             "url": f"data:image/{image_format};base64,{b64_image}"
                         }},
                     ],
                 }
             ],
-            temperature=0,     # was 0.2 -- 0 minimizes run-to-run sampling
-                               # variance, jo same image pe har baar alag
-                               # result aane ki main wajah thi
-            max_completion_tokens=MAX_COMPLETION_TOKENS,
+            temperature=0,     # 0 minimizes run-to-run sampling variance
+            max_completion_tokens=max_tokens,
             response_format={"type": "json_object"},
-            reasoning_effort=REASONING_EFFORT,
+            reasoning_effort=reasoning_effort,
             reasoning_format="hidden",
         )
+
+    try:
+        # attempt 1: default settings; on a 429, attempt 2: small token budget;
+        # on another 429, attempt 3: same small budget after a pause.
+        attempts = [(REASONING_EFFORT, MAX_COMPLETION_TOKENS),
+                    (LOW_QUOTA_REASONING, LOW_QUOTA_MAX_TOKENS),
+                    (LOW_QUOTA_REASONING, LOW_QUOTA_MAX_TOKENS)]
+        response = None
+        for n, (effort, max_tokens) in enumerate(attempts):
+            try:
+                response = _call(effort, max_tokens)
+                break
+            except Exception as e:
+                if not _is_rate_limit(e):
+                    raise
+                if n == len(attempts) - 1:
+                    raise RuntimeError(
+                        "Groq rate limit reached (free-tier tokens per minute). "
+                        "Wait about a minute and try again, or upgrade the Groq tier. "
+                        f"Details: {e}")
+                if n == len(attempts) - 2:
+                    time.sleep(RATE_LIMIT_PAUSE_S)
         raw = response.choices[0].message.content.strip()
         parsed = _parse_response(raw)
 

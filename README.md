@@ -9,7 +9,7 @@ Department of Mechanical Engineering, IIT Kharagpur · Supervised by Prof. Sankh
 
 ## 📌 Project Status
 
-**Weeks 1–6 Complete** | 64/64 Tests Passing | Interactive UI Live
+**Weeks 1–6 Complete** | 69/69 Tests Passing | Interactive UI Live
 
 | Week   | Module                                                  | Status      |
 | ------ | -------------------------------------------------------- | ----------- |
@@ -318,11 +318,12 @@ pytest            # from the repository root: runs every module's tests
 | Module                           | Tests | Status         |
 | ---------------------------------- | ----- | -------------- |
 | Week 1 — Vocabulary & Tokenizer     | 21    | ✅ All Passing |
+| Week 1 — Image extractor (429 retry)| 5     | ✅ All Passing |
 | Week 2 — Planner                    | 6     | ✅ All Passing |
 | Week 3 — Multi-Agent Eval           | 13    | ✅ All Passing |
 | Week 4 — NSGA-II & FSM              | 12    | ✅ All Passing |
 | Week 5 — Self-Correction            | 12    | ✅ All Passing |
-| **Total**                           | **64**| **✅ All Passing** |
+| **Total**                           | **69**| **✅ All Passing** |
 
 ---
 
